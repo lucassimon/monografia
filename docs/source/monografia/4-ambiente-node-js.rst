@@ -406,14 +406,14 @@ Instalação e configuração
 Para instalar o framework é necessário termos o Node.Js instalado no sistema e o gerenciador de pacote *NPM* ( Node Package Manager).
 POWERS (2012) descreve que a instalação do Express.Js deve ser feita com o comando:
 
-.. code-block:: shell
+.. code-block:: bash
     
     npm install express
 
 Enquanto PEREIRA (2012) recomenda que ao instalar o Express.Js pelo NPM – Node Package Manager – deve se utilizar a opção -g ( modo global) par aproveitar todos os recursos.
 
 
-.. code-block:: shell
+.. code-block:: bash
     
     sudo npm install -g express
 
@@ -437,14 +437,20 @@ Elicitação de requisitos
 O objetivo deste tópico é aplicar os conhecimentos adquiridos nos capítulos anteriores e criar uma aplicação em REST.
 
 1. A aplicação API REST deverá ser compatível com todas as versões para computadores com os navegadores web Mozilla Firefox e Google Chrome.
+
 2. Não será utilizado técnicas de autenticação na API.
+
 3. A API REST deverá responder as requisições do cliente através da representação em JSON.
+
 4. A API REST deverá persistir os dados em Postgres.
+
 5. A API REST deverá ter um recurso chamado Contatos.
+
 6. A API REST deverá prover estratégias para manipular as ações de *CRUD* de um contato(s).
 
 Contatos
 Contatos são coleções de contatos, com seus respectivos documentos e informações. 
+
 +--------------------+-------------------------------------------------------------------------------+
 |Recurso             |Descrição                                                                      |
 +====================+===============================================================================+
@@ -487,7 +493,7 @@ Criando o esqueleto do projeto
 
 Conforme o exemplo abaixo criamos o projeto utilizando os comandos de POWERS e PEREIRA utiliza.
 
-.. code-block:: shell
+.. code-block:: bash
     :linenos:
 
     $ express --css stylus rest-node
@@ -519,7 +525,7 @@ Conforme o exemplo abaixo criamos o projeto utilizando os comandos de POWERS e P
 Em seguida, acesse o diretório criado e veja as explicações de cada arquivo e diretório.
 
 
-.. code-block:: shell
+.. code-block:: bash
     :linenos:
 
     $ ls -l
@@ -573,7 +579,7 @@ Maiores detalhes sobre os caracteres “~”, “>=”, “ ou “^” podem ser
     Como colocar uma referencia para o semver conforme descrito no ultimo paragrafo. Esse acesso ao link
     ja esta na bibliografia.
 
-.. code-block:: shell
+.. code-block:: bash
     :linenos:
 
     {
@@ -599,7 +605,7 @@ Após a conhecer a estrutura da aplicação podemos executar o comando *npm inst
 dentro do diretório do projeto para instalar as dependências existentes no *package.json* 
 
 
-.. code-block:: shell
+.. code-block:: bash
     :linenos:
 
     body-parser@1.0.2 node_modules/body-parser
