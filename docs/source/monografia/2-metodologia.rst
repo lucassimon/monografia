@@ -3,11 +3,8 @@ Metodologia
 
 Baseando-se em metodologias de desenvolvimento de software ágil Scrum, foram desenvolvidas as seguintes etapas para elaboração deste trabalho:
 
-Etapas
-------
-
 Levantamento de requisitos
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------
 
 * **Estudar a arquitetura web** 
   Buscando um entendimento básico de como é a implementação de uma aplicação RESTful e seus protocolos relacionados ao HTTP.
@@ -23,7 +20,7 @@ Levantamento de requisitos
     * Softwares para monitorar desempenho e utilização do servidor;
 
 Estudo do ambiente de programação Node.Js
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------------
 
 * **Estudar o paradigma de orientação a eventos**
 
@@ -38,7 +35,7 @@ Estudo do ambiente de programação Node.Js
   se codificar de maneira RESTful.
 
 Criar dois aplicativos em diferentes paradigmas
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------------------
 
 * **Desenvolvimento da aplicação no paradigma orientado a eventos**
   Desenvolver  um aplicativo escrito no ambiente Node.Js com o framework Express.Js
@@ -48,7 +45,7 @@ Criar dois aplicativos em diferentes paradigmas
   do ambiente aqui estudado.
 
 Especificar testes e comparar os resultados 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------
 
 * **Utilizar testes de carga nas API's**
   Realizar um teste de carga utilizando os serviços web como o loader.io e blitz.io
