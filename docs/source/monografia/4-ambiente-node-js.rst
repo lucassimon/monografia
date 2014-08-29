@@ -367,3 +367,313 @@ função seja finalizada.
 Por exemplo, se essa função fizer uma operação de entrada e saída em disco, vai bloquear o sistema inteiro,
 deixando o processador ocioso enquanto é utilizado outros recursos de hardware.
 
+Construindo a API REST com o framework Express.js
+-------------------------------------------------
+
+
+Porque a escolha do express.js
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+POWERS(2012) descreve que um framework fornece suporte de infraestrutura que nos permite criar sites e aplicações mais rapidamente, fornecendo ao desenvolvedor um esqueleto sobre o qual contruir e manusear muitos aspectos mundanos e ubiquos do processo de desenvolvimento de software e focar na criação de funcionalidades da nossa aplicação ou site. Também fornece coesão ao código, o que pode tornar o código mais fácil de gerenciar e manter.
+
+PEREIRA(2012) complementa que utilizar a API HTTP nativa do Node.Js pode ser algo trabalhoso e desgastante. Conforme surge novas necessidades de implementar novas funcionaliaddes, códigos gigantescos seriam acrescentados, aumentando a complexidade do projeto e dificultando futuras manutenções.
+
+Assim surge o framework Express.Js que conforme POWERS(2012)  é mais parecido com o framework Sinatra e é bem mais RESTFUL. PEREIRA(2012) reafirma que este módulo de desenvolvimento foi inspirado pelo framework Sinatra na linguagem Ruby e que é bastante uutilizado para aplicações web de grande escala. Suas caracteristicas são descritas por PEREIRA(2012):
+
+* MVR ( Model View Routes)
+* MVC ( Model View Controller)
+* Roteamento de urls via callbacks
+* Middleware
+* Interface RESTFul
+* Suporte a File Uploads
+* Configuração baseada em váriaveis de ambiente
+* Suporte a helpers dinâmicos
+* Integração com Templates Enginies
+* Integração com SQL e NoSQL
+
+Instalação e configuração
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Para instalar o framework é necessário termos o Node.Js instalado no sistema e o gerenciador de pacote NPM ( node package manager). POWERS (2012) descreve que a instalação do Express deve ser feita com o comando:
+
+.. code-block:: shell
+    
+    npm install express
+
+Enquanto PEREIRA (2012) recomenda que ao instalar o Express pelo NPM – Node Package Manager – deve se utilizar a opção -g ( modo global) par aproveitar todos os recursos.
+
+
+.. code-block:: shell
+    
+    sudo npm install -g express
+
+Após a instalar o express  é necessário fechar e abrir o terminal para habilitar o comando express no PATH do seu sistema operacional. PEREIRA (2012) descreve o comando express como um L - Command Line Interface – permitindo criar uma aplicação com suporte a sessões, Template Enginie - motores de templates – e CSS enginie – motores de css -. Para saber todas as opções do comando express utilize a opção -h.
+
+
+Criando um projeto
+^^^^^^^^^^^^^^^^^^
+
+Com base nos aspectos abordados ao longo deste trabalho, este capítulo visa apresentar o desenvolvimento de um Web Service seguindo os padrões REST e a utilização de um banco de dados relacional Postgres para a persistência dos dados.
+
+Tal serviço possuirá métodos que serão consumidos por um dispositivos clientes.
+Seguindo modelos do framework SCRUM, as funcionalidades da aplicação serão descritas em estórias e tarefas relacionadas.
+
+Elicitação de requisitos
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+O objetivo deste tópico é aplicar os conhecimentos adquiridos nos capítulos anteriores e criar uma aplicação em REST.
+
+01. A aplicação API REST deverá ser compatível com todas as versões para computadores com os navegadores web Mozilla Firefox e Google Chrome.
+02. Não será utilizado técnicas de autenticação na API.
+03. A API REST deverá responder as requisições do cliente através da representação em JSON.
+04. A API REST deverá perssitir os dados em POSTGRES..
+05. A API REST deverá ter um recurso chamado Contacts.
+06. A API REST deverá prover estratégias para manipular as ações de CRUD de um contato(s).
+
+Contacts
+Contacts são coleções de contatos, com seus respectivos documentos e informações. 
+
++--------------------+-------------------------------------------------------------------------------+
+|Recurso             |Descrição                                                                      |
++====================+===============================================================================+
+| GET contatos       | Retorna a lista de  contatos cadastrados no banco de dados                    |
++--------------------+-------------------------------------------------------------------------------+
+| GET contatos/:id   | Retorna a informação do contato, representado pelo id do documento passado.   | 
++--------------------+-------------------------------------------------------------------------------+
+| POST contatos/     | Cria um novo  contato e persiste os dados no banco.                           |
++--------------------+-------------------------------------------------------------------------------+
+| PUT contatos/:id   | Atualiza as informações do contato, representado pelo id do documento passado.|
++--------------------+-------------------------------------------------------------------------------+
+| DELETE contatos/:id| Destrói o contato, representado pelo id do documento passado.                 |
++--------------------+-------------------------------------------------------------------------------+
+
+
+Tecnologias Utilizadas
+~~~~~~~~~~~~~~~~~~~~~~
+
+Aplicativo Node.JS
+
+* Node.Js – Ambiente de Programação Backend para apresentação deste trabalho
+* Postgress – Banco de dados relacional 
+* Express – Framework para aplicações web
+* Nginx – Servidor Web de alta performance para arquivos estáticos
+
+Aplicativo comparativo Django
+
+* Python – Linguagem de programação OO usada na comparação de aplicativos deste trabalho
+* Postgress – Banco de dados relacional
+* Django/jango-rest-framewor – Framework Django para aplicações web e o pacote django-rest-framework para facilitar o desenvolvimento.
+* Nginx – Servidor Web de alta performance para arquivos estáticos
+
+.. warning::
+
+    Se houver tempo fazer também aplicativos com o Sinatra e Ruby
+
+
+Criando o esqueleto do projeto
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Conforme o exemplo abaixo criamos o projeto utilizando os comandos de POWERS e PEREIRA utiliza.
+
+.. code-block:: shell
+    :linenos:
+
+    $ express --css stylus rest-node
+
+    create : rest-node
+    create : rest-node/package.json
+    create : rest-node/app.js
+    create : rest-node/public
+    create : rest-node/public/javascripts
+    create : rest-node/public/images
+    create : rest-node/public/stylesheets
+    create : rest-node/public/stylesheets/style.styl
+    create : rest-node/routes
+    create : rest-node/routes/index.js
+    create : rest-node/routes/users.js
+    create : rest-node/bin
+    create : rest-node/bin/www
+    create : rest-node/views
+    create : rest-node/views/index.jade
+    create : rest-node/views/layout.jade
+    create : rest-node/views/error.jade
+
+    install dependencies:
+    $ cd rest-node && npm install
+
+    run the app:
+    $ DEBUG=rest-node ./bin/www
+
+Em seguida, acesse o diretório criado e veja as explicações de cada arquivo e diretório.
+
+
+.. code-block:: shell
+    :linenos:
+
+    $ ls -l
+    total 24
+    -rw-rw-r-- 1 lucas lucas 1447 Ago 28 10:32 app.js
+    drwxr-xr-x 2 lucas lucas 4096 Ago 28 10:32 bin
+    -rw-rw-r-- 1 lucas lucas  350 Ago 28 10:32 package.json
+    drwxr-xr-x 5 lucas lucas 4096 Ago 28 10:32 public
+    drwxr-xr-x 2 lucas lucas 4096 Ago 28 10:32 routes
+    drwxr-xr-x 2 lucas lucas 4096 Ago 28 10:32 views
+
+
+POWERS (2012), HUGES e WILSON (2012) não apresentam um descritivo de cada arquivo ou diretório e seu papel. Entretanto PEREIRA (2012) e WILSON (2013) aprofundam mais neste assunto. 
+
+* package.json: PEREIRA(2012) diz que este arquivo contém as principais informações sobre a aplicação como: nome, autor, versão, colaboradores, url, dependências e outros.
+
+* public: pasta publica que armazena código estático como imagens, css e javascript.
+
+* app.js: WLSON (2013) descreve melhor esse arquivo como ponto de entrada para a aplicação Node.Js, sendo capaz executar o servidor através do comando:  node app.js
+
+* routes: PEREIRA (2012) descreve como diretório que mantém todas as rotas da aplicação. Na versão utilizada por WILSON (2013) em seu livro o express não possui este diretório. 
+
+* views: WILSON (2013) descreve que esta pasta contém os motores de template (Jade ou EJS), que são renderizados pelo servidor express e enviados ao cliente. PEREIRA (2012) simplifica descrevendo que é  um diretório que contém todas as views renderizadas pelas rotas.
+
+O arquivo de package.json, de acordo com WILSON (2013) sempre é necessário ser criado em seu projeto e que ele é responsável por fornecer detalhes sobre as condições de operação e configuração esperadas por seu código. WILSON (2013) complementa que este arquivo ajuda a prevenir que alterações futuras em módulos de terceiros quebrem a lógica da aplicação.
+
+No livro Construindo Aplicações Node com MongoDB e Backbone, WILSON (2013) exibe um xempl do arquivo package.json o qual é utilizado para sincronizar a aplicação com depedências, sendo importante associar a aplicação a uma versão especifica. No exemplo podemos ver que o Express está na versão 4.2.0,  tal como Debug versão 0.7.4 ou posteriores.
+
+Maiores detalhes sobre os caracteres “~”, “>=”, “ ou “^” podem ser vistos na documentação do *npm* em semver. 
+
+.. warning::
+
+    Como colocar uma referencia para o semver conforme descrito no ultimo paragrafo. Esse acesso ao link
+    ja esta na bibliografia.
+
+.. code-block:: shell
+    :linenos:
+
+    {
+        "name": "rest-node",
+        "version": "0.0.1",
+        "private": true,
+        "scripts": {
+            "start": "node ./bin/www"
+        },
+        "dependencies": {
+            "express": "~4.2.0",
+            "static-favicon": "~1.0.0",
+            "morgan": "~1.0.0",
+            "cookie-parser": "~1.0.1",
+            "body-parser": "~1.0.0",
+            "debug": "~0.7.4",
+            "jade": "~1.3.0",
+            "stylus": "0.42.3"
+        }
+    }
+
+Após a conhecer a estrutura da aplicação podemos executar o comando npm install dentro do diretório do projeto para instalar as dependências existentes no package.json 
+
+
+.. code-block:: shell
+    :linenos:
+
+    body-parser@1.0.2 node_modules/body-parser
+    ├── qs@0.6.6
+    ├── type-is@1.1.0 (mime@1.2.11)
+    └── raw-body@1.1.7 (bytes@1.0.0, string_decoder@0.10.31)
+
+    express@4.2.0 node_modules/express
+    ├── parseurl@1.0.1
+    ├── merge-descriptors@0.0.2
+    ├── utils-merge@1.0.0
+    ├── cookie@0.1.2
+    ├── escape-html@1.0.1
+    ├── cookie-signature@1.0.3
+    ├── range-parser@1.0.0
+    ├── fresh@0.2.2
+    ├── qs@0.6.6
+    ├── methods@1.0.0
+    ├── serve-static@1.1.0
+    ├── path-to-regexp@0.1.2
+    ├── buffer-crc32@0.2.1
+    ├── debug@0.8.1
+    ├── send@0.3.0 (debug@0.8.0, mime@1.2.11)
+    ├── type-is@1.1.0 (mime@1.2.11)
+    └── accepts@1.0.1 (negotiator@0.4.7, mime@1.2.11)
+
+Servidor Web
+^^^^^^^^^^^^
+
+No framework Express  temos um servidor web para desenvolver nossa aplicação. WILSON (2013) relata que muitos desenvolvedores  que possui um histórico “tradicional” configuram um software para o servidor web – Apache, Nginx ou IIS – para ser um canal de comunicação entre o navegador e o código da aplicação. Atualmente com o surgimento de novas tecnologias de programação como Ruby on Rails, Django e PHP 5.4 têm mecanismos para inicializar um servidor de desenvolvimento local. Este item incluso dentro do framework visa agilizar o desenvolvimento das aplicações no menor tempo possível.
+
+Complementando este capitulo de acordo com WILSON (2013) o  interessante do Node.Js é que o código do programa que se escreve para ele também é a implementação do servidor. Seguindo este modelo tem-se a expectativa de que a aplicação funcione e se comporte de modo semelhante ao ambiente de produção assim como no desenvolvimento, pois não existe nenhuma biblioteca, nenhum intermediário ou daemon que esteja no caminho.
+
+O exemplo abaixo cria uma aplicação funcional e capacitada com uma pequena quantidade de código. WILSON (2013) classifica o código do app.js como pequeno mas que possui grandes funcionalidades embutidas como roteamento para solicitações HTTP entrantes, fornece um motor de visão para renderizar visões no lado do servidor na forma de marcações do HTML5 amigáveis aos navegadores, fornece também download dos arquivos estáticos.
+
+
+.. code-block:: javascript
+    :linenos:
+
+    var express = require('express');
+    var path = require('path');
+    var favicon = require('static-favicon');
+    var logger = require('morgan');
+    var cookieParser = require('cookie-parser');
+    var bodyParser = require('body-parser');
+
+    var routes = require('./routes/index');
+    var users = require('./routes/users');
+
+    var app = express();
+
+    // view engine setup
+    app.set('views', path.join(__dirname, 'views'));
+    app.set('view engine', 'jade');
+
+    app.use(favicon());
+    app.use(logger('dev'));
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded());
+    app.use(cookieParser());
+    app.use(require('stylus').middleware(path.join(__dirname, 'public')));
+    app.use(express.static(path.join(__dirname, 'public')));
+
+    app.use('/', routes);
+    app.use('/users', users);
+
+    /// catch 404 and forward to error handler
+    app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+    });
+
+    /// error handlers
+
+    // development error handler
+    // will print stacktrace
+    if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+    message: err.message,
+    error: err
+    });
+    });
+    }
+
+    // production error handler
+    // no stacktraces leaked to user
+    app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+    message: err.message,
+    error: {}
+    });
+    });
+
+    module.exports = app;
+
+Criando rotas no padrão RESTFul
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Lorem ipsum
+
+Persistindo so dados com o Postgres
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Lorem Ipsum
