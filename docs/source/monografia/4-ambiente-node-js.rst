@@ -265,13 +265,13 @@ sendo executada até que todo o trabalho esteja completado.
 
 Assim, a execução desse exemplo segue o caminho: ::
 
-    1. Executa **mainloop**, dispara **ApplicationStartEvent**.
-    2. Executa o *callback* **onApplicationStart**.
-    3 Continua a execução de **mainloop**, dispara **ApplicationRun**.
-    4. Executa o *callback* **onApplicationRun**.
-    5. Continua a execução de **mainloop**, dispara **ApplicationStop**.
-    6. Executa o *callback* **onApplicationStop**.
-    7. Retorna para a execução de **mainLoop**, não há mais nada a fazer; para.
+    1. Executa mainloop, dispara ApplicationStartEvent.
+    2. Executa o callback onApplicationStart.
+    3 Continua a execução de mainloop, dispara ApplicationRun.
+    4. Executa o callback onApplicationRun.
+    5. Continua a execução de mainloop, dispara ApplicationStop.
+    6. Executa o callback onApplicationStop.
+    7. Retorna para a execução de mainLoop, não há mais nada a fazer; para.
 
 
 Finalizando esta seção, PEREIRA (2012) diz que o *event-driven* do Node.Js foi inspirado pelos frameworks
@@ -374,11 +374,20 @@ Construindo a API REST com o framework Express.js
 Porque a escolha do express.js
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-POWERS(2012) descreve que um framework fornece suporte de infraestrutura que nos permite criar sites e aplicações mais rapidamente, fornecendo ao desenvolvedor um esqueleto sobre o qual contruir e manusear muitos aspectos mundanos e ubiquos do processo de desenvolvimento de software e focar na criação de funcionalidades da nossa aplicação ou site. Também fornece coesão ao código, o que pode tornar o código mais fácil de gerenciar e manter.
+POWERS(2012) descreve que um framework fornece suporte de infraestrutura que nos permite criar sites e aplicações mais rapidamente,
+fornecendo ao desenvolvedor um esqueleto sobre o qual construir e manusear muitos aspectos mundanos e ubíquos do processo
+de desenvolvimento de software e focar na criação de funcionalidades da nossa aplicação ou site.
+Também fornece coesão ao código, o que pode tornar o código mais fácil de gerenciar e manter.
 
-PEREIRA(2012) complementa que utilizar a API HTTP nativa do Node.Js pode ser algo trabalhoso e desgastante. Conforme surge novas necessidades de implementar novas funcionaliaddes, códigos gigantescos seriam acrescentados, aumentando a complexidade do projeto e dificultando futuras manutenções.
+PEREIRA(2012) complementa que utilizar a API HTTP nativa do Node.Js pode ser algo trabalhoso e desgastante.
+Conforme surge novas necessidades de implementar novas funcionalidades, códigos gigantescos seriam acrescentados,
+aumentando a complexidade do projeto e dificultando futuras manutenções.
 
-Assim surge o framework Express.Js que conforme POWERS(2012)  é mais parecido com o framework Sinatra e é bem mais RESTFUL. PEREIRA(2012) reafirma que este módulo de desenvolvimento foi inspirado pelo framework Sinatra na linguagem Ruby e que é bastante uutilizado para aplicações web de grande escala. Suas caracteristicas são descritas por PEREIRA(2012):
+Assim surge o framework Express.Js que conforme POWERS(2012) é mais parecido com o framework Sinatra e é bem mais RESTFUL.
+PEREIRA(2012) reafirma que este módulo de desenvolvimento foi inspirado pelo framework Sinatra na linguagem Ruby
+e que é bastante utilizado para aplicações web de grande escala.
+
+Suas características são descritas por PEREIRA(2012):
 
 * MVR ( Model View Routes)
 * MVC ( Model View Controller)
@@ -386,7 +395,7 @@ Assim surge o framework Express.Js que conforme POWERS(2012)  é mais parecido c
 * Middleware
 * Interface RESTFul
 * Suporte a File Uploads
-* Configuração baseada em váriaveis de ambiente
+* Configuração baseada em variáveis de ambiente
 * Suporte a helpers dinâmicos
 * Integração com Templates Enginies
 * Integração com SQL e NoSQL
@@ -394,20 +403,24 @@ Assim surge o framework Express.Js que conforme POWERS(2012)  é mais parecido c
 Instalação e configuração
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Para instalar o framework é necessário termos o Node.Js instalado no sistema e o gerenciador de pacote NPM ( node package manager). POWERS (2012) descreve que a instalação do Express deve ser feita com o comando:
+Para instalar o framework é necessário termos o Node.Js instalado no sistema e o gerenciador de pacote *NPM* ( Node Package Manager).
+POWERS (2012) descreve que a instalação do Express.Js deve ser feita com o comando:
 
 .. code-block:: shell
     
     npm install express
 
-Enquanto PEREIRA (2012) recomenda que ao instalar o Express pelo NPM – Node Package Manager – deve se utilizar a opção -g ( modo global) par aproveitar todos os recursos.
+Enquanto PEREIRA (2012) recomenda que ao instalar o Express.Js pelo NPM – Node Package Manager – deve se utilizar a opção -g ( modo global) par aproveitar todos os recursos.
 
 
 .. code-block:: shell
     
     sudo npm install -g express
 
-Após a instalar o express  é necessário fechar e abrir o terminal para habilitar o comando express no PATH do seu sistema operacional. PEREIRA (2012) descreve o comando express como um L - Command Line Interface – permitindo criar uma aplicação com suporte a sessões, Template Enginie - motores de templates – e CSS enginie – motores de css -. Para saber todas as opções do comando express utilize a opção -h.
+Após a instalar o Express.Js  é necessário fechar e abrir o terminal para habilitar o comando *express* no PATH
+do seu sistema operacional. PEREIRA (2012) descreve o comando *express* como um CLI - Command Line Interface –
+permitindo criar uma aplicação com suporte a sessões, Template Enginie - motores de templates – e CSS enginie – motores de css -.
+Para saber todas as opções do comando *express* utilize a opção -h.
 
 
 Criando um projeto
@@ -423,16 +436,15 @@ Elicitação de requisitos
 
 O objetivo deste tópico é aplicar os conhecimentos adquiridos nos capítulos anteriores e criar uma aplicação em REST.
 
-01. A aplicação API REST deverá ser compatível com todas as versões para computadores com os navegadores web Mozilla Firefox e Google Chrome.
-02. Não será utilizado técnicas de autenticação na API.
-03. A API REST deverá responder as requisições do cliente através da representação em JSON.
-04. A API REST deverá perssitir os dados em POSTGRES..
-05. A API REST deverá ter um recurso chamado Contacts.
-06. A API REST deverá prover estratégias para manipular as ações de CRUD de um contato(s).
+1. A aplicação API REST deverá ser compatível com todas as versões para computadores com os navegadores web Mozilla Firefox e Google Chrome.
+2. Não será utilizado técnicas de autenticação na API.
+3. A API REST deverá responder as requisições do cliente através da representação em JSON.
+4. A API REST deverá persistir os dados em Postgres.
+5. A API REST deverá ter um recurso chamado Contatos.
+6. A API REST deverá prover estratégias para manipular as ações de *CRUD* de um contato(s).
 
-Contacts
-Contacts são coleções de contatos, com seus respectivos documentos e informações. 
-
+Contatos
+Contatos são coleções de contatos, com seus respectivos documentos e informações. 
 +--------------------+-------------------------------------------------------------------------------+
 |Recurso             |Descrição                                                                      |
 +====================+===============================================================================+
@@ -520,21 +532,39 @@ Em seguida, acesse o diretório criado e veja as explicações de cada arquivo e
     drwxr-xr-x 2 lucas lucas 4096 Ago 28 10:32 views
 
 
-POWERS (2012), HUGES e WILSON (2012) não apresentam um descritivo de cada arquivo ou diretório e seu papel. Entretanto PEREIRA (2012) e WILSON (2013) aprofundam mais neste assunto. 
+POWERS (2012), HUGES e WILSON (2012) não apresentam um descritivo de cada arquivo ou diretório e seu papel.
+Entretanto PEREIRA (2012) e WILSON (2013) aprofundam mais neste assunto. 
 
-* package.json: PEREIRA(2012) diz que este arquivo contém as principais informações sobre a aplicação como: nome, autor, versão, colaboradores, url, dependências e outros.
+* package.json:
+  PEREIRA(2012) diz que este arquivo contém as principais informações sobre a aplicação como:
+  nome, autor, versão, colaboradores, *URL*, dependências e outros.
 
-* public: pasta publica que armazena código estático como imagens, css e javascript.
+* public:
+  pasta publica que armazena código estático como imagens, css e javascript.
 
-* app.js: WLSON (2013) descreve melhor esse arquivo como ponto de entrada para a aplicação Node.Js, sendo capaz executar o servidor através do comando:  node app.js
+* app.js:
+  WLSON (2013) descreve melhor esse arquivo como ponto de entrada para a aplicação Node.Js,
+  sendo capaz executar o servidor através do comando: *node app.js*
 
-* routes: PEREIRA (2012) descreve como diretório que mantém todas as rotas da aplicação. Na versão utilizada por WILSON (2013) em seu livro o express não possui este diretório. 
+* routes:
+  PEREIRA (2012) descreve como diretório que mantém todas as rotas da aplicação.
+  Na versão utilizada por WILSON (2013) em seu livro o Express.Js não possui este diretório. 
 
-* views: WILSON (2013) descreve que esta pasta contém os motores de template (Jade ou EJS), que são renderizados pelo servidor express e enviados ao cliente. PEREIRA (2012) simplifica descrevendo que é  um diretório que contém todas as views renderizadas pelas rotas.
+* views:
+  WILSON (2013) descreve que esta pasta contém os motores de template (Jade ou EJS), que são renderizados
+  pelo servidor Express.Js e enviados ao cliente.
+  PEREIRA (2012) simplifica descrevendo que é um diretório que contém todas as visões renderizadas pelas rotas.
 
-O arquivo de package.json, de acordo com WILSON (2013) sempre é necessário ser criado em seu projeto e que ele é responsável por fornecer detalhes sobre as condições de operação e configuração esperadas por seu código. WILSON (2013) complementa que este arquivo ajuda a prevenir que alterações futuras em módulos de terceiros quebrem a lógica da aplicação.
+O arquivo de *package.json*, de acordo com WILSON (2013) sempre é necessário
+ser criado em seu projeto e que ele é responsável por fornecer detalhes sobre as
+condições de operação e configuração esperadas por seu código.
+WILSON (2013) complementa que este arquivo ajuda a prevenir que alterações futuras em
+módulos de terceiros quebrem a lógica da aplicação.
 
-No livro Construindo Aplicações Node com MongoDB e Backbone, WILSON (2013) exibe um xempl do arquivo package.json o qual é utilizado para sincronizar a aplicação com depedências, sendo importante associar a aplicação a uma versão especifica. No exemplo podemos ver que o Express está na versão 4.2.0,  tal como Debug versão 0.7.4 ou posteriores.
+No livro Construindo Aplicações Node com MongoDB e Backbone, WILSON (2013) exibe um exemplo do arquivo *package.json*
+o qual é utilizado para sincronizar a aplicação com depedências, sendo importante associar a aplicação
+a uma versão especifica. No exemplo podemos ver que o Express.Js está na versão 4.2.0,
+tal como Debug versão 0.7.4 ou posteriores.
 
 Maiores detalhes sobre os caracteres “~”, “>=”, “ ou “^” podem ser vistos na documentação do *npm* em semver. 
 
@@ -565,7 +595,8 @@ Maiores detalhes sobre os caracteres “~”, “>=”, “ ou “^” podem ser
         }
     }
 
-Após a conhecer a estrutura da aplicação podemos executar o comando npm install dentro do diretório do projeto para instalar as dependências existentes no package.json 
+Após a conhecer a estrutura da aplicação podemos executar o comando *npm install*
+dentro do diretório do projeto para instalar as dependências existentes no *package.json* 
 
 
 .. code-block:: shell
@@ -598,11 +629,23 @@ Após a conhecer a estrutura da aplicação podemos executar o comando npm insta
 Servidor Web
 ^^^^^^^^^^^^
 
-No framework Express  temos um servidor web para desenvolver nossa aplicação. WILSON (2013) relata que muitos desenvolvedores  que possui um histórico “tradicional” configuram um software para o servidor web – Apache, Nginx ou IIS – para ser um canal de comunicação entre o navegador e o código da aplicação. Atualmente com o surgimento de novas tecnologias de programação como Ruby on Rails, Django e PHP 5.4 têm mecanismos para inicializar um servidor de desenvolvimento local. Este item incluso dentro do framework visa agilizar o desenvolvimento das aplicações no menor tempo possível.
+No framework Express.Js  temos um servidor web para desenvolver nossa aplicação. WILSON (2013)
+relata que muitos desenvolvedores  que possui um histórico “tradicional” configuram um software
+para o servidor web – Apache, Nginx ou IIS – para ser um canal de comunicação entre o navegador
+e o código da aplicação.
+Atualmente com o surgimento de novas tecnologias de programação como Ruby on Rails, Django e PHP 5.4
+têm mecanismos para inicializar um servidor de desenvolvimento local.
+Este item incluso dentro do framework visa agilizar o desenvolvimento das aplicações no menor tempo possível.
 
-Complementando este capitulo de acordo com WILSON (2013) o  interessante do Node.Js é que o código do programa que se escreve para ele também é a implementação do servidor. Seguindo este modelo tem-se a expectativa de que a aplicação funcione e se comporte de modo semelhante ao ambiente de produção assim como no desenvolvimento, pois não existe nenhuma biblioteca, nenhum intermediário ou daemon que esteja no caminho.
+Complementando este capitulo de acordo com WILSON (2013) o interessante do Node.Js é que o código do programa
+que se escreve para ele também é a implementação do servidor.
+Seguindo este modelo tem-se a expectativa de que a aplicação funcione e se comporte de modo semelhante ao ambiente de produção
+assim como no desenvolvimento, pois não existe nenhuma biblioteca, nenhum intermediário ou *daemon* que esteja no caminho.
 
-O exemplo abaixo cria uma aplicação funcional e capacitada com uma pequena quantidade de código. WILSON (2013) classifica o código do app.js como pequeno mas que possui grandes funcionalidades embutidas como roteamento para solicitações HTTP entrantes, fornece um motor de visão para renderizar visões no lado do servidor na forma de marcações do HTML5 amigáveis aos navegadores, fornece também download dos arquivos estáticos.
+O exemplo abaixo cria uma aplicação funcional e capacitada com uma pequena quantidade de código. WILSON (2013)
+classifica o código do *app.js* como pequeno mas que possui grandes funcionalidades embutidas como roteamento para
+solicitações HTTP entrantes, fornece um motor de visão para renderizar visões no lado do servidor na forma de
+marcações do HTML5 amigáveis aos navegadores, fornece também download dos arquivos estáticos.
 
 
 .. code-block:: javascript
