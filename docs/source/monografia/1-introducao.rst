@@ -38,6 +38,7 @@ desenvolvimento multithreading (processamento simultâneo de um conjunto de
 tarefas) pois o sistema operacional é responsável por decidir qual thread
 (conjunto de tarefas) será executada e por quanto tempo. (TILKOV, 2010, p.80)
 
+
 Em sistemas web desenvolvidos sob as plataformas tradicionais como JAVA, PHP,
 .NET  dentre outros é necessário paralisar um processamento enquanto utiliza
 uma entrada e saída do servidor. Essa paralisação é conhecida como um modelo
@@ -47,11 +48,15 @@ novas requisições aumentando o processamento. No modelo bloqueante cada
 requisição é enfileirada e depois processadas uma a uma. Enquanto uma
 requisição esta sendo processada as demais ficam em espera, mantendo-se ociosas
 por um período  indeterminado na fila. (PEREIRA, 2013)
+
+
 Com esta arquitetura tradicional, gasta-se muito tempo mantendo uma fila de
 espera com processos ociosos, tais como: envio de e-mails, consultas em banco
 de dados, leitura em disco que não liberam recursos enquanto não forem
 finalizadas. Com o aumento dos acessos ao sistema é necessário fazer uma
 atualização do hardware (equipamento). (PEREIRA, 2013).
+
+
 De acordo com Abernethy (2011), explica que em linguagens como Java e PHP, cada
 conexão cria-se uma nova thread ( conjunto de tarefas ) com 2 MB de memória
 RAM. Se em um servidor possuir 8 GigaBytes de memória RAM, teoricamente o número
@@ -65,6 +70,8 @@ servidores. Por todas essas razões, o gargalo em toda a arquitetura da
 aplicação web ( incluindo a velocidade de tráfego, velocidade do processador e
 velocidade da memória RAM) estaria associado ao número máximo de conexões
 concorrentes que um servidor pode manipular.
+
+
 Portanto, observa-se que o escalonamento horizontal, adicionando novos
 servidores, além do custo altíssimo, torna a arquitetura do sistema complexa
 pois será necessário acrescentar servidores de balanceamento, rede estruturada
@@ -79,12 +86,16 @@ núcleos. Além dessas limitações tecnológicas, ha o agravante do alto  custo
 para atualizar este hardware. Processadores com 7 núcleos são caros e
 dependendo dos casos é necessário trocar todo o equipamento – hardware - para
 garantir o devido funcionamento dos componentes.
+
+
 Pelos problemas citados acima surge a necessidade de resolver este problema, em
 nível de software, que permita receber um grande número de conexões simultâneas
 nos servidores, capaz de ser escalável e consumir menores índices de memória
 RAM. Um paradigma adotado para esta solução é a programação orientada a
 eventos, onde tudo gira em torno de eventos, indicando que exite um produtor do
 evento e um consumidor daquele evento. (Junior, 2012)
+
+
 O JavaScript, linguagem de programação, fornece o modelo de eventos
 assíncronos, funções anônimas e callbacks.  Como JUNIOR  exemplificou, um
 programa assíncrono ao fazer uma requisição a um banco de dados especifica o
@@ -94,6 +105,8 @@ quando o resultado da requisição é retornado do banco de dados, a codificaç�
 para manipular os estes dados é executado. A esta lógica de programação,
 executada após a fim da requisição, dá-se ao nome de callback. (JUNIOR, 2012,
 p.2)
+
+
 A partir dessa necessidade surge o ambiente de desenvolvimento Node.Js, que é
 melhor descrito por JUNIOR (2012) como uma plataforma cujo o objetivo é a fácil
 construção de rápidas e escaláveis aplicações de rede. Para isto o Node.Js
@@ -106,6 +119,8 @@ no processo do motor Node.Js. O Node.Js afirma que ele nunca irá ter bloqueios
 ou impasses, já que bloqueios não é uma característica da sua plataforma mesmo
 em processamento de entradas e saídas.. Node.Js afirma que um servidor pode
 suportar dezenas de milhares de conexões simultâneas. (ABENERTHY, 2011).
+
+
 Por fim, busca-se com o Node.Js, o qual será a base para esta proposta de
 pesquisa, demonstrar uma aplicação Web capaz de mostrar, em tempo real, a
 localização de dispositivos móveis através das coordenadas de latitude e
