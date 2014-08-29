@@ -14,6 +14,7 @@ Contents:
    monografia/1-introducao
    monografia/2-metodologia
    monografia/4-ambiente-node-js
+   monografia/bibliografia
 
 
 Indices and tables
