@@ -11,6 +11,12 @@ Contents:
 .. toctree::
    :maxdepth: 5
 
+	
+   monografia/capa
+   monografia/dedicatoria
+   monografia/agradecimentos
+   monografia/resumo
+   monografia/lista-abreviaturas
    monografia/1-introducao
    monografia/2-metodologia
    monografia/4-ambiente-node-js
