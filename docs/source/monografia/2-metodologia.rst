@@ -53,6 +53,10 @@ Especificar testes e comparar os resultados
 * **Utilizar testes de carga nas API's**
   Realizar um teste de carga utilizando os serviços web como o loader.io e blitz.io
 
+.. warning::
+
+    Como e aonde referenciar esses dois servicos web?
+
 * **Descrever o software de testes de carga**
   Descrever passo a passo como gerar um teste de carga na aplicação dos serviços descritos acima.
 
