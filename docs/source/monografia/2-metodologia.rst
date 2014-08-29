@@ -14,10 +14,11 @@ Levantamento de requisitos
 
 * **Especificar serviços da aplicação**
   Detalhar e documentar o serviço de hospedagem na internet, além de outros componentes necessários para o funcionamento do ecossistema da aplicação como:
-    * Hardware utilizado;
-    * Servidor web para responder requisições na porta 80;
-    * Serviços adicionais instalados ( Banco de dados );
-    * Softwares para monitorar desempenho e utilização do servidor;
+
+   * Hardware utilizado;
+   * Servidor web para responder requisições na porta 80;
+   * Serviços adicionais instalados ( Banco de dados );
+   * Softwares para monitorar desempenho e utilização do servidor;
 
 Estudo do ambiente de programação Node.Js
 -----------------------------------------
