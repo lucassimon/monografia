@@ -19,7 +19,10 @@ Contents:
    monografia/lista-abreviaturas
    monografia/1-introducao
    monografia/2-metodologia
-   monografia/4-ambiente-node-js
+   monografia/3-ambiente-node-js
+   monografia/4-prototipos
+   monografia/5-ambiente-de-testes
+   monografia/6-conclusao
    monografia/bibliografia
 
 
