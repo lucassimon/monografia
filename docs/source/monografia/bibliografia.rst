@@ -53,13 +53,18 @@ Acesso em: 15 Fevereiro 2014.
 
 
 24. Richardson, Leonard; RUBY, Sam. RESTful Web Services, First Edition.
-
-25. Gravenstein Highway North: O'Reilly, 2007.
+Gravenstein Highway North: O'Reilly, 2007.
 
 
 26. Socket.Io. Disponível em: <http://socket.io/> Acesso em: 30 Março. 2013
 
 27. Semver. Disponivel em <https://www.npmjs.org/doc/misc/semver.html> Acesso em: 28 AGO 2014
+
+13. STRONGLOOP. In the loop - Managing Node.js Callback Hell with Promises, Generators and Other Approaches. 2014. Disponível em: <http://strongloop.com/strongblog/node-js-callback-hell-promises-generators > Acesso em: 31 AGO. 2014.
+
+.. warning::
+
+    Artigo retirado do site da empresa. Esta correto essa maneira?
 
 28. Tilkov. S, S. “Node.js: Using Javascript to Build Gugh Performance Network Programs”.
 Internet Computing IEEE, 2010.
