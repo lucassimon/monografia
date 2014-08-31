@@ -7,35 +7,31 @@ Programação Orientada a eventos
 
 PEREIRA (2012) compara que o Node.Js orientado a eventos se espelha na filosofia de orientação a eventos
 utilizado pelo JavaScript nos navegadores; a diferença entre eles é que no  Node.Js não existe eventos
-de clique do mouse, teclas pressionadas do teclado -keyup- ou qualquer evento de componentes HTML.
+de clique do mouse, teclas pressionadas do teclado (*keyup*) ou qualquer evento de componentes HTML.
 No Node.Js os eventos trabalhados são entrada e saída do servidor como eventos de conexão ao banco de dados,
 abertura de arquivo e um dado de um *streaming*, dentre muitos outros.
 
 Single – Thread
 ---------------
 
-Uma das melhores maneiras para entender o *single-thread*  é descrita por Tom Hughes e Mike Wilson (2012)
+Uma das melhores maneiras para entender o *single-thread*  é descrita por Croucher * Wilson (2012)
 fazendo uma analogia a nossa vida, segue síntese do texto abaixo:
 
-Na vida cotidiana, estamos acostumados todos os tipos de retorno de chamadas internas para lidar com eventos, e ainda,
-como JavaScript fazemos apenas uma coisa de cada vez. De maneira divertida HUGHES e WILSON exemplifica
-que você é capaz de esfregar a barriga e coçar a cabeça, ao mesmo tempo, certo!?
+Na vida cotidiana, estamos acostumados todos os tipos de retorno de chamadas internas para lidar com eventos, e ainda, como JavaScript fazemos apenas
+uma coisa de cada vez. De maneira divertida Croucher & Wilson (2012) exemplifica que você é capaz de esfregar a barriga e coçar a cabeça, ao mesmo tempo, certo!?
 Mas se você realizar uma atividade mais grave, ao mesmo tempo, algo irá dar errado muito rapidamente.
 Isto é como JavaScript.
 É ótimo as ações serem conduzidas por eventos mas no *single-thread* apenas uma coisa acontece ao mesmo tempo.
 
-Para Tom Hughes e Mike Wilson (2012) o conceito *single-threaded* é muito importante porém é uma das críticas feitas ao Node.Js
-é a falta de concorrência.
-Quando Tom Hughes e Mike Wilson (2012) pronunciou falta de concorrência quis dizer que não é utilizado todas as CPU's
-de um computador. Segundo estes autores o problema de executar códigos em várias CPU's de uma vez é que ele requer
-uma coordenação entre várias “linhas” de execução.
-Para que várias CPU's possam dividir de maneira eficaz o trabalho, é necessário que eles conversem entre si
-sobre o estado atual do programa, e o que cada single *thread* havia feito.
+Para Croucher & Wilson (2012) o conceito *single-threaded* é muito importante porém é uma das críticas feitas ao Node.Js é a falta de concorrência.
+Quando Croucher & Wilson (2012) pronunciou falta de concorrência quis dizer que não é utilizado todas as CPU's de um computador.
+Segundo estes autores o problema de executar códigos em várias CPU's de uma vez é que ele requer uma coordenação entre várias “linhas” de execução.
+Para que várias CPU's possam dividir de maneira eficaz o trabalho, é necessário que eles conversem entre si sobre o estado atual do programa, e o que cada single *thread* havia feito.
 
-Tom Hughes e Wilson não descarta a possibilidade de concorrência mas que é um modelo mais complexo e que exige
+Croucher & Wilson não descarta a possibilidade de concorrência mas que é um modelo mais complexo e que exige
 mais esforço do desenvolvedor e do sistema. 
 
-De acordo com PEREIRA (2012), em Node.Js nativamente não é possível trabalhar com programação concorrente em plataforma *multi-thread*.
+De acordo com Pereira (2012), em Node.Js nativamente não é possível trabalhar com programação concorrente em plataforma *multi-thread*.
 Mas que existem maneiras de se implementar sistemas concorrentes, como por exemplo, utilizar *clusters* o qual é um módulo nativo
 do ambiente Node.Js.
 
@@ -52,14 +48,14 @@ Mais do que esse número de pedidos significa que um cliente precisa esperar por
 Chamadas de retorno e chamadas de retorno infernais
 ---------------------------------------------------
 
-De acordo com WILSON (2013) o JavaScript utiliza de *callbacks* para abordar o problema a partir do lado oposto;
+De acordo com Wilson (2013) o JavaScript utiliza de *callbacks* para abordar o problema a partir do lado oposto;
 ao invés de gerenciar processos de execução prolongada, os desenvolvedores associam eventos específicos e
 escrevem funções especiais, chamadas *callbacks*, que são executadas quando o critério do evento é atingido.
 
 Evitando chamadas de retorno infernais
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-PEREIRA (2012) relata que é o JavaScript é perfomático trabalhando de forma assíncrona  porém em certos
+Pereira (2012) relata que é o JavaScript é perfomático trabalhando de forma assíncrona  porém em certos
 momentos do desenvolvimentos, inevitavelmente será implementado diversas funções assíncronas encadeadas
 umas nas outras através das suas funções *callbacks*.
 
@@ -80,25 +76,25 @@ umas nas outras através das suas funções *callbacks*.
         });
     });
 
-Com o código exemplificado por PEREIRA (2012) temos uma simples leitura dos arquivos do diretório e imprimindo
+Com o código exemplificado por Pereira (2012) temos uma simples leitura dos arquivos do diretório e imprimindo
 o nome e o tamanho em bytes.
-Com este exemplo PEREIRA (2012) nos demonstra que uma simples tarefa possui muitos encadeamentos e nos questiona
+Com este exemplo Pereira (2012) nos demonstra que uma simples tarefa possui muitos encadeamentos e nos questiona
 como seria a organização caso seja uma função complexa.
 Praticamente o código implementado seria um caos e de difícil manutenabilidade. 
 
-Pela linguagem JavaScript ser assíncrona PEREIRA (2012) afirma que neste amaranhado de *callbacks* 
+Pela linguagem JavaScript ser assíncrona Pereira (2012) afirma que neste amaranhado de *callbacks* 
 podemos perder o controle do que está sendo executado, perder acesso a variáveis devido a troca de escopos
 em troca de ganhos com a performance.
 
-Nos *callbacks* do Node.Js é importante atentar como feito por PEREIRA (2012) que em sua maioria possuem
+Nos *callbacks* do Node.Js é importante atentar como feito por Pereira (2012) que em sua maioria possuem
 como parâmetro uma variável de erro.
-Caso exista esse parâmetro é recomendado por PEREIRA (2012) realizar o tratamento deles na execução do *callback*
+Caso exista esse parâmetro é recomendado por Pereira (2012) realizar o tratamento deles na execução do *callback*
 impedindo a execução aleatória quando for identificado um erro.
 
-Existem várias maneiras de se evitar o temido *callback hell*, como sugerido por PEREIRA (2012), uma boa prática
+Existem várias maneiras de se evitar o temido *callback hell*, como sugerido por Pereira (2012), uma boa prática
 de código JavaScript é criar funções que expressem seu objetivo e de forma isoladas, 
 salvando em variável e passando-as em *callback*.
-Veja o exemplo abaixo do arquivo *callback_heaven.js* criado por PEREIRA (2012).
+Veja o exemplo abaixo do arquivo *callback_heaven.js* criado por Pereira (2012).
 
 .. code-block:: javascript
     :linenos:
@@ -126,9 +122,9 @@ Veja o exemplo abaixo do arquivo *callback_heaven.js* criado por PEREIRA (2012).
     lerDiretorio();
 
 
-Como dito por PEREIRA (2012) houve uma melhora na legibilidade do código, deixando mais semântico e legível
+Como dito por Pereira (2012) houve uma melhora na legibilidade do código, deixando mais semântico e legível
 o nome das funções. O número de *callbacks* encadeados também diminui.
-PEREIRA (2012) sugere como boa prática manter no máximo dois encadeamentos de *callback*, caso passe esse número
+Pereira (2012) sugere como boa prática manter no máximo dois encadeamentos de *callback*, caso passe esse número
 é interessante criar uma função externa para ser passada como parâmetro nos *callbacks*, ao invés de continuar criando *callbacks hell*.
 
 .. warning::
@@ -146,14 +142,14 @@ PEREIRA (2012) sugere como boa prática manter no máximo dois encadeamentos de 
 Ciclo de eventos
 ----------------
 
-Ao introduzir esse assunto PEREIRA (2012) diz que o ciclo de eventos - *Event-Loop* - é o agente responsável
+Ao introduzir esse assunto Pereira (2012) diz que o ciclo de eventos - *Event-Loop* - é o agente responsável
 por escutar e emitir eventos dentro do sistema.
-PEREIRA (2012) rapidamente explica essa teoria do paradigma orientação a eventos o ciclo de eventos é uma repetição infinita
+Pereira (2012) rapidamente explica essa teoria do paradigma orientação a eventos o ciclo de eventos é uma repetição infinita
 que a cada interação verifica em sua fila de eventos se um determinado evento foi emitido ou se existem novos eventos.
 Estes eventos só aparecem na fila quando são emitidos durante as suas interações na aplicação; quando ocorre,  é emitido um evento,
 então este evento é executado e enviados para a fila de executados. 
 
-WILSON (2013) enaltece os eventos como sendo a alma do Node.Js e do JavaScript.
+Wilson (2013) enaltece os eventos como sendo a alma do Node.Js e do JavaScript.
 Complementando WILSON (2013) afirma que outras linguagens de programação lidam com fluxos de trabalho em *threads*
 múltiplas e concorrentes, com cada *thread*  gastando a maioria de seu tempo aguardando operações
 bloqueadoras de entrada e saída como leitura ou escrita em disco, manipulação do banco de dados ou acesso a informações pela rede.
@@ -187,18 +183,18 @@ Ao invés de tentar cortar e desligar o fogão, ao mesmo tempo, você irá alcan
 através dessa rápida mudança de contextos.
 
 A programação orientada a eventos faz a mesma coisa. Ao permitir que o desenvolvedor escreva código que só trabalhe em um retorno
-de chamada de cada vez, o programa será compreensível e também capaz de executar rapidamente várias tarefas de forma eficiente.( Tom Hughes-Croucher e Mike Wilson, 2012)
+de chamada de cada vez, o programa será compreensível e também capaz de executar rapidamente várias tarefas de forma eficiente.( Croucher & Wilson, 2012)
 
 .. warning ::
   
     Corrigir o ( Tom Hughes-Croucher e Mike Wilson, 2012)
 
-Continuando, como apresentado por PEREIRA (2012) o *EventEmitter*, é o módulo responsável por por emitir estes eventos e em
+Continuando, como apresentado por Pereira (2012) o *EventEmitter*, é o módulo responsável por por emitir estes eventos e em
 grande maioria das bibliotecas do ambiente Node.Js utiliza as funcionalidades de eventos deste módulo.
 No processo de execução do evento pode-se programar qualquer lógica de programação através do mecanismo de
 *callback* - chamada de retorno - , tal *callback* - chamada de retorno -pode ser executado através de uma função de escuta, semanticamente conhecida pelo *on()*.
 
-Essa seção é bem descrita e exemplificada por WILSON (2013) em seu livro que nos mostra o uso e o desenvolvimento de eventos.
+Essa seção é bem descrita e exemplificada por Wilson (2013) em seu livro que nos mostra o uso e o desenvolvimento de eventos.
 
 .. code-block:: javascript
     :linenos:
@@ -257,7 +253,7 @@ está disponível, caso em que a função de *callback* - chamada de retorno - d
 A saída de tela destaca um traço importante do Node.Js: todo o seu trabalho é feito em uma única *thread*. Quando um evento é levantado
 e respondido por um *callback* - chamada de retorno -, o método de chamada é pausado enquanto o *callback* é executado. Isso é importante 
 porque, se algo acontecer durante o *callback* e consumir bastante tempo de processamento, a função original não vai continuar
-sendo executada até que todo o trabalho esteja completado.
+sendo executada até que todo o trabalho esteja completado. (WILSON, 2013)
 
 .. warning ::
 
@@ -274,7 +270,7 @@ Assim, a execução desse exemplo segue o caminho: ::
     7. Retorna para a execução de mainLoop, não há mais nada a fazer; para.
 
 
-Finalizando esta seção, PEREIRA (2012) diz que o *event-driven* do Node.Js foi inspirado pelos frameworks
+Finalizando esta seção, Pereira (2012) diz que o *event-driven* do Node.Js foi inspirado pelos frameworks
 Event Machine do Ruby e Twisted do Python, porém o ciclo de eventos do Node.Js é mais perfomático pois seu mecanismo
 é nativamente executado de forma não bloqueante sendo o diferencial em relação a outros ambientes de programação.
 
@@ -283,7 +279,7 @@ Por que usar assíncrono
 -----------------------
 
 No ambiente de desenvolvimento Node.Js é importante entender e saber trabalhar com as chamadas assíncronas.
-PEREIRA (2012) exemplifica em código as diferenças entre uma função síncrona e assíncrona em relação ao tempo
+Pereira (2012) exemplifica em código as diferenças entre uma função síncrona e assíncrona em relação ao tempo
 em que são executadas.
 O código é para criar uma repetição de 5 interações e a cada iteração desta repetição será criado um arquivo texto.
 
@@ -326,7 +322,7 @@ Veja o tempo gasto no modelo síncrono [Ref]_:
 Threads versus Assincronismos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-De acordo com PEREIRA (2012) por mais que as funções assíncronas possam executar em paralelo várias tarefas,
+De acordo com Pereira (2012) por mais que as funções assíncronas possam executar em paralelo várias tarefas,
 elas jamais serão consideradas uma *Thread* ( como *Threads* do java).
 A diferença é que as *Threads* são manipuláveis pelo desenvolvedor, ou seja, você pode pausar a execução de uma *Thread*
 ou fazê-la esperar o término de uma outra.
@@ -361,7 +357,7 @@ elas executam em paralelo suas funções sem travar processamento das outras e p
 
     
 
-Como dito por PEREIRA (2012) é essencial que seu código Node.Js invoque o mínimo possível de funções bloqueantes.
+Como dito por Pereira (2012) é essencial que seu código Node.Js invoque o mínimo possível de funções bloqueantes.
 Toda função síncrona impedirá, naquele instante, que o Node.Js continue executando os demais códigos até que aquela
 função seja finalizada.
 Por exemplo, se essa função fizer uma operação de entrada e saída em disco, vai bloquear o sistema inteiro,
@@ -374,20 +370,20 @@ Construindo a API REST com o framework Express.js
 Porque a escolha do express.js
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-POWERS(2012) descreve que um framework fornece suporte de infraestrutura que nos permite criar sites e aplicações mais rapidamente,
+Powers(2012) descreve que um framework fornece suporte de infraestrutura que nos permite criar sites e aplicações mais rapidamente,
 fornecendo ao desenvolvedor um esqueleto sobre o qual construir e manusear muitos aspectos mundanos e ubíquos do processo
 de desenvolvimento de software e focar na criação de funcionalidades da nossa aplicação ou site.
 Também fornece coesão ao código, o que pode tornar o código mais fácil de gerenciar e manter.
 
-PEREIRA(2012) complementa que utilizar a API HTTP nativa do Node.Js pode ser algo trabalhoso e desgastante.
+Pereira(2012) complementa que utilizar a API HTTP nativa do Node.Js pode ser algo trabalhoso e desgastante.
 Conforme surge novas necessidades de implementar novas funcionalidades, códigos gigantescos seriam acrescentados,
 aumentando a complexidade do projeto e dificultando futuras manutenções.
 
-Assim surge o framework Express.Js que conforme POWERS(2012) é mais parecido com o framework Sinatra e é bem mais RESTFUL.
-PEREIRA(2012) reafirma que este módulo de desenvolvimento foi inspirado pelo framework Sinatra na linguagem Ruby
+Assim surge o framework Express.Js que conforme Powers(2012) é mais parecido com o framework Sinatra e é bem mais RESTFUL.
+Pereira(2012) reafirma que este módulo de desenvolvimento foi inspirado pelo framework Sinatra na linguagem Ruby
 e que é bastante utilizado para aplicações web de grande escala.
 
-Suas características são descritas por PEREIRA(2012):
+Suas características são descritas por Pereira(2012):
 
 * MVR ( Model View Routes)
 * MVC ( Model View Controller)
@@ -410,7 +406,7 @@ POWERS (2012) descreve que a instalação do Express.Js deve ser feita com o com
     
     npm install express
 
-Enquanto PEREIRA (2012) recomenda que ao instalar o Express.Js pelo NPM – Node Package Manager – deve se utilizar a opção -g ( modo global) par aproveitar todos os recursos.
+Enquanto Pereira (2012) recomenda que ao instalar o Express.Js pelo NPM – Node Package Manager – deve se utilizar a opção -g ( modo global) par aproveitar todos os recursos.
 
 
 .. code-block:: bash
@@ -418,7 +414,7 @@ Enquanto PEREIRA (2012) recomenda que ao instalar o Express.Js pelo NPM – Node
     sudo npm install -g express
 
 Após a instalar o Express.Js  é necessário fechar e abrir o terminal para habilitar o comando *express* no PATH
-do seu sistema operacional. PEREIRA (2012) descreve o comando *express* como um CLI - Command Line Interface –
+do seu sistema operacional. Pereira (2012) descreve o comando *express* como um CLI - Command Line Interface –
 permitindo criar uma aplicação com suporte a sessões, Template Enginie - motores de templates – e CSS enginie – motores de css -.
 Para saber todas as opções do comando *express* utilize a opção -h.
 
@@ -491,7 +487,7 @@ Aplicativo comparativo Django
 Criando o esqueleto do projeto
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Conforme o exemplo abaixo criamos o projeto utilizando os comandos de POWERS e PEREIRA utiliza.
+Conforme o exemplo abaixo criamos o projeto utilizando os comandos de Powers(2012) e Pereira(2012) utiliza.
 
 .. code-block:: bash
     :linenos:
@@ -538,28 +534,28 @@ Em seguida, acesse o diretório criado e veja as explicações de cada arquivo e
     drwxr-xr-x 2 lucas lucas 4096 Ago 28 10:32 views
 
 
-POWERS (2012), HUGES e WILSON (2012) não apresentam um descritivo de cada arquivo ou diretório e seu papel.
-Entretanto PEREIRA (2012) e WILSON (2013) aprofundam mais neste assunto. 
+Powers (2012), Croucher & Wilson (2012) não apresentam um descritivo de cada arquivo ou diretório e seu papel.
+Entretanto Pereira (2012) e Wilson (2013) aprofundam mais neste assunto. 
 
 * package.json:
-  PEREIRA(2012) diz que este arquivo contém as principais informações sobre a aplicação como:
+  Pereira(2012) diz que este arquivo contém as principais informações sobre a aplicação como:
   nome, autor, versão, colaboradores, *URL*, dependências e outros.
 
 * public:
   pasta publica que armazena código estático como imagens, css e javascript.
 
 * app.js:
-  WLSON (2013) descreve melhor esse arquivo como ponto de entrada para a aplicação Node.Js,
+  Wilson (2013) descreve melhor esse arquivo como ponto de entrada para a aplicação Node.Js,
   sendo capaz executar o servidor através do comando: *node app.js*
 
 * routes:
-  PEREIRA (2012) descreve como diretório que mantém todas as rotas da aplicação.
-  Na versão utilizada por WILSON (2013) em seu livro o Express.Js não possui este diretório. 
+  Pereira (2012) descreve como diretório que mantém todas as rotas da aplicação.
+  Na versão utilizada por Wilson (2013) em seu livro o Express.Js não possui este diretório. 
 
 * views:
-  WILSON (2013) descreve que esta pasta contém os motores de template (Jade ou EJS), que são renderizados
+  Wilson (2013) descreve que esta pasta contém os motores de template (Jade ou EJS), que são renderizados
   pelo servidor Express.Js e enviados ao cliente.
-  PEREIRA (2012) simplifica descrevendo que é um diretório que contém todas as visões renderizadas pelas rotas.
+  Pereira (2012) simplifica descrevendo que é um diretório que contém todas as visões renderizadas pelas rotas.
 
 O arquivo de *package.json*, de acordo com WILSON (2013) sempre é necessário
 ser criado em seu projeto e que ele é responsável por fornecer detalhes sobre as
@@ -568,11 +564,11 @@ WILSON (2013) complementa que este arquivo ajuda a prevenir que alterações fut
 módulos de terceiros quebrem a lógica da aplicação.
 
 No livro Construindo Aplicações Node com MongoDB e Backbone, WILSON (2013) exibe um exemplo do arquivo *package.json*
-o qual é utilizado para sincronizar a aplicação com depedências, sendo importante associar a aplicação
+o qual é utilizado para sincronizar a aplicação com dependências, sendo importante associar a aplicação
 a uma versão especifica. No exemplo podemos ver que o Express.Js está na versão 4.2.0,
-tal como Debug versão 0.7.4 ou posteriores.
+tal como *Debug* versão 0.7.4 ou posteriores.
 
-Maiores detalhes sobre os caracteres “~”, “>=”, “ ou “^” podem ser vistos na documentação do *npm* em semver. 
+Maiores detalhes sobre os caracteres “~”, “>=”, “ ou “^” podem ser vistos na documentação do *NPM* em semver. 
 
 .. warning::
 
@@ -635,7 +631,7 @@ dentro do diretório do projeto para instalar as dependências existentes no *pa
 Servidor Web
 ^^^^^^^^^^^^
 
-No framework Express.Js  temos um servidor web para desenvolver nossa aplicação. WILSON (2013)
+No framework Express.Js  temos um servidor web para desenvolver nossa aplicação. Wilson (2013)
 relata que muitos desenvolvedores  que possui um histórico “tradicional” configuram um software
 para o servidor web – Apache, Nginx ou IIS – para ser um canal de comunicação entre o navegador
 e o código da aplicação.
@@ -643,7 +639,7 @@ Atualmente com o surgimento de novas tecnologias de programação como Ruby on R
 têm mecanismos para inicializar um servidor de desenvolvimento local.
 Este item incluso dentro do framework visa agilizar o desenvolvimento das aplicações no menor tempo possível.
 
-Complementando este capitulo de acordo com WILSON (2013) o interessante do Node.Js é que o código do programa
+Complementando este capitulo de acordo com Wilson (2013) o interessante do Node.Js é que o código do programa
 que se escreve para ele também é a implementação do servidor.
 Seguindo este modelo tem-se a expectativa de que a aplicação funcione e se comporte de modo semelhante ao ambiente de produção
 assim como no desenvolvimento, pois não existe nenhuma biblioteca, nenhum intermediário ou *daemon* que esteja no caminho.
@@ -716,6 +712,11 @@ marcações do HTML5 amigáveis aos navegadores, fornece também download dos ar
     });
 
     module.exports = app;
+
+.. warning:: 
+    
+    Preciso documentar o que cada linha faz?
+
 
 Criando rotas no padrão RESTFul
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
