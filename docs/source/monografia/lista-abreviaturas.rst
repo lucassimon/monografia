@@ -26,3 +26,5 @@ URI - Uniform Resource Identifier - Identificador de recurso uniforme
 CLI - Command Line Interface - Interface para a linha de comando
 
 CRUD - Create, Read, Update, Destroy - Criar, ler, atualizar e deletar
+
+NPM - Node Package Manager - Gerenciador de pacotes do Node.js
