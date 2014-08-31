@@ -35,6 +35,11 @@ De acordo com Pereira (2012), em Node.Js nativamente não é possível trabalhar
 Mas que existem maneiras de se implementar sistemas concorrentes, como por exemplo, utilizar *clusters* o qual é um módulo nativo
 do ambiente Node.Js.
 
+Além disso, é possível compartilhar sockets entre processos através da biblioteca
+multi-node (Zyp, 2010), sendo assim, pode-se ter múltiplos nós de servidores de processos
+trabalhando  em paralelo, cada um em core do processador, mas ATENDENDO/ESCUTANDO a mesma porta,
+assim o próprio SO atua como balanceador de carga. (Junior, 2012)
+
 Powers (2012) cita também o single *thread* como um dos benefícios do ambiente do Node.Js pois o aplicativo pode ser
 facilmente escalável uma vez que em um único segmento de execução não ha uma enorme sobrecarga de requisições.
 Citando o exemplo de seu livro, ao criar uma aplicação em PHP semelhante à aplicação Node.Js o usuário veria a mesma página,
@@ -44,6 +49,11 @@ Se executar esse aplicativo PHP no servidor web Apache , cada pedido que for sol
 As possibilidades são, a menos que você tem um sistema de carregamento eficiente,
 você só vai ser capaz de executar mais um par de centenas de processos filhos em paralelo.
 Mais do que esse número de pedidos significa que um cliente precisa esperar por uma resposta. (POWERS, 2012)
+
+Deste modo, um servidor Node.js pode suportar dezenas de milhares de conexões
+simultâneas, pois ele altera todo o contexto do servidor e o único gargalo passa a ser a
+capacidade de tráfego de um sistema e não mais o número de conexões. (Abernethy, 2011)
+
 
 Chamadas de retorno e chamadas de retorno infernais
 ---------------------------------------------------
@@ -150,7 +160,7 @@ Estes eventos só aparecem na fila quando são emitidos durante as suas interaç
 então este evento é executado e enviados para a fila de executados. 
 
 Wilson (2013) enaltece os eventos como sendo a alma do Node.Js e do JavaScript.
-Complementando WILSON (2013) afirma que outras linguagens de programação lidam com fluxos de trabalho em *threads*
+Complementando Wilson (2013) afirma que outras linguagens de programação lidam com fluxos de trabalho em *threads*
 múltiplas e concorrentes, com cada *thread*  gastando a maioria de seu tempo aguardando operações
 bloqueadoras de entrada e saída como leitura ou escrita em disco, manipulação do banco de dados ou acesso a informações pela rede.
 
@@ -162,7 +172,7 @@ Veja a figura abaixo [Ref]_
 
 .. [Ref] Retirado do livro Aplicações web real-time com Node.Js 
 
-WILSON (2013) escreve uma das qualidades do JavaScript, que foi criado seguindo o modelo de programação orientado a eventos.
+Wilson (2013) escreve uma das qualidades do JavaScript, que foi criado seguindo o modelo de programação orientado a eventos.
 Sendo desde um simples clique de mouse, carregamento de páginas ou envio de formulários, todos utilizando o modelo baseado em eventos.
 
 O *event-loop* – cilo de eventos – é o sistema que usa o JavaScript para lidar com os pedidos recebidos
@@ -171,7 +181,7 @@ A maioria deles são bastante complexos e fazem o cérebro doer.
 O JavaScript tem uma abordagem simples que torna o processo muito mais compreensível,
 mas introduz algumas restrições.
 Possuindo uma ideia de como o ciclo de eventos funciona, o desenvolvedor é capaz de usá-lo em toda sua potencialidade,
-conseguindo vantagens e evitando armadilhas dessa abordagem.( Tom Hughes-Croucher e Mike Wilson, 2012)
+conseguindo vantagens e evitando armadilhas dessa abordagem.( Croucher & Wilson, 2012)
 
 .. warning ::
   
@@ -557,13 +567,13 @@ Entretanto Pereira (2012) e Wilson (2013) aprofundam mais neste assunto.
   pelo servidor Express.Js e enviados ao cliente.
   Pereira (2012) simplifica descrevendo que é um diretório que contém todas as visões renderizadas pelas rotas.
 
-O arquivo de *package.json*, de acordo com WILSON (2013) sempre é necessário
+O arquivo de *package.json*, de acordo com Wilson (2013) sempre é necessário
 ser criado em seu projeto e que ele é responsável por fornecer detalhes sobre as
 condições de operação e configuração esperadas por seu código.
-WILSON (2013) complementa que este arquivo ajuda a prevenir que alterações futuras em
+Wilson (2013) complementa que este arquivo ajuda a prevenir que alterações futuras em
 módulos de terceiros quebrem a lógica da aplicação.
 
-No livro Construindo Aplicações Node com MongoDB e Backbone, WILSON (2013) exibe um exemplo do arquivo *package.json*
+No livro Construindo Aplicações Node com MongoDB e Backbone, Wilson (2013) exibe um exemplo do arquivo *package.json*
 o qual é utilizado para sincronizar a aplicação com dependências, sendo importante associar a aplicação
 a uma versão especifica. No exemplo podemos ver que o Express.Js está na versão 4.2.0,
 tal como *Debug* versão 0.7.4 ou posteriores.
@@ -644,7 +654,7 @@ que se escreve para ele também é a implementação do servidor.
 Seguindo este modelo tem-se a expectativa de que a aplicação funcione e se comporte de modo semelhante ao ambiente de produção
 assim como no desenvolvimento, pois não existe nenhuma biblioteca, nenhum intermediário ou *daemon* que esteja no caminho.
 
-O exemplo abaixo cria uma aplicação funcional e capacitada com uma pequena quantidade de código. WILSON (2013)
+O exemplo abaixo cria uma aplicação funcional e capacitada com uma pequena quantidade de código. Wilson (2013)
 classifica o código do *app.js* como pequeno mas que possui grandes funcionalidades embutidas como roteamento para
 solicitações HTTP entrantes, fornece um motor de visão para renderizar visões no lado do servidor na forma de
 marcações do HTML5 amigáveis aos navegadores, fornece também download dos arquivos estáticos.
@@ -683,8 +693,8 @@ marcações do HTML5 amigáveis aos navegadores, fornece também download dos ar
     /// catch 404 and forward to error handler
     app.use(function(req, res, next) {
     var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+        err.status = 404;
+        next(err);
     });
 
     /// error handlers
@@ -692,23 +702,23 @@ marcações do HTML5 amigáveis aos navegadores, fornece também download dos ar
     // development error handler
     // will print stacktrace
     if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-    message: err.message,
-    error: err
-    });
-    });
+        app.use(function(err, req, res, next) {
+            res.status(err.status || 500);
+            res.render('error', {
+                message: err.message,
+                error: err
+            });
+        });
     }
 
     // production error handler
     // no stacktraces leaked to user
     app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-    message: err.message,
-    error: {}
-    });
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: {}
+        });
     });
 
     module.exports = app;
@@ -716,14 +726,3 @@ marcações do HTML5 amigáveis aos navegadores, fornece também download dos ar
 .. warning:: 
     
     Preciso documentar o que cada linha faz?
-
-
-Criando rotas no padrão RESTFul
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Lorem ipsum
-
-Persistindo so dados com o Postgres
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Lorem Ipsum
