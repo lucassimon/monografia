@@ -15,7 +15,7 @@ router.route('/v1/contatos/:id')
 	})
 	.put(function(req, res) {
 		res.json({title:'Contatos - PUT by Id'});
-	});
+	})
 	.delete(function(req, res) {
 		res.json({title:'Contatos - DELETE by Id'});
 	});
