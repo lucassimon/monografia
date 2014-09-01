@@ -142,11 +142,221 @@ Pereira (2012) sugere como boa prática manter no máximo dois encadeamentos de 
     Novas técnicas de callback hell:
 
     `Artigo 1`_
-    `Artigo 2`_
 
 
-.. _Artigo 1: http://lostechies.com/bradcarleton/2014/02/18/taming-callback-hell-in-node-js/
-.. _Artigo 2: http://strongloop.com/strongblog/node-js-callback-hell-promises-generators/
+.. _Artigo 1: http://strongloop.com/strongblog/node-js-callback-hell-promises-generators/
+
+Outras técnicas foram apresentadas pela empresa Strongloop (http://strongloop.com, recuperado em 31, agosto, 2014),
+mantenedora do projeto *open source* Express.Js, que escreveu um excelente artigo com estas técnicas
+
+Neste artigo a empresa apresenta o problema semelhante ao de Pereira(2012) tendo definido os seguintes passos para sua implementação:
+    * Ler os arquivos em um diretório
+    * Receber os *status* de cada arquivo
+    * Determinar qual é o maior arquivo
+    * *Callback* ou retorno com o nome do maior arquivo
+
+Primeiro, usa-se como exemplo a abordagem aninhada com vários *callbacks*, mas que seguem alógica descrita acima.
+
+.. code-block:: javascript
+    :linenos:
+    :emphasize-lines: 5,12,18,20,22,23,27
+
+    var fs = require('fs')
+    var path = require('path')
+
+    module.exports = function (dir, cb) {
+        fs.readdir(dir, function (er, files) { // [1]
+            if (er) return cb(er)
+            var counter = files.length
+            var errored = false
+            var stats = []
+
+            files.forEach(function (file, index) {
+                fs.stat(path.join(dir,file), function (er, stat) { // [2]
+                    if (errored) return
+                    if (er) {
+                        errored = true
+                        return cb(er)
+                    }
+                    stats[index] = stat // [3]
+
+                    if (--counter == 0) { // [4]
+                        var largest = stats
+                        .filter(function (stat) { return stat.isFile() }) // [5]
+                        .reduce(function (prev, next) { // [6]
+                            if (prev.size > next.size) return prev
+                            return next
+                        })
+                        cb(null, files[stats.indexOf(largest)]) // [7]
+                    }
+                })
+            })
+        })
+    }
+
+Vamos explicar o que cada linha representa.
+
+1. Ler todos os arquivos do diretório.
+2. Para cada arquivo, obtêm seus *status*.
+3. Coleta os *status* do arquivo.
+4. Verifica se as operações em paralelo foram concluídas.
+5. Resgata somente arquivos normais, não incluindo diretórios e links.
+6. Reduz a lista para pegar o maior arquivo
+7. Pega o nome do arquivo associado ao status
+
+A implementação exemplificada acima é eficaz em resolver o problema no entanto, é complicado gerenciar o paralelismo das 
+da funções de retorno e não saber qual *callback* está em execução. 
+
+Partindo deste exemplo apresenta-se a primeira técnica, que é modularizar e isolar as funções utilizadas como foi sugerido por
+Pereira(2012) no inicio desta seção. Veja abaixo o código gerado.
+
+.. code-block:: javascript
+    :linenos:
+
+    function getStats (paths, cb) {
+        var counter = paths.length
+        var errored = false
+        var stats = []
+        paths.forEach(function (path, index) {
+            fs.stat(path, function (er, stat) {
+                if (errored) return
+                if (er) {
+                    errored = true
+                    return cb(er)
+                }
+                stats[index] = stat
+                if (--counter == 0) cb(null, stats)
+            })
+        })
+    }
+
+    function getLargestFile (files, stats) {
+        var largest = stats
+        .filter(function (stat) { return stat.isFile() })
+        .reduce(function (prev, next) {
+            if (prev.size > next.size) return prev
+            return next
+        })
+        return files[stats.indexOf(largest)]
+    }
+
+    var fs = require('fs')
+    var path = require('path')
+
+    module.exports = function (dir, cb) {
+        fs.readdir(dir, function (er, files) {
+            if (er) return cb(er)
+            var paths = files.map(function (file) { // [1]
+                return path.join(dir,file)
+            })
+
+            getStats(paths, function (er, stats) {
+                if (er) return cb(er)
+                var largestFile = getLargestFile(files, stats)
+                cb(null, largestFile)
+            })
+        })
+    }
+
+Conforme dito por Pereira(2012) e agora pela empresa com a modularização é possível reutilizar o código gerado
+e testar as funções muito mais fácil. Entretanto a tarefa para buscar os *status* do arquivo está sendo realizada
+e implementada manualmente. 
+
+Para isso tem-se módulos no Node.Js que realizam melhor esse controle de fluxo.
+
+Abordagem assíncrona
+~~~~~~~~~~~~~~~~~~~~
+
+O módulo **async** [#f1]_ é o mais popular entre os desenvolvedores e fica próximo do *core* (núcleo) do Node.Js.
+
+.. code-block:: javascript
+    :linenos:
+    :emphasize-lines: 6, 13, 26
+
+    var fs = require('fs')
+    var async = require('async')
+    var path = require('path')
+
+    module.exports = function (dir, cb) {
+        async.waterfall([ // [1]
+            function (next) {
+                fs.readdir(dir, next)
+            },
+            function (files, next) {
+                var paths = 
+                files.map(function (file) { return path.join(dir,file) })
+                async.map(paths, fs.stat, function (er, stats) { // [2]
+                    next(er, files, stats)
+                })
+            },
+            function (files, stats, next) {
+                var largest = stats
+                .filter(function (stat) { return stat.isFile() })
+                .reduce(function (prev, next) {
+                    if (prev.size > next.size) return prev
+                    return next
+                })
+                next(null, files[stats.indexOf(largest)])
+            }
+        ], cb) // [3]
+    }
+
+1. *async.waterfall* provê um um controle de execução em série, em que os dados a partir
+de uma operação pode ser passado para a próxima função usando o retorno de chamada **next**.
+2. *async.map* nos permite executar o comando *fs.stat* sobre um *array* de caminhos em paralelo
+e é retornado um *array* com a ordem mantida dos resultados. 
+3. A função **cb** será chamada na conclusão da função ou se em algum momento da execução 
+houver algum erro. Lembrando que é executado somente uma vez.
+
+Como dito pela Strongloop, este módulo garante que somente um *callback* será retornado e também irá
+propagar erros e controlar o paralelismo para o desenvolvedor.
+
+Abordagem utilizando promises
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*Promises* fornece tratamento de erros e as regalias da programação funcional. Conforme a Strongloop é necessário
+utilizar o módulo **Q** [#f2]_ mas nada impede que se use outras bibliotecas de *Promises* sejam empregadas.
+
+.. code-block:: javascript
+    :linenos:
+    :emphasize-lines: 4, 13, 14, 17
+
+    var fs = require('fs')
+    var path = require('path')
+    var Q = require('q')
+    var fs_readdir = Q.denodeify(fs.readdir) // [1]
+    var fs_stat = Q.denodeify(fs.stat)
+
+    module.exports = function (dir) {
+        return fs_readdir(dir)
+        .then(function (files) {
+            var promises = files.map(function (file) {
+                return fs_stat(path.join(dir,file))
+            })
+            return Q.all(promises).then(function (stats) { // [2]
+                return [files, stats] // [3]
+            })
+        })
+        .then(function (data) { // [4]
+            var files = data[0]
+            var stats = data[1]
+            var largest = stats
+            .filter(function (stat) { return stat.isFile() })
+            .reduce(function (prev, next) {
+                if (prev.size > next.size) return prev
+                return next
+            })
+            return files[stats.indexOf(largest)]
+        })
+    }
+
+1.  
+2.
+3.
+4.
+
+.. [#f1] https://github.com/caolan/async
+.. [#f2] https://github.com/kriskowal/q
 
 
 Ciclo de eventos
