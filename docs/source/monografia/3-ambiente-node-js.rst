@@ -301,12 +301,9 @@ O módulo **async** [#f1]_ é o mais popular entre os desenvolvedores e fica pr�
         ], cb) // [3]
     }
 
-1. *async.waterfall* provê um um controle de execução em série, em que os dados a partir
-de uma operação pode ser passado para a próxima função usando o retorno de chamada **next**.
-2. *async.map* nos permite executar o comando *fs.stat* sobre um *array* de caminhos em paralelo
-e é retornado um *array* com a ordem mantida dos resultados. 
-3. A função **cb** será chamada na conclusão da função ou se em algum momento da execução 
-houver algum erro. Lembrando que é executado somente uma vez.
+1. *async.waterfall* provê um um controle de execução em série, em que os dados a partir de uma operação pode ser passado para a próxima função usando o retorno de chamada **next**.
+2. *async.map* nos permite executar o comando *fs.stat* sobre um *array* de caminhos em paralelo e é retornado um *array* com a ordem mantida dos resultados. 
+3. A função **cb** será chamada na conclusão da função ou se em algum momento da execução houver algum erro. Lembrando que é executado somente uma vez.
 
 Como dito pela Strongloop, este módulo garante que somente um *callback* será retornado e também irá
 propagar erros e controlar o paralelismo para o desenvolvedor.
@@ -351,9 +348,8 @@ utilizar o módulo **Q** [#f2]_ mas nada impede que se use outras bibliotecas de
     }
 
 1. Desde a funcionalidade central do Node.Js não existe os **promises**   
-2. *Q.all* executa todas as chamadas de status dos arquivos em paralelo e retorna um *array* com as ordem dos resultados 
-mantido.
-3 e 4. Passa os arquivos e *status* para a próxima função que então retorna o maior arquivo.
+2. *Q.all* executa todas as chamadas de status dos arquivos em paralelo e retorna um *array* com as ordem dos resultados mantido.
+3. Passa os arquivos e *status* para a próxima função que então retorna o maior arquivo.
 
 A StrongLoop relata que ao contrário dos exemplos anteriores, quaisquer exceções são lançadas dentro da cadeia de *promises*,
 somente depois são capturadas e manipuladas. Ha também uma mudança para chamar esse módulo seguindo essa abordagem.
@@ -407,8 +403,7 @@ suspensa e retomada utilizando a palavra chave **yield**. Para habilitar os *gen
 1. Desde a funcionalidade central do Node.Js não existe os **promises**   
 2. **co** é uma função *generator* que pode ser suspensa utilizando a palavra *yield*
 3. A função *generator* será suspensa até a função *readdir* retornar. O resultado será atribuída a variável files
-4. **co** também pode manipular *arrays* e setar operações paralelas para execução. O *array* com os resultados é atribuído e 
-com a ordem mantida
+4. **co** também pode manipular *arrays* e setar operações paralelas para execução. O *array* com os resultados é atribuído e com a ordem mantida
 5. Por fim é retornado o resultado.
 
 .. [#f1] https://github.com/caolan/async
@@ -419,7 +414,7 @@ O módulo **Co** possui uma agradável manipulação de erros (incluindo exceç�
 **callback**. Os *generators* também habilitada o uso de blocos *try/catch* em torno das declarações *yield*. Além disso **Co**
 suporta *arrays*, objetos, *generators* aninhados, *promises*.
 
-.. code-block:: 
+.. code-block:: javascript
     :linenos:
 
     try {
