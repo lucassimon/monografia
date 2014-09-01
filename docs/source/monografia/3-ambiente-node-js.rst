@@ -350,13 +350,88 @@ utilizar o módulo **Q** [#f2]_ mas nada impede que se use outras bibliotecas de
         })
     }
 
-1.  
-2.
-3.
-4.
+1. Desde a funcionalidade central do Node.Js não existe os **promises**   
+2. *Q.all* executa todas as chamadas de status dos arquivos em paralelo e retorna um *array* com as ordem dos resultados 
+mantido.
+3 e 4. Passa os arquivos e *status* para a próxima função que então retorna o maior arquivo.
+
+A StrongLoop relata que ao contrário dos exemplos anteriores, quaisquer exceções são lançadas dentro da cadeia de *promises*,
+somente depois são capturadas e manipuladas. Ha também uma mudança para chamar esse módulo seguindo essa abordagem.
+
+.. code-block:: javascript
+    :linenos:
+
+    var findLargest = require('./findLargest')
+    
+    findLargest('./path/to/dir')
+    .then(function (er, filename) {
+        console.log('largest file was:', filename)
+    })
+    .catch(console.error)
+
+Abordagem com generators
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Conforme descrito pela StrongLoop os *generators* estarão oficialmente integrado ao Node.Js nas versões
+posteriores a 0.11.2.
+
+*Generators* são co-rotinas leves para o JavaScript. Os *generators* permitem que uma função possa ser
+suspensa e retomada utilizando a palavra chave **yield**. Para habilitar os *generators* utilize o módulo **co** [#f3]_.
+
+.. code-block:: javascript
+    :linenos:
+    :emphasize-lines: 5,8,9,10,20
+
+    var co = require('co')
+    var thunkify = require('thunkify')
+    var fs = require('fs')
+    var path = require('path')
+    var readdir = thunkify(fs.readdir) // [1]
+    var stat = thunkify(fs.stat)
+
+    module.exports = co(function* (dir) { // [2]
+        var files = yield readdir(dir) // [3]
+        var stats = yield files.map(function (file) { // [4]
+           return stat(path.join(dir,file))
+        })
+
+        var largest = stats
+            .filter(function (stat) { return stat.isFile() })
+            .reduce(function (prev, next) {
+                if (prev.size > next.size) return prev
+                return next
+            })
+        return files[stats.indexOf(largest)] // [5]
+    })
+
+1. Desde a funcionalidade central do Node.Js não existe os **promises**   
+2. **co** é uma função *generator* que pode ser suspensa utilizando a palavra *yield*
+3. A função *generator* será suspensa até a função *readdir* retornar. O resultado será atribuída a variável files
+4. **co** também pode manipular *arrays* e setar operações paralelas para execução. O *array* com os resultados é atribuído e 
+com a ordem mantida
+5. Por fim é retornado o resultado.
 
 .. [#f1] https://github.com/caolan/async
 .. [#f2] https://github.com/kriskowal/q
+.. [#f3] https://github.com/visionmedia/co
+
+O módulo **Co** possui uma agradável manipulação de erros (incluindo exceções levantadas) serão passadas para a função de retorno 
+**callback**. Os *generators* também habilitada o uso de blocos *try/catch* em torno das declarações *yield*. Além disso **Co**
+suporta *arrays*, objetos, *generators* aninhados, *promises*.
+
+.. code-block:: 
+    :linenos:
+
+    try {
+        var files = yield readdir(dir)
+    } catch (er) {
+        console.error('something happened whilst reading the directory')
+    }
+    
+A empresa StrongLoop investigou três possibilidades de mitigar o problema das chamadas de retorno infernais, para obtenção
+do controle de fluxo da aplicação. Houve um interesse maior da empresa pelo dos *Generators* apesar de não empregar em
+seus projetos e observar para os módulos de terceiros ela recomenda utilizar a modularização em qualquer um das bibliotecas
+*(async, promises e generators)*
 
 
 Ciclo de eventos
