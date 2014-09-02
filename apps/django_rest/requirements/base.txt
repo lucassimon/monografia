@@ -1,0 +1,11 @@
+Django
+wsgiref==0.1.2
+South>=0.8.1
+Unipath>=1.0
+psycopg2
+django-extensions
+flake8
+dj-database-url
+django-decouple
+djangorestframework
+django-filter
