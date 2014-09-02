@@ -38,5 +38,57 @@ Lorem Ipsum
 
 Desenvolvimento da API em Django
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Lorem Ipsum
 
+Primeiramente foi criado um novo projeto [#f1]_ no framework Django, através de um template gerado e organizado [#f2]_.
+
+
+Utilizando o django-rest-framework [#f2]_.
+
+.. todo::
+
+    Mostrar o link do github para o projeto
+    Colar aqui a imagem gerado pelo django-rest-framework
+    Mostrar como instalar o django-rest-framework
+    Mostrar como setar o modulo ao projeto
+    Mostrar as configurações basicas para o modulo
+    Mostrar a configuracao de permissao na documentação
+
+No Django pode-se organizar em pastas, chamadas de apps, que pode ser criado com o comando *python manage.py startapp api* contendo os arquivos abaixo:
+
+* __init__.py
+* models.py
+* views.py
+* urls.py
+
+O arquivo models contém classes para acessar os contatos conforme o código abaixo.
+
+.. todo::
+
+    Colar aqui o código da classe model Contato
+    Mostrar como o django cria varias tabelas alem das principais
+
+.. warning::
+
+    Mostrar o admin do django como funcionalidade top do framework, msm nao sendo o objetivo?
+
+Na views temos a logica para acessar os dados do banco de dados
+
+.. todo::
+    Mostrar como instalar a app django-rest-framework
+    Colar aqui o código da view Contato
+
+As urls é onde podemos criar as rotas que serão acessadas pelo usuário
+
+.. todo::
+
+    Colar aqui o código da classe model Contato
+
+
+Como acessar a api criada?
+
+Utilizar o curl
+utilizar extensao do chrome POSTMAN
+Utilizar o proprio browser
+
+.. [#f1] link do github
+.. [#f2] http://www.django-rest-framework.org/
