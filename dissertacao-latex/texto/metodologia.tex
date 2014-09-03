@@ -1,0 +1,173 @@
+% Nome do capítulo
+\chapter{Metodologia}
+% Label para referenciar
+\label{metodologia}
+
+% Diminuir espaçamento entre título e texto
+\vspace{-1.9cm}
+
+% Texto do capítulo
+  Baseando-se em metodologias de desenvolvimento de software ágil Scrum, foram determinadas 
+  as seguintes etapas para elaboração deste trabalho:
+
+
+\section{Estudo do ambiente Node.Js}
+  
+  \begin{compactitem}
+    \item[a)] Estudar o paradigma de orientação a eventos.
+    \item[b)] Estudar o Event Loop.
+    
+    Busca um entendimento básico sobre o ciclo de eventos (Event-Loop) e como ele é utilizado no NodeJs.
+    
+    \item[c)] Estudar as principais características do Node.Js.
+    
+    Conhecer o modelo single-thread, diferenças entre o modelo assíncrono e síncrono, dentre outros.
+    
+    \item[d)] Estudo do framework Express
+    
+    Conhecer o framework feito em Node.Js que será a base para criar a 
+    aplicação devido a grandes módulos já inclusos e se codificar de maneira \ac{REST}.
+
+  \end{compactitem}
+
+\section{Criar dois aplicativos em diferentes paradigmas}
+  
+  \begin{compactitem}
+    \item[a)] Desenvolvimento da aplicação no paradigma orientado a eventos.
+    
+    Desenvolver um aplicativo escrito no ambiente Node.Js com o framework Express.Js
+    
+    \item[b)] Desenvolvimento do mesmo aplicativo em outros ambientes.
+    
+    Busca-se com esta etapa ter um aplicativo escrito na linguagem Python com o framework Django
+    para comparamos o desempenho, do ambiente aqui estudado.
+    
+  \end{compactitem}
+
+\section{Levantamento de requisitos}
+
+   \begin{compactitem}
+      \item[a)] Estudar a arquitetura web
+      
+      Buscando um entendimento básico de como é a implementação de uma aplicação 
+      \ac{REST} e seus protocolos relacionados ao HTTP.
+      
+      \item[b)] Especificar requisitos da aplicação.
+      
+      Criar um modelo de \ac{API} da aplicação para fácil entendimento e
+      independente da plataforma de desenvolvimento.
+      
+      \item[c)] Especificar serviços da aplicação.
+      
+      Detalhar e documentar o serviço de hospedagem na internet, além de outros componentes 
+      necessários para o funcionamento do ecossistema da aplicação como:
+      
+	\begin{compactitem}
+	  \item[-] Hardware utilizado;
+	  \item[-] Servidor web para responder requisições na porta 80;
+	  \item[-] Serviços adicionais instalados ( Banco de dados );
+	  \item[-] Softwares para monitorar desempenho e utilização do servidor;
+	\end{compactitem}
+	
+    \end{compactitem}
+
+
+\section{Especificar testes e comparar resultados}
+
+  \begin{compactitem}
+    \item[a)] Utilizar testes de carga na \ac{API}.
+    
+    Realizar um plano de testes de estresse e carga nas \ac{API} desenvolvidas através
+    da ferramenta loader.io \footnote{\label{loader.io}http://loader.io}, melhor descrita na Sub-Seção \ref{ferramentas-utilizadas-para-testes}.
+    
+    
+    \item[b)] Descrever o software de testes.
+    
+    Descrever passo a passo como gerar um teste de carga na aplicação dos serviços descritos acima.
+    
+    \item[c)] Executar os testes para avaliar o desempenho das aplicações.
+    
+    Executar os testes para obter informações e medir o desempenho de cada aplicação.
+    
+    \item[d)] Avaliar os resultados obtidos após a analise, coleta e definições das métricas.
+    
+    Por último realizar uma análise sobre o desempenho positivo ou negativo de cada modelo desenvolvido.
+    
+%    Definir aqui as métricas passadas pelo serviço web loader.io.
+    
+  \end{compactitem}
+
+% testes de carga: Testes realizados para verificar se um sistema suporta uma determinadas
+% carga. Volume do trafego para um determinado sistema. Geralmetne medida em transacoes
+% requisicoes dos ususarios
+
+% Transação: operação completa no sistema. Por exemplo, buscar um produto.
+% Sistema: todo o conjunto de servidores, rede entre servidores, softwares de terceiros e a aplicação.
+% Utilização de um recurso: percentual, em uso, do total de recursos disponíveis.
+% Tempo de resposta: Tempo desde o momento em que o usuário envia a requisição até o momento em que recebe a resposta completa.
+% Na nomeclatura do Jmeter , é o elapsed time
+
+% Profiling: instrumentação da aplicação para estudo dos métodos e seus tempos de execução.
+% Vazão: taxa com que um sistema responde às requisições recebidas.
+% Gargalo: tudo o que impede que o sistema apresente maior vazão.
+% Se a vazão for inferior à taxa com que as requisições são enviadas ao sistema.
+
+% Monitoramento do sistema
+% Métricas Sistema Operacional (Todas as máquinas)
+% Utilização CPU, memória, Swap, disco, rede, etc.
+% /proc, perfmon, vmstat, etc.
+
+% Métricas Banco de Dados
+% Tempo ocupado, tempo execução médio por query, locks, leituras físicas e lógicas, etc.
+% Relatório AWR, etc.
+
+% Profiling(Servidor de aplicação)
+% Tempo de execução por método, tempo de execução em CPU por método, memória consumida por classe, etc.
+% VisualVM, RedGate Ants, etc.
+
+% NewRelic
+% Integra profiling e monitoramento de métricas do sistema operacional.
+
+% testes de estresse: Testes realizados para determinar
+% a capacidade maxima do sistema.
+
+\subsection{Ferramentas Utilizadas}
+\label{ferramentas-utilizadas-para-testes}
+  
+  Para realizar os testes de carga e estresse será utilizado o serviço em computação nas nuvens
+  da empresa SendGrid\footnote{http://labs.sendgrid.com/} denominado loader.io\footnotemark[\ref{loader.io}].
+  
+  De acordo com o sitio\footnotemark[\ref{loader.io}] o serviço é definido com um serviço de teste de carga livre,
+  que permite realizar testes de estresse em aplicativos web ou \ac{API} com milhares de conexões simultâneas
+  (tradução nossa).
+  
+  Na documentação\footnote{http://support.loader.io/} do serviço, mais especificamente, na seção começando (tradução nossa)
+  temos as seções de como criar o teste, tipos de teste, verificando um aplicativo, variáveis,
+  resultados de testes(tradução nossa). Neste capítulo não iremos abordar todos os items pois serão melhor explicados
+  no Capítulo AMBIENTE DE TESTES (colocar a referencia do latex aqui). Apenas a seção tipos de testes será explicada neste 
+  momento.
+  
+  Os três tipos de testes suportados pelo serviço são:
+  
+  Clientes por testes
+  
+  Este teste permite que especifique um número total de clientes que se conectam ao serviço. Quando criar o teste,
+  especifique somente um número de clientes então vários clientes irão se conectar ao longo da duração do teste. 
+  Por exemplo, se for criado um teste com 20.000 clientes dentro de 20 segundos, o serviço irá executar a carga de 
+  1.000 clientes por segundo. (tradução nossa)
+  
+  Clientes por segundo
+  
+  Este teste permite que especifique um número de clientes que se conectam a cada segundo. Por exemplo se for criado
+  um teste com 1.000 clientes dentro de 20 segundos, o serviço irá conectar 20.000 clientes por teste.
+  
+  Mantendo carga do clientes
+  
+  Segundo a definição da documentação, este teste é utilizado para sobrecarregar (martelar) o site ou \ac{API}.
+  
+  O serviço loader.io garante que um número constante de clientes estará consumindo e realizando requisições em 
+  sua \ac{API} a todo o momento.
+  
+  Este teste permite que especifique um número mínimo e máximo de clientes. Especificando zero clientes
+  até 10.000, por exemplo, o teste vai começar com zero até 10.000 clientes simultâneos no final do teste.
+  
