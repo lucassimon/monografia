@@ -163,7 +163,7 @@
 % Para forçar que elementos pré-textuais (da capa até o sumário) sejam impressos no anverso da folha
 \setboolean{@twoside}{false}
 
-\autor{Lucas Simon Rodriguês Magalhães}
+\autor{Lucas Simon Rodrigues Magalhães}
 
 % Coloque o título em caixa alta. É o padrão da PUC.
 % Vá no arquivo abnt-PPGInf-PUCMG.sty e procure por esse título (linha 575). Altere para o seu título em caixa alta. Isso será utilizado na folha de aprovação.
@@ -282,10 +282,12 @@ como exigência parcial para a obtenção do título de Bacharel em Sistemas de 
 % Altere o número da página para o correto. Conte todas as páginas frente e verso, menos a capa, nclusive a ficha catalográfica até a página do primeiro capítulo.
 \setcounter{page}{25}
 
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
 % Capítulos
 % Para forçar que o capítulo de introdução comece no anverso
 \setboolean{@openright}{true}
-\include{texto/cap1}
+\include{texto/introducao}
 % Os demais capítulos não precisam começar no anverso
 \setboolean{@openright}{false}
 \include{texto/cap2}
