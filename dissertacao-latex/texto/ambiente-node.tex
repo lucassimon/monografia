@@ -1,0 +1,248 @@
+% Nome do capítulo
+\chapter{O ambiente Node.Js}
+% Label para referenciar
+\label{ambiente-node-js}
+
+% Diminuir espaçamento entre título e texto
+\vspace{-1.9cm}
+
+% Texto do capítulo
+
+  O ambiente Node.Js pode prover um ambiente de programação amplo e forte para os desenvolvedores. Esta pequena introdução
+  tem como objetivo resumir o potencial do ambiente em poucos parágrafos.
+  
+  
+  Primeiramente o JavaScript é uma das linguagens de programação mais utilizadas em interfaces de sites, e o Node.Js
+  permite utilizar essa linguagem de programação e aplica-la em outros contextos como servidores web. Possui um alto
+  desempenho através do JavaScript Enginie V8, do Google.\cite{Hughes:2012}.
+  
+  O V8 utiliza umas das técnicas recentes de compiladores que permite que o código escrito em linguagem de alto nível,
+  tal como, o JavaScript é, execute de forma semelhante a linguagens de baixo nível como C. O Node.Js também aproveita
+  do paradigma de orientação a eventos da linguagem e retira proveito disso para produzir servidores escaláveis usando 
+  uma arquitetura chamada de ciclo de eventos, do inglês, Event Loop.\cite{Hughes:2012}.
+  
+  Node.Js é extensível com grandes módulos construídos por uma comunidade ativa em tão pouco tempo de vida.
+  
+\section{Programação Orientada a Eventos}
+\label{programacao-orientada-a-eventos}
+
+  O autor \citeonline{Junior:2012} define a programação orientada a eventos, é um paradigma de programação, onde
+  pode-se controlar o fluxo da aplicação através de eventos; Um evento indica que algo aconteceu. 
+  Onde em servidores web convencionais, o modelo padrão é o conceito de ação e resposta. 
+  O cliente passa a realizar uma requisição a um servidor e aplicação que recebe esta requisição e então 
+  produz uma resposta. No paradigma orientado a eventos o utiliza a termonologia de produtor do evento (\textit{event producer}) 
+  e o consumidor do evento (\textit{event consumer}).
+
+  \citeonline{Pereira:2013} compara que o Node.Js orientado a eventos se espelha na filosofia de orientação 
+  a eventos utilizado pelo JavaScript nos navegadores; a diferença entre eles é que no Node.Js 
+  não existe eventos de clique do mouse, teclas pressionadas do teclado (keyup) ou qualquer evento de componentes HTML.
+  No Node.Js os eventos trabalhados são entrada e saída do servidor como eventos de conexão 
+  ao banco de dados, abertura de arquivo e um dado de um streaming, dentre muitos outros.
+  
+  A principal diferença em sistemas baseados em eventos, é que, o produtor do evento não espera pela ação a ser executada
+  pelo servidor. Essa é uma iteração não bloqueante, podendo-se dizer até assíncrona. \cite{Junior:2012}   
+
+
+\section{Single - thread}
+\label{single-thread}
+
+  Definir Single thread.
+  
+  Uma das melhores maneiras para entender o single-thread é descrita por \citeonline{Hughes:2012}
+  fazendo uma analogia ao cotidiano de nossa vida.
+  
+  Na vida cotidiana, estamos acostumados todos os tipos de retorno de chamadas internas para lidar com eventos, 
+  e ainda, com JavaScript fazemos apenas uma coisa de cada vez. 
+  \citeonline{Hughes:2012} exemplifica que o ser humano é capaz de realizar duas tarefaas simples ao mesmo tempo,
+  mas que caso uma dessas atividades seja critica ou grave, ao mesmo tempo, ha chances de algo dar errado muito rapidamente. 
+  Isto é como JavaScript. Já que as ações são conduzidas por eventos mas no single-thread apenas uma coisa 
+  acontece ao mesmo tempo.
+  
+  Para \citeonline{Hughes:2012} o conceito single-threaded é muito importante porém é uma das críticas 
+  feitas ao Node.Js é a falta de concorrência. Quando \citeonline{Hughes:2012} pronunciou falta de concorrência 
+  quis dizer que não é utilizado todas as CPU’s de um computador. 
+  Segundo estes autores o problema de executar códigos em várias CPU’s de uma vez é que ele requer 
+  uma coordenação entre várias “linhas” de execução. Para que várias CPU’s possam dividir de maneira eficaz o trabalho, 
+  é necessário que eles conversem entre si sobre o estado atual do programa, e o que cada single thread havia feito.
+
+  \citeonline{Hughes:2012} não descarta a possibilidade de concorrência mas que é um modelo mais complexo e que exige mais esforço 
+  do desenvolvedor e do sistema.
+  
+  De acordo com \citeonline{Pereira:2013}, em Node.Js nativamente não é possível trabalhar com programação 
+  concorrente em plataforma multi-thread. Mas que existem maneiras de se implementar sistemas concorrentes, 
+  como por exemplo, utilizar clusters o qual é um módulo nativo do ambiente Node.Js.
+  
+  Além disso, é possível compartilhar sockets entre processos através da biblioteca multi-node \citeonline{Zyp:2013},
+  sendo assim, pode-se ter múltiplos nós de servidores de processos trabalhando em paralelo, 
+  cada um em core do processador, mas atenndendo ou escutando a mesma porta, assim o próprio sistema operacional
+  atua como balanceador de carga.\cite{Junior:2012}
+  
+  \cite{Powers:2012} cita também o single thread como um dos benefícios do ambiente do Node.Js 
+  pois o aplicativo pode ser facilmente escalável uma vez que em um único segmento de execução não ha uma enorme 
+  sobrecarga de requisições. Citando o exemplo de seu livro, ao criar uma aplicação em \ac{PHP} semelhante 
+  à aplicação Node.Js o usuário veria a mesma página, mas no código backend do sistema ira notar-se a diferença.
+  
+  Se executar esse aplicativo \ac{PHP} no servidor web Apache , cada pedido que for solicitado irá ser tratado 
+  em um processo filho separado. As possibilidades são, a menos que você tem um sistema de carregamento eficiente, 
+  você só vai ser capaz de executar mais um par de centenas de processos filhos em paralelo. 
+  Mais do que esse número de pedidos significa que um cliente precisa esperar por uma resposta.\cite{Powers:2012}
+  
+  Deste modo, um servidor Node.js pode suportar dezenas de milhares de conexões simultâneas, 
+  pois ele altera todo o contexto do servidor e o único gargalo passa a ser a capacidade de tráfego 
+  de um sistema e não mais o número de conexões.\cite{Abernethy:2011}
+  
+\section{Chamdas de retorno e \textit{callback's hell}}
+\label{chamadas-de-retorno-e-callback-hell}
+
+  De acordo com \citeonline{Wilson:2013} o JavaScript utiliza de \textit{callbacks}
+  para abordar o problema a  partir do lado oposto; ao invés de gerenciar processos de execução prolongada, 
+  os desenvolvedores associam eventos específicos e escrevem funções especiais, chamadas \textit{callbacks}
+  (chamadas de retorno), que são executadas quando o critério do evento é atingido.
+
+\subbsection{Evitando \textit{callbacks hell}}
+
+  \cite{Pereira:2013} relata que o JavaScript possui boa performance trabalhando de forma assíncrona porém em certos 
+  momentos do desenvolvimentos, inevitavelmente será implementado diversas funções assíncronas encadeadas umas nas 
+  outras através das suas funções \textit{callbacks} denominando o nome \textit{callbacks hell}.
+  
+  No código \ref{leitura-arquivos-diretorio-node} implementado por \citeonline{Pereira:2013}, e referenciado no Anexo \ref{primeiro-anexo}
+  ha uma simples leitura de arquivos de um diretório qualquer sendo impresso o nome do arquivo e seu tamanho em
+  bytes. Este exemplo feito pelo autor demonstra que uma simples tarefa possui várias chamadas de retorno encadeadas. Também
+  é questionado como seria a organização caso a solução do problema fosse mais complexa. Pode-se entender que tal código
+  seria um caos e de difícil manutenabilidade.
+  
+  Também é afirmado, que, a linguagem JavaScript ser assíncrona resulta em ganhos de 
+  performace, ha o problema de perda de controle do que está sendo executado, acesso à variáveis devido à troca de escopos
+  neste emaranhado de chamadas de retorno.
+  
+  Um ponto a se atentar, é que, que as chamadas de retorno no Node.Js possuem como parâmetro uma variável de erro. Se existir
+  este parâmetro, é recomendado por \citeonline{Pereira:2013} que realize primeiramente o tratamento deste erro na execução da função
+  impossibilitando a execução aleatória quando surgir tal erro.
+  
+  Uma das maneiras de se evitar o temido \textit{callback hell}, e dado que é, uma boa prática de codificação JavaScript é
+  criar funções que expressem seu objetivo de forma isoladas, salvando os retornos em váriaveis e passando-as em outros
+  chamadas de retorno como parâmetros. A organização do código pode ser visto no código \ref{leitura-arquivos-diretorio-node-callback-heaven} do
+  Anexo \ref{primeiro-anexo}.\cite{Pereira:2013}
+  
+  Visualizando o código \ref{leitura-arquivos-diretorio-node-callback-heaven} é possível observar que houve uma melhora na 
+  legibilidade, deixando-o mais semântico e com nomes apropriados para suas funções. O número de chamadas de retorno encadeadas
+  foram reduzidas. Como sugerido por \cite{Pereira:2013} o ideal é manter no máximo dois encadeamentos nas chamdas de retorno.
+  Caso tal número seja ultrapassado é recomendado criar uma função externa e passa-la por parâmetro, ao invés de 
+  continuar criando os \textit{callbacks hell}.
+  
+  Agora a empresa StrongLoop (http://strongloop.com, recuperado em 31, agosto, 2014), mantenedora do projeto \textit{open source}
+  Express.Js, apresenta um problema semelhante ao de \citeonline{Pereira:2013} com um nível maior de complexidade. 
+  As características deste problema são: ler os arquivos em um diretório; receber o \textit{status} do arquivo;
+  determinar qual é o maior arquivo; ter somente uma chamada de retorno com o nome do maior arquivo.
+  
+  A implementação do código \ref{leitura-arquivos-diretorio-node-strongloop} do Anexo \ref{primeiro-anexo}
+  utiliza chamadas de retorno encadeadas. A implementação deste código é eficaz em resolver o problema, entretanto,
+  fica complicado em gerenciar o paralelismo das chamadas de retorno e corre o risco de não saber qual chamada de retorno
+  está em execução. Partindo dessa necessidade a empresa apresenta a mesma técnica sugerida por \citeonline{Pereira:2013}
+  modularizando e isolando as funções utilizadas. O resultado final deste código pode ser visto em 
+  \ref{leitura-arquivos-diretorio-node-strongloop-modular}.
+  
+  Uma abordagem utilizada pela empresa StrongLoop é a utilização do módulo async \footnote{https://github.com/caolan/async},
+  sendo o mais popular entre os desenvolvedores e também fica mais próximo do \textit{core} (núcleo) do Node.Js. Este módulo
+  possui o metódo async.waterfall que provê um controle em série, em que os dados podem ser passados para a próxima função
+  usando o parametro next. O metódo async.map executa o comando fs.stat (buscar status do arquivo) do Node.Js sobre uma matriz
+  de caminhos, em paralelo. Em seguida retorna uma matriz com a ordem mantida dos resultados. Como dito pela empresa
+  Strongloop, este módulo garante que somente uma chamada de retorno será retornada, propagação de erros e controle do 
+  paralelismo automáticamente. 
+  
+  Outro módulo é apresentado pela empresa Strongloop é utilização de \textit{Promises} que fornece tratamento de erros
+  e regalias de programação funcional. Para tal, é necessário utilizar o módulo Q \footnote{https://github.com/kriskowal/q}
+  que através do metódo q.all executa todas as chamadas de status dos arquivos em paralelo e em seguida retorna uma matriz
+  com a ordem dos dados mantidas. Ao contrário de exemplos anteriores, quaisquer exceção é lançada dentro da cadeia dos
+  \textit{promises}. Somente depois tais exceções são capturadas e manipuladas.
+  
+  Por fim como descreve a \citeonline{Strongloop:2013} existe a abordagem utilizando \textit{generators} que estarão
+  contemplatos e integrados oficialmente em versões posteriores à 0.11.2 do Node.Js. Os \textit{generators} podem ser definidos
+  como co-rotinas leves para o JavaScript. Estes \textit{generators} permitem que uma função possa ser suspensa e retornada
+  utilizando a palavra reservada yield. A empresa recomenda utilizar o módulo CO \footnote{https://github.com/visionmedia/co},
+  mas nada impede a utilização de outros módulos. Ao utilizar o módulo CO é possível manipular erros (incluindo exceções levantadas)
+  serão passadas para a função de chamada de retorno. Também é habilitado o uso de blocos \textit{try/catch} em torno das 
+  declarações yield.
+  
+  A empresa \cite{Strongloop:2013} investigou três possibilidades de mitigar o problema dos \textit{callbacks hell}, com o 
+  intuito de obtenção de controle do fluxo da aplicação. Um interesse maior surgiu pela a abordagem dos \textit{generators}
+  apesar de não empregar em seus projetos. Independente de qual módulo e abordagem for utilizada ela reafirma que é recomendado
+  utilizar a modularização em qualquer parte da aplicação e bibliotecas descritas (\textit{async,promises, generators}).
+  
+  Todo os código e comentários podem ser vistos no artigo da empresa. \cite{Strongloop:2013}
+  
+\section{Ciclo de eventos}
+\label{ciclo-de-eventos}
+  
+  Ao introduzir esse assunto \cite{Pereira:2013} diz que o ciclo de eventos - Event-Loop - 
+  é o agente responsável por escutar e emitir eventos dentro do sistema. Rapidamente explica a teoria do paradigma 
+  de orientação a eventos onde o ciclo de eventos é uma repetição infinita que a cada interação verifica em sua 
+  fila de eventos se um determinado evento foi emitido ou se existem novos eventos. Estes eventos só aparecem na 
+  fila quando são emitidos durante as suas interações na aplicação; quando ocorre, é emitido um evento, então este evento 
+  é executado e enviados para a fila de executados.
+  
+  \cite{Wilson:2013} enaltece os eventos como sendo a alma do Node.Js e do JavaScript. 
+  Complementando afirma-se que outras linguagens de programação lidam com fluxos de trabalho em threads múltiplas 
+  e concorrentes, com cada thread gastando a maioria de seu tempo aguardando operações bloqueadoras de entrada e 
+  saída como leitura ou escrita em disco, manipulação do banco de dados ou acesso a informações pela rede.
+  
+  \begin{figure}[H]
+  % Alterar espaçamentos antes e depois do caption
+  \setlength{\abovecaptionskip}{0pt}
+  \setlength{\belowcaptionskip}{0pt}
+  % Caption
+  \caption[Ciclo de eventos no Node.Js]{Ciclo de eventos no Node.Js}
+  \centering
+  \includegraphics[width=.85\textwidth]{imagem/event-loop-caio-ribeiro.png}
+  % Caption centralizada
+  \captionsetup{justification=centering}
+  \captionfont{\small{\textbf{\\Fonte: \cite{Pereira:2013}}}}	
+  \label{fig:event-loop}
+  \end{figure}
+  
+  Na figura \ref{fig:event-loop} mostra o ciclo de eventos executado em uma repetição, recebendo o evento \textit{request}.
+  
+  \cite{Wilson:2013} escreve uma das qualidades do JavaScript, que foi criado seguindo o modelo de programação orientado 
+  a eventos. Sendo desde um simples clique de mouse, carregamento de páginas ou envio de formulários, todos utilizando 
+  o modelo baseado em eventos.
+  
+  O \textit{event loop} (cilo de eventos) é o sistema que usa o JavaScript para lidar com os pedidos recebidos de várias
+  partes do sistema de uma forma sadia. Há uma série de maneiras como as pessoas lidam com o tempo real ou questões 
+  paralelas em computação. 
+  A maioria deles são bastante complexos e fazem o cérebro doer. 
+  O JavaScript tem uma abordagem simples que torna o processo muito mais compreensível, mas introduz algumas restrições. 
+  Possuindo uma ideia de como o ciclo de eventos funciona, o desenvolvedor é capaz de usá-lo em toda sua potencialidade, 
+  conseguindo vantagens e evitando armadilhas dessa abordagem.\cite{Hughes:2012}
+  
+  Pensamos que a maioria das pessoas entendem intuitivamente a programação orientada a eventos, porquê é como a 
+  vida cotidiana onde cada solicitação de evento necessita de um retorno. A programação orientada a eventos faz a 
+  mesma coisa. Ao permitir que o desenvolvedor escreva código que só trabalhe em um retorno de chamada de cada vez, 
+  o programa será compreensível e também capaz de executar rapidamente várias tarefas de forma eficiente.\cite{Hughes:2012}
+  
+  Como apresentado por \cite{Pereira:2013} o EventEmitter, é o módulo responsável por por emitir estes eventos e em 
+  grande maioria das bibliotecas do ambiente Node.Js utiliza as funcionalidades de eventos deste módulo. 
+  No processo de execução do evento pode-se programar qualquer lógica de programação através do 
+  mecanismo de chamada de retorno. Tal chamada de retorno pode ser executado através de uma função de escuta, 
+  semanticamente conhecida pelo on().
+  
+  Essa seção é bem descrita e exemplificada por \cite{Wilson:2013} em seu livro que nos mostra o uso e o 
+  desenvolvimento de eventos.
+  
+  \lstinputlisting[
+    language=JavaScript, 
+    label=criar-manipular-eventos, 
+    caption={Fonte: \cite[p. 29]{Wilson:2013}. Criação e manipulação de eventos de aplicação}
+  ]{pos-texto/criacao-manipulacao-eventos-da-aplicacao.js}
+  
+  Segundo \cite{Wilson:2013} o exemplo \ref{criar-manipular-eventos} demonstra como três funções não relacionadas 
+  onApplicationStart, onApplicationRun e onApplicationStop são associadas aos nomes dos eventos ApplicationStart,
+  ApplicationRun, ApplicationStop utilizando o \textit{eventEmitter}
+  
+  Finalizando o ciclo de eventos seção, \cite{Pereira:2013} diz que a programação orientada a eventos do Node.Js 
+  foi inspirado pelos \textit{frameworks} Event Machine\footnote{http://rubyeventmachine.com/} do 
+  Ruby\footnote{https://www.ruby-lang.org/en/} e Twisted\footnote{https://twistedmatrix.com/trac/} do 
+  Python\footnote{https://www.python.org/}, porém o ciclo de eventos do Node.Js é mais perfomático pois seu mecanismo 
+  é nativamente executado de forma não bloqueante sendo o diferencial em relação a outros ambientes de programação.
+  
+\section{Por que usar assíncrono}
+\label{porque-usar-assincrono}
