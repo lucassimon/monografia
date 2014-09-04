@@ -1,8 +1,32 @@
 % Nome do Anexo
 \chapter{Primeiro Anexo}
-
+\label{primeiro-anexo}
 % Para diminuir espa�amento entre o t�tulo e o texto
 \vspace{-1.9cm}
 
 % Texto
-Textos ou documentos não elaborados pelo autor.
+% Textos ou documentos não elaborados pelo autor.
+
+\lstinputlisting[
+  language=JavaScript, 
+  label=leitura-arquivos-diretorio-node, 
+  caption={Fonte: \cite{Pereira:2013}. O inferno em chamadas de retorno}
+]{pos-texto/leitura-arquivos-diretorio-node.js}
+
+\lstinputlisting[
+  language=JavaScript, 
+  label=leitura-arquivos-diretorio-node-callback-heaven, 
+  caption={Fonte: \cite{Pereira:2013}. Chamadas de retorno organizada}
+]{pos-texto/leitura-arquivos-diretorio-node-callback-heaven.js}
+
+\lstinputlisting[
+  language=JavaScript, 
+  label=leitura-arquivos-diretorio-node-strongloop, 
+  caption={Fonte: \cite{Strongloop:2013}. Exemplo complexo de leitura de arquivos com callbacks hell}
+]{pos-texto/leitura-arquivos-diretorio-node-strongloop.js}
+
+\lstinputlisting[
+  language=JavaScript, 
+  label=leitura-arquivos-diretorio-node-strongloop-modular, 
+  caption={Fonte: \cite{Strongloop:2013}. Exemplo complexo de leitura de arquivos modularizado}
+]{pos-texto/leitura-arquivos-diretorio-node-strongloop-modular.js}
