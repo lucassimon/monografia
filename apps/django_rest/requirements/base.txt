@@ -9,4 +9,3 @@ dj-database-url
 django-decouple
 djangorestframework
 django-filter
-pygraphviz
