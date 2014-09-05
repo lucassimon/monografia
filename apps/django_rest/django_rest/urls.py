@@ -27,6 +27,11 @@ urlpatterns = patterns(
         )
     ),
     url(r'^api/', include('api.urls')),
+    url(
+        r'^loaderio-a11d9dfdb04fa7b965e4464c87cd8576/$',
+        'core.views.loaderio',
+        name='loaderio'
+    ),
 
     # SEO API's
     url(
@@ -43,4 +48,3 @@ urlpatterns = format_suffix_patterns(
     urlpatterns,
     allowed=['json', 'api']
 )
-
