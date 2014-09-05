@@ -99,7 +99,7 @@
   os desenvolvedores associam eventos específicos e escrevem funções especiais, chamadas \textit{callbacks}
   (chamadas de retorno), que são executadas quando o critério do evento é atingido.
 
-\subbsection{Evitando \textit{callbacks hell}}
+\subsection{Evitando \textit{callbacks hell}}
 
   \cite{Pereira:2013} relata que o JavaScript possui boa performance trabalhando de forma assíncrona porém em certos 
   momentos do desenvolvimentos, inevitavelmente será implementado diversas funções assíncronas encadeadas umas nas 
@@ -229,7 +229,7 @@
   desenvolvimento de eventos.
   
   \lstinputlisting[
-    language=JavaScript, 
+    language=c, 
     label=criar-manipular-eventos, 
     caption={Fonte: \cite[p. 29]{Wilson:2013}. Criação e manipulação de eventos de aplicação}
   ]{pos-texto/criacao-manipulacao-eventos-da-aplicacao.js}
@@ -246,3 +246,172 @@
   
 \section{Por que usar assíncrono}
 \label{porque-usar-assincrono}
+
+  No ambiente de desenvolvimento Node.Js é importante entender e saber trabalhar com as chamadas assíncronas. 
+  \cite{Pereira:2013} em seu livro exemplifica em código as diferenças entre uma função síncrona e assíncrona 
+  em relação ao tempo em que são executadas. Este código nada mais é que uma repetição de 5 interações e a cada 
+  iteração desta repetição será criado um arquivo texto.
+  
+  Veja o tempo gasto utilizando o modelo síncrono da função \textit{fs.writeFileSync}.
+  
+  \begin{figure}[H]
+  % Alterar espaçamentos antes e depois do caption
+  \setlength{\abovecaptionskip}{0pt}
+  \setlength{\belowcaptionskip}{0pt}
+  % Caption
+  \caption[Tempo de resposta, metódo síncrono bloqueante]{Tempo de resposta, metódo síncrono bloqueante}
+  \centering
+  \includegraphics[width=.85\textwidth]{imagem/timeline-node-sync-caio-ribeiro.png}
+  % Caption centralizada
+  \captionsetup{justification=centering}
+  \captionfont{\small{\textbf{\\Fonte: \cite{Pereira:2013}}}}	
+  \label{fig:timeline-sync}
+  \end{figure}
+  
+  A Figura \ref{fig:timeline-sync} exibe um quadro com um tempo de 200 ms de resposta para cada um dos 5 arquivos.
+
+  \begin{figure}[H]
+  % Alterar espaçamentos antes e depois do caption
+  \setlength{\abovecaptionskip}{0pt}
+  \setlength{\belowcaptionskip}{0pt}
+  % Caption
+  \caption[Tempo de resposta, metódo assíncrono não-bloqueante]{Tempo de resposta, metódo assíncrono não-bloqueante}
+  \centering
+  \includegraphics[width=.85\textwidth]{imagem/timeline-node-async-caio-ribeiro.png}
+  % Caption centralizada
+  \captionsetup{justification=centering}
+  \captionfont{\small{\textbf{\\Fonte: \cite{Pereira:2013}}}}	
+  \label{fig:timeline-async}
+  \end{figure}
+
+  
+  Agora na Figura \ref{fig:timeline-async} o tempo total de duração foram de 200 milesegundos, pois foram executados
+  de forma assíncrona maximizando o processamento.
+
+\subsection{Threads vesus Assíncronismos}
+\label{threads-vs-assincronismo}
+
+  De acordo com \cite{Pereira:2013} por mais que as funções assíncronas possam executar em paralelo várias tarefas,
+  elas jamais serão consideradas uma Thread ( como Threads do java). A diferença é que as Threads são manipuláveis 
+  pelo desenvolvedor, ou seja, você pode pausar a execução de uma Thread ou fazê-la esperar o término de uma outra. 
+  Chamadas assíncronas apenas invocam suas funções numa ordem de que você não tem controle, e você só sabe quando 
+  uma chamada terminou quando seu callback é executado.
+  
+  Pode parecer vantajoso ter controle sobre Threads 
+  a favor de um sistema que executa tarefas em paralelo, mas pouco domínio sobre eles pode transformar seus sistema 
+  em um caos de travamentos deadlocks, afinal threads são executadas de forma bloqueante. 
+  Este é o grande diferencial das chamadas assíncronas, elas executam em paralelo suas funções sem travar 
+  processamento das outras e principalmente sem bloquear o sistema principal.
+  
+  É essencial que seu código Node.Js invoque o mínimo possível de funções bloqueantes. 
+  Toda função síncrona impedirá, naquele instante, que o Node.Js continue executando os demais códigos até que aquela 
+  função seja finalizada. Por exemplo, se essa função fizer uma operação de entrada e saída em disco, vai bloquear o 
+  sistema inteiro, deixando o processador ocioso enquanto é utilizado outros recursos de hardware.\cite{Pereira:2013}
+
+\section{Framework Express}
+\label{framework-express}
+
+  \cite{Powers:2012} descreve que no geral um \textit{framework} ajuda na infraestrutura e que nos permite criar sites e aplicações
+  com agilidade, fornecendo ao desenvolvedor um esqueleto capaz de oferecer um suporte no processo de desenvolvimento de
+  software. Com os \textit{frameworks} foca-se na criação de funcionalidades da nossa aplicação ou site e 
+  também fornece coesão ao código, o que nos beneficia com legibilidade e manutenabilidade.
+
+  \cite{Pereira:2013} complementa que utilizar a \ac{API} \ac{HTTP} nativa do Node.Js pode ser um processo moroso e desgastante
+  para o desenvolvedor. 
+  Conforme surgem novas necessidades de implementação e novas funcionalidades serão acrescidas,
+  os códigos se tornarão gigantescos aumentando a complexidade do projeto e dificultando futuras manutenções.
+  
+  Assim surge o \textit{framework} Express.Js para solucionar necessidades e agilizar no desenvolvimento.
+  
+  \citeonline{Powers:2012} compara que o \textit{Express.Js} é parecido com o \textit{framework} Sinatra porém bem mais \textit{RESTFUL}. 
+  Pereira(2012) reafirma e complementa que o módulo \textit{Express.Js} foi inspirado pelo \textit{framework} Sinatra da 
+  linguagem Ruby e que é bastante utilizado em aplicações web de grande escala.
+  
+  Suas características são descritas por \citeonline{Pereira:2013}:
+  
+  \begin{compactitem}
+    \item[a)] \ac{MVR};   
+    
+    \item[b)] \ac{MVC};
+    
+    \item[c)] Roteamento de \ac{URL} com chamadas de retorno;
+    
+    \item[d)] Middleware;
+    
+    \item[e)] Interface \ac{REST};
+    
+    \item[f)] Suporte a File Uploads.
+    
+    \item[g)] Configuração baseada em variáveis de ambiente;
+    
+    \item[h)] Suporte a helpers dinâmicos;
+    
+    \item[i)] Integração com Templates Enginies;
+    
+    \item[j)] Integração com \ac{SQL} e \ac{NoSQL};
+    
+  \end{compactitem}
+  
+  Ao criar um esqueleto utilizando o \textit{Express.js} é importante ter conhecimento do que cada
+  arquivo ou diretório representa. \cite{Powers:2012, Hughes:2012} não apresentam um descritivo de cada arquivo 
+  ou diretório e seu papel. Entretanto \cite{Pereira:2013, Wilson:2013} aprofundam mais neste assunto.
+  
+    \begin{compactitem}
+    \item[a)] \textit{package.json}:
+    
+    \cite{Pereira:2013} diz que este arquivo contém as principais informações sobre a aplicação como: 
+    nome, autor, versão, colaboradores, URL, dependências e outros.
+    
+    \item[b)] \textit{public}:
+    
+    Pasta pública que armazena código estático como imagens, css e javascript. \cite{Pereira:2013}
+    
+    \item[c)] \textit{app.js}:
+    
+    \cite{Wilson:2013} descreve melhor esse arquivo como ponto de entrada para a aplicação Node.Js, 
+    sendo capaz executar o servidor através do comando: \textit{node app.js}
+    
+    \item[d)] \textit{routes}:
+    
+    \cite{Pereira:2013} descreve como diretório que mantém todas as rotas da aplicação. 
+    Na versão utilizada por \citeonline{Wilson:2013} em seu livro o Express.Js não possui este diretório.
+    
+    \item[e)] \textit{views}: 
+    
+    \cite{Wilson:2013} descreve que esta pasta contém os motores de \textit{template} (Jade ou EJS), 
+    que são renderizados pelo servidor Express.Js e enviados ao cliente. \cite{Pereira:2013}
+    simplifica descrevendo que é um diretório que contém todas as visões renderizadas pelas rotas.
+    
+  \end{compactitem}
+  
+  O arquivo de \textit{package.json}, de acordo com \citeonline{Wilson:2013} sempre é necessário ser criado 
+  em seu projeto e que ele é responsável por fornecer detalhes sobre as condições de operação e configuração 
+  esperadas por seu código. \cite{Wilson:2013} complementa que este arquivo ajuda a prevenir que alterações 
+  futuras em módulos de terceiros quebrem a lógica da aplicação.
+
+  No livro Construindo Aplicações Node com MongoDB e Backbone, \cite{Wilson:2013} exibe um exemplo do arquivo 
+  \textit{package.json} o qual é utilizado para sincronizar a aplicação com dependências, sendo importante associar 
+  a aplicação a uma versão especifica. 
+  
+  Para maiores detalhes sobre as notações semânticas utilizada pelo \ac{NPM} visite a documentação \cite{Semver:2013}.
+
+\subsection{O servidor web com \textit{Express.Js}}
+\label{servidor-web-express-js}
+
+  No \textit{framework} \textit{Express.Js} temos um servidor web para desenvolver nossa aplicação. 
+  \cite{Wilson:2013} relata que muitos desenvolvedores tradicionalistas configuram um software para o servidor web Apache\footenote{http://www.apache.org/},
+  Nginx\footnote{http://nginx.org/} ou IIS\footenote{http://www.iis.net/} para ser um canal de comunicação entre o 
+  navegador e a aplicação.
+  Atualmente com o surgimento de novas tecnologias de programação e \textit{frameworks} como Ruby on Rails, 
+  Django e \textit{frameworks} do \ac{PHP} versão posterior a 5.4 ha um servidor de desenvolvimento embutido no \textit{framework}
+  para o desenvolvimento local visando agilizar o desenvolvimento das aplicações no menor tempo possível.
+  
+  Complementando este capítulo de acordo com \cite{Wilson:2013} o interessante do Node.Js é que o código do 
+  programa que se escreve para ele também é a implementação do servidor. 
+  Seguindo este modelo tem-se a expectativa de que a aplicação funcione e se comporte de modo semelhante 
+  ao ambiente de produção assim como no desenvolvimento, pois não existe nenhuma biblioteca, nenhum intermediário 
+  ou \textit{daemon} que esteja no caminho.
+  
+  O arquivo app.js criado pelo \textir{Express.js} é em suma pequeno mas com grandes funcionalidades inclusas como 
+  roteamento para solicitações \ac{HTTP} entrantes, motores de visões para renderizar marcações do HTML5
+  e também download dos arquivos estáticos.
