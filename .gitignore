@@ -9,6 +9,10 @@ build
 *.blg
 *.lof
 *.log
+*.loq
 *.lot
 *.pdf
 *.toc
+*.backup
+pre-texto/*.aux
+pos-texto/*.aux
