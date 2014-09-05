@@ -23,7 +23,7 @@
   como manipular múltiplas requisições de clientes em servidores, os programadores adotaram utilizar técnicas 
   de programação multithread (processamento simultâneo de um conjunto de tarefas), 
   ou técnicas de programação paralela, dividindo o processamento da aplicação em vários núcleos 
-  dos processadores da CPU ou até mesmo utilizando computação distribuída. 
+  dos processadores da \ac{CPU} ou até mesmo utilizando computação distribuída. 
   Este modelo de programação para atender múltiplas entradas e saídas é fácil de entender, 
   implementar e permite executar os processos de forma rápida e eficiente. 
   Porém este modelo apresenta algumas falhas, por exemplo, quando uma thread (conjunto de tarefas) 
@@ -39,7 +39,7 @@
   multithreading (processamento simultâneo de um conjunto de tarefas) pois o sistema operacional é responsável 
   por decidir qual thread (conjunto de tarefas) será executada e por quanto tempo.''~\cite[p. 80]{Tilkov:2010}
   
-  Em sistemas web desenvolvidos sob as plataformas tradicionais como JAVA, PHP, .NET dentre outros 
+  Em sistemas web desenvolvidos sob as plataformas tradicionais como JAVA, \ac{PHP}, .NET dentre outros 
   é necessário paralisar um processamento enquanto utiliza uma entrada e saída do servidor. 
   Essa paralisação é conhecida como um modelo bloqueante. Exemplificando este modelo, em um servidor Web 
   que cada processo é uma requisição de feita pelo usuário. Com o decorrer novos usuários realizam novas 
@@ -52,7 +52,7 @@
   não forem finalizadas. Com o aumento dos acessos ao sistema é necessário fazer uma atualização
   do hardware (equipamento).\cite{Pereira:2013}
   
-  De acordo com \citeonline{Abernethy:2011}, explica que em linguagens como Java e PHP, cada conexão cria-se uma 
+  De acordo com \citeonline{Abernethy:2011}, explica que em linguagens como Java e \ac{PHP}, cada conexão cria-se uma 
   nova thread ( conjunto de tarefas ) com 2 MB de memória RAM. Se em um servidor possuir 8 GigaBytes de memória RAM, 
   teoricamente o número máximo de conexões concorrentes é aproximadamente 4.000 usuários. 
   Com o aumento da base de cliente, e claro, se quiser que o aplicativo web suporte mais usuários, é necessário 
@@ -167,7 +167,7 @@
 \section{Organização}
 \label{organizacao}  
 
-  Para contextualizar o leitor, o Capítulo três, documenta a lista de requisitos base do aplicativo. 
-  O Capítulo quatro aborda o referencial teórico e fontes de estudos utilizados para iniciar com o ambiente 
-  Node.Js. Já o Capítulo cinco apresenta os aplicativos desenvolvidos. O Capítulo seis descreve os testes 
-  realizados e os resultados obtidos. Por fim, o Capítulo sete, conclui o trabalho acadêmico.
+  Para contextualizar o leitor, o Capítulo \ref{ambiente-node-js} aborda o referêncial teórico e fontes de estudos utilizados para iniciar com o ambiente 
+  Node.Js. Já o Capítulo \ref{} compreende a lista de requisitos e especificações do protótipo a ser construído e o
+  desenvolvimento destes protótipos. O Capítulo \ref{} descreve os testes realizados e os resultados obtidos. 
+  Por fim, o Capítulo \ref{}, conclui o trabalho acadêmico.
