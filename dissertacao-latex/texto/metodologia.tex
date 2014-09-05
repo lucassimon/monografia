@@ -29,6 +29,33 @@
     aplicação devido a grandes módulos já inclusos e se codificar de maneira \ac{REST}.
 
   \end{compactitem}
+  
+\section{Levantamento de requisitos}
+
+  \begin{compactitem}
+    \item[a)] Estudar a arquitetura web
+    
+    Buscando um entendimento básico de como é a implementação de uma aplicação 
+    \ac{REST} e seus protocolos relacionados ao HTTP.
+    
+    \item[b)] Especificar requisitos da aplicação.
+    
+    Criar um modelo de \ac{API} da aplicação para fácil entendimento e
+    independente da plataforma de desenvolvimento.
+    
+    \item[c)] Especificar serviços da aplicação.
+    
+    Detalhar e documentar o serviço de hospedagem na internet, além de outros componentes 
+    necessários para o funcionamento do ecossistema da aplicação como:
+    
+      \begin{compactitem}
+	\item[-] Hardware utilizado;
+	\item[-] Servidor web para responder requisições na porta 80;
+	\item[-] Serviços adicionais instalados ( Banco de dados );
+	\item[-] Softwares para monitorar desempenho e utilização do servidor;
+      \end{compactitem}
+      
+  \end{compactitem}
 
 \section{Criar dois aplicativos em diferentes paradigmas}
   
@@ -43,34 +70,6 @@
     para comparamos o desempenho, do ambiente aqui estudado.
     
   \end{compactitem}
-
-\section{Levantamento de requisitos}
-
-   \begin{compactitem}
-      \item[a)] Estudar a arquitetura web
-      
-      Buscando um entendimento básico de como é a implementação de uma aplicação 
-      \ac{REST} e seus protocolos relacionados ao HTTP.
-      
-      \item[b)] Especificar requisitos da aplicação.
-      
-      Criar um modelo de \ac{API} da aplicação para fácil entendimento e
-      independente da plataforma de desenvolvimento.
-      
-      \item[c)] Especificar serviços da aplicação.
-      
-      Detalhar e documentar o serviço de hospedagem na internet, além de outros componentes 
-      necessários para o funcionamento do ecossistema da aplicação como:
-      
-	\begin{compactitem}
-	  \item[-] Hardware utilizado;
-	  \item[-] Servidor web para responder requisições na porta 80;
-	  \item[-] Serviços adicionais instalados ( Banco de dados );
-	  \item[-] Softwares para monitorar desempenho e utilização do servidor;
-	\end{compactitem}
-	
-    \end{compactitem}
-
 
 \section{Especificar testes e comparar resultados}
 
@@ -144,8 +143,7 @@
   Na documentação\footnote{http://support.loader.io/} do serviço, mais especificamente, na seção começando (tradução nossa)
   temos as seções de como criar o teste, tipos de teste, verificando um aplicativo, variáveis,
   resultados de testes(tradução nossa). Neste capítulo não iremos abordar todos os items pois serão melhor explicados
-  no Capítulo AMBIENTE DE TESTES (colocar a referencia do latex aqui). Apenas a seção tipos de testes será explicada neste 
-  momento.
+  no Capítulo \ref{}. Apenas a seção tipos de testes será explicada neste momento.
   
   Os três tipos de testes suportados pelo serviço são:
   
