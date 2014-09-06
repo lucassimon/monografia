@@ -5,3 +5,4 @@ raven
 python-memcached
 django-storages
 boto
+newrelic
