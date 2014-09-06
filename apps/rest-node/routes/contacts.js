@@ -11,8 +11,7 @@ router.route('/v1/pessoas/')
 	.get(function(req, res) {
 		pg.connect(conString, function(err, client, done) {
 			if(err) {
-				res.status(400);
-				res.send(err);
+				res.status(400).send(err);
 			}
 			client.query(
 				'select * from api_person',
@@ -20,8 +19,7 @@ router.route('/v1/pessoas/')
 					done();
 
 					if (err) {
-						res.status(400);
-						res.send(err);
+						res.status(400).send(err);
 					}
 
 					res.json(
@@ -40,8 +38,7 @@ router.route('/v1/pessoas/')
 	.post(function(req, res) {
 		pg.connect(conString, function(err, client, done) {
 			if(err) {
-				res.status(400);
-				res.send(err);
+				res.status(400).send(err);
 			}
 			client.query(
 				'INSERT INTO api_person(name, created, modified) VALUES($1, $2, $3)',
@@ -54,8 +51,7 @@ router.route('/v1/pessoas/')
 					done();
 
 					if (err) {
-						res.status(400);
-						res.send(err);
+						res.status(400).send(err);
 					}
 
 					res.status(201);
@@ -76,8 +72,7 @@ router.route('/v1/pessoas/:id')
 	.get(function(req, res) {
 		pg.connect(conString, function(err, client, done) {
 			if(err) {
-				res.status(400);
-				res.send(err);
+				res.status(400).send(err);
 			}
 			client.query(
 				'select * from api_person where id=$1::int',
@@ -88,8 +83,7 @@ router.route('/v1/pessoas/:id')
 					done();
 
 					if (err) {
-						res.status(400);
-						res.send(err);
+						res.status(400).send(err);
 					}
 
 					res.json(
@@ -108,8 +102,7 @@ router.route('/v1/pessoas/:id')
 	.put(function(req, res) {
 		pg.connect(conString, function(err, client, done) {
 			if(err) {
-				res.status(400);
-				res.send(err);
+				res.status(400).send(err);
 			}
 			client.query(
 				'UPDATE  api_person set name=$1,  modified=$2 where id=$3::int',
@@ -142,8 +135,7 @@ router.route('/v1/pessoas/:id')
 	.delete(function(req, res) {
 		pg.connect(conString, function(err, client, done) {
 			if(err) {
-				res.status(400);
-				res.send(err);
+				res.status(400).send(err);
 			}
 			client.query(
 				'DELETE from api_person where id=$1::int',
@@ -154,8 +146,7 @@ router.route('/v1/pessoas/:id')
 					done();
 
 					if (err) {
-						res.status(400);
-						res.send(err);
+						res.status(400).send(err);
 					}
 
 					res.json(
@@ -175,8 +166,7 @@ router.route('/v1/contatos/')
 	.get(function(req, res) {
 		pg.connect(conString, function(err, client, done) {
 			if(err) {
-				res.status(400);
-				res.send(err);
+				res.status(400).send(err);
 			}
 			client.query(
 				'select * from api_contact',
@@ -184,8 +174,7 @@ router.route('/v1/contatos/')
 					done();
 
 					if (err) {
-						res.status(400);
-						res.send(err);
+						res.status(400).send(err);
 					}
 
 					res.json(
@@ -202,15 +191,45 @@ router.route('/v1/contatos/')
 		});
 	})
 	.post(function(req, res) {
-		res.json({title:'Contatos - POST'});
+		pg.connect(conString, function(err, client, done) {
+			if(err) {
+				res.status(400).send(err);
+			}
+			client.query(
+				'INSERT INTO api_contact(created, modified, kind, value, person_id ) VALUES($1, $2, $3, $4, $5)',
+			   	[
+				   	req.body.created,
+				   	req.body.modified,
+					req.body.kind,
+					req.body.value,
+					req.body.person
+				],
+			   	function(err, result){
+					done();
+
+					if (err) {
+						res.status(400).send(err);
+					}
+
+					res.status(201);
+					res.json(
+						{
+							meta: {
+								resource:'Contatos'
+							},
+							message: 'Contato criado com sucesso'
+						}
+					);
+				}
+			);
+		});
 	});
 
 router.route('/v1/contatos/:id')
 	.get(function(req, res) {
 		pg.connect(conString, function(err, client, done) {
 			if(err) {
-				res.status(400);
-				res.send(err);
+				res.status(400).send(err);
 			}
 			client.query(
 				'select * from api_contact where id=$1::int',
@@ -221,8 +240,7 @@ router.route('/v1/contatos/:id')
 					done();
 
 					if (err) {
-						res.status(400);
-						res.send(err);
+						res.status(400).send(err);
 					}
 
 					var firstRow = result.rows[0], columns = [];
@@ -246,10 +264,67 @@ router.route('/v1/contatos/:id')
 		});
 	})
 	.put(function(req, res) {
-		res.json({title:'Contatos - PUT by Id'});
+		pg.connect(conString, function(err, client, done) {
+			if(err) {
+				res.status(400).send(err);
+			}
+			client.query(
+				'UPDATE api_contact set modified=$1, kind=$2, value=$3, person_id=$4 where id=$5::int',
+			   	[
+				   	req.body.modified,
+					req.body.kind,
+					req.body.value,
+					req.body.person,
+					req.params.id
+				],
+			   	function(err, result){
+					done();
+
+					if (err) {
+						res.status(400).send(err);
+					}
+
+					res.status(201);
+					res.json(
+						{
+							meta: {
+								resource:'Contatos'
+							},
+							message: 'Contato atualizado com sucesso'
+						}
+					);
+				}
+			);
+		});
 	})
 	.delete(function(req, res) {
-		res.json({title:'Contatos - DELETE by Id'});
+		pg.connect(conString, function(err, client, done) {
+			if(err) {
+				res.status(400).send(err);
+			}
+			client.query(
+				'DELETE from api_contact where id=$1::int',
+			   	[
+				   	req.params.id
+				],
+			   	function(err, result){
+					done();
+
+					if (err) {
+						res.status(400).send(err);
+					}
+
+					res.json(
+						{
+							meta: {
+								resource:'Contatos',
+							},
+							message: 'Contato deletado com sucesso'
+						}
+					);
+				}
+			);
+		});
 	});
 
 module.exports = router;
