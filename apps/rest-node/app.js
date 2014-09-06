@@ -1,17 +1,14 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('static-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
-/// Define aqui o arquivo que possui as rotas para contatos
-var contacts = require('./routes/contacts');
-
-var app = express();
+var express = require('express'),
+	path = require('path');
+	favicon = require('static-favicon');
+	logger = require('morgan');
+	cookieParser = require('cookie-parser');
+	bodyParser = require('body-parser');
+	routes = require('./routes/index');
+	users = require('./routes/users');
+	/// Define aqui o arquivo que possui as rotas para contatos
+	contacts = require('./routes/contacts');
+	app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

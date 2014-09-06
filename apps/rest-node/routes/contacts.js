@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var pg = require('pg');
-var conString = "postgres://postgres:postgres@localhost/monografia-django";
+var express = require('express'),
+	router = express.Router(),
+	pg = require('pg'),
+	conString = "postgres://postgres:postgres@localhost/monografia-django";
 
 router.get('/', function(req, res) {
 	res.json({title:'Api de Pessoas e contatos'});
