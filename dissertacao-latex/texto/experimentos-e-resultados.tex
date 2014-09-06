@@ -1,0 +1,140 @@
+% Nome do capítulo
+\chapter{Experimentos e resultados}
+% Label para referenciar
+\label{experimentos-resultados}
+
+% Diminuir espaçamento entre título e texto
+\vspace{-1.9cm}
+
+% Texto do capítulo
+
+ Neste caítulo vamos abordar o ambiente de testes para os nossos protótipos e apresentar 
+ o plano de testes utilizado.
+ 
+ Após o detalhamento do plano de testes serão apresentados ao leitor os resultados obtidos e análise dos dados.
+
+\section{Ambiente de testes}
+\label{ambientedetestes}
+
+  Para efetuar os testes, os protótipos tiveram de ser colocados em uma ambiente de testes. 
+  Para os dois protótipos, hospedamos a aplicação em uma VPS\footnote{http://digitalocean.com} da empresa Digital Ocean.
+  
+  O ambiente é composto pelos seguintes componentes de hardware conforme descrito nas tabelas\footnote{https://www.digitalocean.com/pricing/}
+  de precificação do produto.
+  
+  \begin{table}[H]
+    \centering
+    \footnotesize
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{0pt}
+    \setlength{\belowcaptionskip}{0pt}
+    % Caption
+    \caption[Componentes da VPS]{Componentes da VPS}
+    \label{tab:components-digital-ocean-vps}
+    % Conteúdo da tabela
+    \begin{tabular}{c|c|}
+      \hline \hline
+      Componente  &	Descrição \\
+      \hline \hline
+      Memória Ram & 512 MegaBytes \\
+      Processador & 1 núcleo. \\
+      Espaço em disco & 20 GigaBytes \ac{SSD}. \\
+      Transferência em rede & 1 TeraByte. \\
+      \hline \hline
+    \end{tabular}
+    % Fonte
+    \captionfont{\small{\textbf{\\Fonte: Digital Ocean Pricing <https://www.digitalocean.com/pricing/> acesso 05. NOV. 2014}}}
+  \end{table}
+
+  Para os dois protótipos busca-se manter o máximo de igualdade entre os serviços executados, porém, por ser 
+  tecnologias diferentes o modo de \textit{deploy} também são diferentes adicionando ou não novos serviços. 
+  As informações dos serviços executados está listada de acordo com o software de monitoramento\footnote{http://newrelic.com}
+  da empresa New Relic.
+  
+  Apresenta-se os serviços em execução \ref{tab:services-in-api-django}do protótipo feito em Django sem clientes conectados.
+  Este ambiente é composto por um servidor Nginx que suporta através de um \textit{proxy} a execução do \textit{gunicorn},
+  que nada mais é a execução do framework Django, o banco de dados Postgres 9.1 e o processo supervisord responsável por
+  verificar se a aplicação esta ativa e caso ocorra alguma falha é capaz de restartar a aplicação.
+  
+  \begin{table}[H]
+    \centering
+    \footnotesize
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{0pt}
+    \setlength{\belowcaptionskip}{0pt}
+    % Caption
+    \caption[Serviços executados na API Django]{Serviços executados na API Django}
+    \label{tab:services-in-api-django}
+    % Conteúdo da tabela
+    \begin{tabular}{c|c|c|c|c|}
+      \hline \hline
+      Processo  & 	CPU \% &	Memória \\
+      \hline \hline
+      gunicorn &	0.0\% &		104 MB \\
+      postgres &	0.0\% &		19.3 MB \\
+      supervisord &	0.0\% &		11.5 MB \\
+      nginx &		0.0\% &		7.26 MB \\
+      getty &		0.0\% &		5.69 MB \\
+      udevd &		0.0\% &		4.05 MB \\
+      nrsysmond &	0.1\% &		3.93 MB \\
+      console-kit-dae &	0.0\% &		3.84 MB \\
+      polkitd &	 	0.0\% &		2.98 MB \\
+      ntpd &		0.0\% &		2.34 MB \\
+      rsyslogd &	0.0\% &		1.47 MB \\
+      nginx &		0.0\% &		1.38 MB \\
+      sshd &		0.0\% &		1.22 MB \\
+      dbus-daemon &	0.0\% &		1.13 MB \\
+      cron &		0.0\% &		1.03 MB \\
+      exim4 &		0.0\% &		992 KB \\
+      init &		0.0\% &		820 KB \\
+      acpid &		0.0\% &		656 KB \\
+      atd &		0.0\% &		156 KB \\
+      su &		0.0\% &		0 \\
+      bash &		0.0\% &		0 \\
+      \hline \hline
+    \end{tabular}
+    % Fonte
+    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+  \end{table}
+
+  Para o segundo protótipo, com Node.Js, possuimos os seguintes serviços executados \ref{tab:services-in-api-node} 
+  também sem nenhum cliente conectado. Este ambiente é composto por um servidor Nginx que suporta através 
+  de um \textit{proxy}.
+  
+  \begin{table}[H]
+    \centering
+    \footnotesize
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{0pt}
+    \setlength{\belowcaptionskip}{0pt}
+    % Caption
+    \caption[Serviços executados na API Node]{Serviços executados na API Node}
+    \label{tab:services-in-api-node}
+    % Conteúdo da tabela
+    \begin{tabular}{c|c|c|c|c|}
+      \hline \hline
+      Processo  & 	CPU \% &	Memória \%  \\
+      \hline \hline
+      \hline \hline
+    \end{tabular}
+    % Fonte
+    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+  \end{table}
+  
+\subsection{Primeira subseção}
+  
+  As enumerações devem ser geradas usando o pacote \textit{compactitem}. Cada item deve terminar com um ponto final.
+  Abaixo um exemplo de enumeração é apresentado:
+
+    \begin{compactitem}
+      \item[a)] Coletar e analisar.
+      \item[b)] Configurar e simular.
+      \item[c)] Definir a metodologia.
+      \item[d)] Avaliar o desempenho.
+      \item[e)] Analisar e avaliar características.
+    \end{compactitem}
+
+\section{Segunda seção}
+
+  Para referenciar um capítulo, seção ou subseção basta definir um label para o mesmo e usar o comando ref para referênciá-lo
+  no texto. Exemplo: Como pode ser visto no Capítulo \ref{cap1} ou na Seção \ref{secao1}.
