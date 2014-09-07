@@ -9,6 +9,7 @@ var express = require('express'),
 	users = require('./routes/users'),
 	/// Define aqui o arquivo que possui as rotas para contatos
 	contacts = require('./routes/contacts'),
+	loaderio = require('./routes/loaderio.js'),
 	app = express();
 
 // view engine setup
@@ -26,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', contacts);
+app.use('/loaderio-258034cd11bf2841160fe451c6850a09/', loaderio);
+
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
