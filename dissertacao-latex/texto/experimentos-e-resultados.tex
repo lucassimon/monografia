@@ -8,7 +8,7 @@
 
 % Texto do capítulo
 
- Neste caítulo vamos abordar o ambiente de testes para os nossos protótipos e apresentar 
+ Neste capítulo vamos abordar o ambiente de testes para os nossos protótipos e apresentar 
  o plano de testes utilizado.
  
  Após o detalhamento do plano de testes serão apresentados ao leitor os resultados obtidos e análise dos dados.
@@ -51,8 +51,8 @@
   As informações dos serviços executados está listada de acordo com o software de monitoramento\footnote{http://newrelic.com}
   da empresa New Relic.
   
-  Apresenta-se os serviços em execução \ref{tab:services-in-api-django}do protótipo feito em Django sem clientes conectados.
-  Este ambiente é composto por um servidor Nginx que suporta através de um \textit{proxy} a execução do \textit{gunicorn},
+  A tabela \ref{tab:services-in-api-django} apresenta os serviços em execução do protótipo feito em Django sem clientes conectados.
+  Este ambiente é composto por um servidor Nginx a execução do \textit{gunicorn},
   que nada mais é a execução do framework Django, o banco de dados Postgres 9.1 e o processo supervisord responsável por
   verificar se a aplicação esta ativa e caso ocorra alguma falha é capaz de restartar a aplicação.
   
@@ -96,10 +96,13 @@
     % Fonte
     \captionfont{\small{\textbf{\\Fonte: Autor}}}
   \end{table}
+  
+  \vspace{-1.9cm}
 
-  Para o segundo protótipo, com Node.Js, possuimos os seguintes serviços executados \ref{tab:services-in-api-node} 
-  também sem nenhum cliente conectado. Este ambiente é composto por um servidor Nginx que suporta através 
-  de um \textit{proxy}.
+  Para o segundo protótipo, com Node.Js, possuimos os seguintes serviços executados na tabela \ref{tab:services-in-api-node}, 
+  também sem nenhum cliente conectado. Este ambiente é composto por um servidor Nginx, o serviço \textit{pm2} responsável por
+  verificar se a aplicação esta ativa e caso ocorra alguma falha é capaz de restartar a aplicação, 
+  o banco de dados Postgres 9.1.
   
    \begin{table}[H]
     \centering
@@ -179,7 +182,7 @@
   
   Os três tipos de testes suportados pelo serviço são:
   
-  Clientes por testes
+  \textbf{Clientes por testes}
   
   Este teste permite que especifique um número total de clientes que se conectam ao serviço. Quando criar o teste,
   especifique somente um número de clientes então vários clientes irão se conectar ao longo da duração do teste. 
@@ -189,7 +192,7 @@
   Em referência ao formulário de criação de teste o campo clientes representa o número de conexões que serão
   feitas para o servidor ao longo da duração do teste.
   
-  Clientes por segundo
+  \textbf{Clientes por segundo}
   
   Este teste permite que especifique um número de clientes que se conectam a cada segundo. Por exemplo se for criado
   um teste com 1.000 clientes dentro de 20 segundos, o serviço irá conectar 20.000 clientes por teste.
@@ -197,7 +200,7 @@
   Em referência ao formulário de criação de teste o campo clientes representa o número de conexões que serão
   feitas para o servidor por segundo.
   
-  Mantendo carga do clientes
+  \textbf{Mantendo carga do clientes}
   
   Segundo a definição da documentação, este teste é utilizado para sobrecarregar (martelar) o site ou \ac{API}.
   
