@@ -14,16 +14,15 @@
 \section{Estudo do ambiente Node.Js}
   
   \begin{compactitem}
-    \item[a)] Estudar o paradigma de orientação a eventos.
+    \item[a)] Estudar as principais características do Node.Js.
+    
+    Conhecer o modelo single-thread, diferenças entre o modelo assíncrono e síncrono, dentre outros.
+    
     \item[b)] Estudar o Event Loop.
     
     Busca um entendimento básico sobre o ciclo de eventos (Event-Loop) e como ele é utilizado no NodeJs.
     
-    \item[c)] Estudar as principais características do Node.Js.
-    
-    Conhecer o modelo single-thread, diferenças entre o modelo assíncrono e síncrono, dentre outros.
-    
-    \item[d)] Estudo do framework Express
+    \item[c)] Estudo do framework Express
     
     Conhecer o framework feito em Node.Js que será a base para criar a 
     aplicação devido a grandes módulos já inclusos e se codificar de maneira \ac{REST}.
@@ -40,20 +39,13 @@
     
     \item[b)] Especificar requisitos da aplicação.
     
-    Criar um modelo de \ac{API} da aplicação para fácil entendimento e
+    Criar um modelo de API da aplicação para fácil entendimento e
     independente da plataforma de desenvolvimento.
     
     \item[c)] Especificar serviços da aplicação.
     
     Detalhar e documentar o serviço de hospedagem na internet, além de outros componentes 
-    necessários para o funcionamento do ecossistema da aplicação como:
-    
-      \begin{compactitem}
-	\item[-] Hardware utilizado;
-	\item[-] Servidor web para responder requisições na porta 80;
-	\item[-] Serviços adicionais instalados ( Banco de dados );
-	\item[-] Softwares para monitorar desempenho e utilização do servidor;
-      \end{compactitem}
+    necessários para o funcionamento do ecossistema.
       
   \end{compactitem}
 
@@ -64,10 +56,10 @@
     
     Desenvolver um aplicativo escrito no ambiente Node.Js com o framework Express.Js
     
-    \item[b)] Desenvolvimento do mesmo aplicativo em outros ambientes.
+    \item[b)] Desenvolvimento do mesmo aplicativo em outro ambiente.
     
     Busca-se com esta etapa ter um aplicativo escrito na linguagem Python com o framework Django
-    para comparamos o desempenho, do ambiente aqui estudado.
+    para comparamos o desempenho, do ambiente aqui estudado com o modelo \"tradicional\".
     
   \end{compactitem}
 
@@ -84,9 +76,12 @@
     
     Descrever passo a passo como gerar um teste de carga na aplicação dos serviços descritos acima.
     
-    \item[c)] Executar os testes para avaliar o desempenho das aplicações.
+    \item[c)] Executar os testes: Clientes por testes; clientes por segundo; manter carga de clientes.
     
-    Executar os testes para obter informações e medir o desempenho de cada aplicação.
+    Estes testes possui a finalidade de medir o tempo de resposta, volume de transações e conexões por segundo. E por fim
+    medir a carga com um volume de usuários até a duração de 60 segundos respectivamente. 
+    Com os resultados obtidos poderemos avaliar em números o tempo de resposta de cada teste,
+    erros de \textit{timeout}, erros de rede e conexões suportadas. 
     
     \item[d)] Avaliar os resultados obtidos após a analise, coleta e definições das métricas.
     
@@ -136,11 +131,10 @@
   Para realizar os testes de carga e estresse será utilizado o serviço em computação nas nuvens
   da empresa SendGrid\footnote{http://labs.sendgrid.com/} denominado loader.io.
   
-  De acordo com o sitio o serviço é definido com um serviço de teste de carga livre,
-  que permite realizar testes de estresse em aplicativos web ou \ac{API} com milhares de conexões simultâneas
-  (tradução nossa).
+  De acordo com o sítio o serviço é definido como um serviço de teste de carga livre,
+  que permite realizar testes de estresse em aplicativos web ou API\'s com milhares de conexões simultâneas.
   
-  Na documentação\footnote{http://support.loader.io/} do serviço, mais especificamente, na seção começando (tradução nossa)
+  Na documentação\footnote{http://support.loader.io/} deste serviço, mais especificamente, na seção começando
   temos as sub-seções de como criar o teste, tipos de teste, verificando um aplicativo, variáveis,
-  resultados de testes(tradução nossa). Neste capítulo não irá ser abordado as configurações pois serão melhor explicados
+  resultados de testes. Neste capítulo não irá ser abordado as configurações pois serão melhor explicados
   no Capítulo \ref{experimentos-resultados}.
