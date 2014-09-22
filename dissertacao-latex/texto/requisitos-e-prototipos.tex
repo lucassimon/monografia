@@ -28,8 +28,8 @@
 \subsection{Levantamento Requisitos}
 \label{levantamento-requisitos}
 
-  Utilizaremos o mesmo exemplo citado por \cite{Pereira:2013} em seu livro. =)
-  Devo fazer uma pesquisa aqui?
+  Utilizaremos o mesmo exemplo citado por \cite{Pereira:2013} pois é de fácil compreensão
+  e entendimento de uma simples aplicação.
 
 \subsubsection{Elicitação de requisitos}
 
@@ -37,20 +37,18 @@
   de requisitos utilizados é possível destacar os seguintes requisitos candidatos
 
   \begin{compactitem}
-    \item[a)] A aplicação \ac{API} \ac{REST} deverá ser compatível com todas as versões para computadores com os navegadores 
-    web Mozilla Firefox e Google Chrome..
-    \item[b)] Não utilizar técnicas de autenticação na API.
-    \item[c)] A \ac{API} \ac{REST} deverá responder as requisições do cliente através da representação em JSON.
-    \item[d)] A \ac{API} \ac{REST} deverá persistir os dados em Postgres.
-    \item[e)] A \ac{API} \ac{REST} deverá ter um recurso chamado Pessoas.
+    \item[a)] Não utilizar técnicas de autenticação na API.
+    \item[b)] A \ac{API} \ac{REST} deverá responder as requisições do cliente através da representação em JSON.
+    \item[c)] A \ac{API} \ac{REST} deverá persistir os dados em Postgres.
+    \item[d)] A \ac{API} \ac{REST} deverá ter um recurso chamado Pessoas.
     \item[e)] A \ac{API} \ac{REST} deverá prover estratégias para manipular as ações de CRUD de uma pessoa(s)
-    \item[e)] A \ac{API} \ac{REST} deverá ter um recurso chamado Contatos.
-    \item[e)] A \ac{API} \ac{REST} deverá prover estratégias para manipular as ações de CRUD de um contato(s)
+    \item[f)] A \ac{API} \ac{REST} deverá ter um recurso chamado Contatos.
+    \item[g)] A \ac{API} \ac{REST} deverá prover estratégias para manipular as ações de CRUD de um contato(s)
   \end{compactitem}
   
 \subsubsection{Análise dos requisitos}
   
-  Perante os requisitos elicitados verificou-se que o objetivo essecial de uma pessoa, candidato a usuário
+  Perante os requisitos elicitados verificou-se que o objetivo essencial de uma pessoa, candidato a usuário
   do sistema, é controlar os própios contatos.
   
   O principal requisito destacado na análise é registrar estes contatos. Para atender o requisito
@@ -75,18 +73,13 @@
       \hline \hline
       GET	& -	& contatos	& Retorna a lista de contatos 
 					  cadastrados no banco de dados \\
-      GET	& id	& contatos	& Retorna a informação do contato, representado pelo 
-					  id do documento passado. \\
-      POST	& -	& contatos	& Cria um novo contato e persiste os dados no banco. \\
-      PUT	& id	& contatos	& Atualiza as informações do contato, representado pelo id do documento passado. \\
-      DELETE	& id	& contatos	& Destrói o contato, representado pelo id do documento passado. \\
       \hline \hline
     \end{tabular}
     % Fonte
     \captionfont{\small{\textbf{\\Fonte: Autor}}}
   \end{table}
   
-\subsubsection{Técnologias Utilizadas}
+\subsubsection{Tecnologias Utilizadas}
 
 
   Aplicativo comparativo Django
@@ -106,26 +99,13 @@
       \item[c)] Express – Framework para aplicações web
     \end{compactitem}
   
-
-  
-\subsection{Banco de dados Relacional - Mapeamento Objeto Relacional}
-\label{banco-de-dados}
-
-  Nesta sessão faremos um breve descritivo da modelagem do banco de
-  dados utilizado neste sistema.
-  
-  O modelo objeto relacional, é a relação dos objetos, que se entende por tabelas e seus campos que estão 
-  no banco de dados, juntamente com suas cardinalidades. Desta forma foram criadas as entidades
-  (tabelas no banco de dados) e seus atributos, cada uma com suas características de
-  acordo com as necessidades da \ac{API}.
-  
   Para os protótipos temos as principais tabelas, chamada de person e contact,
   que faz o registro de pessoas e contatos, respectivamente, e possui os atributos (campos) necessários
-  para armazenar os registros da \ac{API} no banco de dados. Na entidade de person, temos um identificador
-  ``id'' único e auto-incremento, ``created'' e ``modified'' como campos de data e o campo
-  ``nome'' para identicar quem é a pessoa. Na tabela de contact temos um identificador ``id'' único e auto-incremento,
-  ``created'' e ``modified'' como campos de data, ``kind'' com caracter para saber o tipo do contato e ``value'' para 
-  saber o valor do tipo do contato. A tabela ``contact'' possui uma relação com a tabela ``person'', coforme a Figura 
+  para armazenar os registros da API no banco de dados. Na entidade de person, temos um identificador
+  "id" único e auto-incremento, "created" e "modified" como campos de data e o campo
+  "nome" para identicar quem é a pessoa. Na tabela de contact temos um identificador "id" único e auto-incremento,
+  "created" e "modified" como campos de data, "kind" com caracter para saber o tipo do contato e "value" para 
+  saber o valor do tipo do contato. A tabela "contact" possui uma relação com a tabela "person", coforme a Figura 
   \ref{fig:der}, com cardinalidade de muitos para um.
 
   \begin{figure}[H]
