@@ -191,7 +191,7 @@ como exigência parcial para a obtenção do título de Bacharel em Sistemas de 
 \data{24 de Novembro de 2014}
 \capa
 %Para forçar que a ficha catalográfica seja impressa no verso da folha de aprovação
-\setboolean{@twoside}{true}
+\setboolean{@twoside}{false}
 
 % Gera a folha de rosto
 \folhaderosto
@@ -218,7 +218,7 @@ como exigência parcial para a obtenção do título de Bacharel em Sistemas de 
 \include{pre-texto/resumo}
 
 % Abstract
-\include{pre-texto/abstract}
+%\include{pre-texto/abstract}
 
 \makeatletter
 \renewcommand\numberline[1]{
@@ -260,7 +260,7 @@ como exigência parcial para a obtenção do título de Bacharel em Sistemas de 
 \makeatother
 
 % Lista de graficos
-\listof{grafico}{Lista de Graficos}
+\listof{grafico}{Lista de Gráficos}
 
 % Lista de siglas
 \input{pre-texto/lista-siglas.tex}
@@ -280,7 +280,7 @@ como exigência parcial para a obtenção do título de Bacharel em Sistemas de 
 
 %% TEXTUAIS 
 % Para forçar que elementos textuais e pós-textuais sejam impressos no anverso e verso das folhas
-\setboolean{@twoside}{true}
+\setboolean{@twoside}{false}
 % Altere o número da página para o correto. Conte todas as páginas frente e verso, menos a capa, nclusive a ficha catalográfica até a página do primeiro capítulo.
 \setcounter{page}{25}
 
@@ -292,9 +292,9 @@ como exigência parcial para a obtenção do título de Bacharel em Sistemas de 
 \include{texto/introducao}
 % Os demais capítulos não precisam começar no anverso
 \setboolean{@openright}{false}
-\include{texto/metodologia}
-
 \include{texto/ambiente-node}
+
+\include{texto/metodologia}
 
 \include{texto/requisitos-e-prototipos}
 
@@ -303,8 +303,8 @@ como exigência parcial para a obtenção do título de Bacharel em Sistemas de 
 % Bibliografia no arquivo 'Dissertacao.bib'
 % Alterar o título das referências para somente 'Referências'
 \renewcommand{\bibname}{Referências}
-%\bibliographystyle{abnt-alf}
-%\bibliography{Dissertacao}
+\bibliographystyle{abnt-alf}
+\bibliography{Dissertacao}
 
 % Para forçar que os apêndices e anexos comecem no anverso
 %\setboolean{@openright}{true}
