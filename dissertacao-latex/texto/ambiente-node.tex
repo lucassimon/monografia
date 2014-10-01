@@ -44,10 +44,10 @@
   pelo servidor. \cite{Junior:2012}   
 
 
-\section{Single - thread}
+\section{Single thread}
 \label{single-thread}
 
-  Definir Single thread.
+  Single thread em computação pode explicado como a execução de uma única tarefa.
   
   De acordo com \citeonline{Pereira:2013}, em Node.Js nativamente não é possível trabalhar com programação 
   concorrente em plataforma multi-thread, mas existem maneiras de se implementar sistemas concorrentes, 
@@ -77,12 +77,13 @@
   \cite{Powers:2012} cita também o single thread como um dos benefícios do ambiente do Node.Js 
   pois o aplicativo pode ser facilmente escalável uma vez que em um único segmento de execução não ha uma enorme 
   sobrecarga de requisições. Citando o exemplo de seu livro, ao criar uma aplicação em \ac{PHP} semelhante 
-  à aplicação Node.Js o usuário veria a mesma página, mas no código backend do sistema ira notar-se a diferença.
+  à aplicação Node.Js o usuário veria a mesma página, mas ao visualzia os processos desta aplicação haverá uma 
+  diferença.
   
-  Se executar esse aplicativo \ac{PHP} no servidor web Apache , cada pedido que for solicitado irá ser tratado 
-  em um processo filho separado. As possibilidades são, a menos que você tem um sistema de carregamento eficiente, 
-  você só vai ser capaz de executar mais um par de centenas de processos filhos em paralelo. 
-  Mais do que esse número de pedidos significa que um cliente precisa esperar por uma resposta.\cite{Powers:2012}
+  Este aplicativo \ac{PHP} no servidor web Apache, cada pedido que for solicitado irá abrir um 
+  processo filho do Apache. Em servidores menos otimizados a capacidade de criar processos filhos
+  restringe-se a par de centenas de processos filhos em paralelo. Se a por ventura a quantidade de solicitações
+  for maior que capacidade de processos filhos do Apache, o cliente entrará numa fila e esperar por uma resposta.\cite{Powers:2012}
   
   Deste modo, um servidor Node.js pode suportar dezenas de milhares de conexões simultâneas, 
   pois ele altera todo o contexto do servidor e o único gargalo passa a ser a capacidade de tráfego 
@@ -259,26 +260,6 @@
   
   Agora na Figura \ref{fig:timeline-async} o tempo total de duração foram de 200 milesegundos, pois foram executados
   de forma assíncrona maximizando o processamento.
-
-\subsection{Threads vesus Assíncronismos}
-\label{threads-vs-assincronismo}
-
-  De acordo com \cite{Pereira:2013} por mais que as funções assíncronas possam executar em paralelo várias tarefas,
-  elas jamais serão consideradas uma Thread ( como Threads do java). A diferença é que as Threads são manipuláveis 
-  pelo desenvolvedor, ou seja, você pode pausar a execução de uma Thread ou fazê-la esperar o término de uma outra. 
-  Chamadas assíncronas apenas invocam suas funções numa ordem de que você não tem controle, e você só sabe quando 
-  uma chamada terminou quando seu callback é executado.
-  
-  Pode parecer vantajoso ter controle sobre Threads 
-  a favor de um sistema que executa tarefas em paralelo, mas pouco domínio sobre eles pode transformar seus sistema 
-  em um caos de travamentos deadlocks, afinal threads são executadas de forma bloqueante. 
-  Este é o grande diferencial das chamadas assíncronas, elas executam em paralelo suas funções sem travar 
-  processamento das outras e principalmente sem bloquear o sistema principal.
-  
-  É essencial que seu código Node.Js invoque o mínimo possível de funções bloqueantes. 
-  Toda função síncrona impedirá, naquele instante, que o Node.Js continue executando os demais códigos até que aquela 
-  função seja finalizada. Por exemplo, se essa função fizer uma operação de entrada e saída em disco, vai bloquear o 
-  sistema inteiro, deixando o processador ocioso enquanto é utilizado outros recursos de hardware.\cite{Pereira:2013}
 
 \section{Framework Express}
 \label{framework-express}
