@@ -47,30 +47,8 @@
   Processadores com 7 núcleos são caros e dependendo dos casos é necessário trocar todo o equipamento - hardware - 
   para garantir o devido funcionamento dos componentes.
   
-  Pelos problemas citados acima surgiu a necessidade de resolver este problema, 
-  em nível de software, que permita receber um grande número de conexões simultâneas 
-  nos servidores, capaz de ser escalável e consumir menores índices de memória RAM.
-  
-  Para resolver este problema adota-se o paradigma de programação orientada a eventos utilizando
-  as caracteriticas nativas do JavaScript: modelo de eventos assíncronos, funções anônimas e \textit{callbacks}. \cite{Junior:2012}
-  
-  Como \citeonline{Junior:2012} exemplificou, um programa assíncrono ao fazer uma requisição 
-  a um banco de dados especifica o que deve ser feito com os resultados do banco de dados, ele não espera a 
-  finalização da requisição e continua a processar outras atividades existes no programa. 
-  Apenas quando o resultado da requisição é retornado do banco de dados, a codificação para manipular os estes dados 
-  é executado. A esta lógica de programação, executada após todos os dados serem retornados, dá-se ao nome de callback.\cite[p. 2]{Junior:2012} 
-  
-  Com as característica nativas do JavaScript e o problema a ser resolvido criou-se o ambiente de desenvolvimento Node.Js, 
-  que é melhor descrito por \citeonline{Junior:2012} como uma plataforma cujo o objetivo é a fácil 
-  construção de rápidas e escaláveis aplicações de rede. Para isto o Node.Js emprega orientação 
-  a eventos utilizando o JavaScript Engine V8 do Google, operações de entradas e saídas em eventos (assíncronos) 
-  e não bloqueantes. \citeonline{Abernethy:2011} cita que ao invés de criar novas \textit{threads}
-  no sistema operacional para cada conexão e alocar a memória RAM que acompanha essas \texit{threads}, 
-  cada conexão dispara um evento executado no processo do motor Node.Js. 
-  
-  O Node.Js afirma que ele nunca irá ter bloqueios ou impasses, já que bloqueios não é uma característica 
-  da sua plataforma mesmo em processamento de entradas e saídas e que um servidor pode suportar 
-  dezenas de milhares de conexões simultâneas.\cite{Abernethy:2011}
+  Como dito por \cite{Oliveira:2012} surgiu a necessidade de melhorar em nível de software para permitir que a aplicação
+  receba um grande número de conexões simultâneas, escalável e baixo consumo de memória RAM.
   
   Pretende-se com esta proposta de pesquisa investigar e elaborar aplicações para a internet, 
   utilizando o servidor Node.Js e comparar a sua performance em relação ao desenvolvimento
