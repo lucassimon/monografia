@@ -8,71 +8,100 @@
 
 % Texto do capítulo
 
-  O Node.Js pode prover um ambiente de programação amplo e forte para os desenvolvedores. Esta pequena introdução
-  tem como objetivo resumir o potencial do ambiente em poucos parágrafos.
+
+%  Para resolver este problema adota-se o paradigma de programação orientada a eventos utilizando
+%  as caracteriticas nativas do JavaScript: modelo de eventos assíncronos, funções anônimas e \textit{callbacks}. \cite{Junior:2012}
+  
+%  Como \citeonline{Junior:2012} exemplificou, um programa assíncrono ao fazer uma requisição 
+%  a um banco de dados especifica o que deve ser feito com os resultados do banco de dados, ele não espera a 
+%  finalização da requisição e continua a processar outras atividades existes no programa. 
+%  Apenas quando o resultado da requisição é retornado do banco de dados, a codificação para manipular os estes dados 
+%  é executado. A esta lógica de programação, executada após todos os dados serem retornados, dá-se ao nome de callback.\cite[p. 2]{Junior:2012} 
   
   
-  Primeiramente, o JavaScript é uma das linguagens de programação mais utilizadas em interfaces de sites, e o Node.Js
-  permite utilizar essa linguagem de programação e aplicá-la em outros contextos como servidores web. Possui um alto
-  desempenho através do JavaScript Enginie V8, do Google.\cite{Hughes:2012}.
+%  O Node.Js afirma que ele nunca irá ter bloqueios ou impasses, já que bloqueios não é uma característica 
+%  da sua plataforma mesmo em processamento de entradas e saídas e que um servidor pode suportar 
+%  dezenas de milhares de conexões simultâneas.\cite{Abernethy:2011}
+
+  Criado por Ryan Dhal em 2009, a plataforma Node.Js tem como objetivo mitigar o problema descrito no capítulo \ref{introducao}
+  e prover um ambiente de programação amplo e forte para os desenvolvedores. 
   
-  O V8 utiliza umas das técnicas recentes de compiladores que permite que o código escrito em linguagem de alto nível,
-  tal como o JavaScript, execute de forma semelhante a linguagens de baixo nível como C. O Node.Js também aproveita
-  do paradigma de orientação a eventos da linguagem e retira proveito disso para produzir servidores escaláveis usando 
-  uma arquitetura chamada de ciclo de eventos, do inglês, Event Loop.\cite{Hughes:2012}.
+  Nas próximas seções será explicado ao leitor as principais características do ecosistema do Node.Js.
+ 
   
-  Node.Js é extensível com grandes módulos construídos por uma comunidade ativa desde 2009 quando foi criado
-  por Ryan Dhal.
+%  Conforme descrito no capítulo introdutório \cite{Junior:2012} descreve o Node.Js como uma plataforma orientada a 
+%  eventos não bloqueantes projetada para construção de aplicações de rede rápidas e escaláveis utilizando o JavaScript.
+  
+%  Neste contexto do ambiente Node.Js o JavaScript é uma das linguagens de programação mais utilizadas em interfaces de sites, e o Node.Js
+%  permite utilizar essa linguagem de programação e aplicá-la em outros contextos como servidores web. Possui um alto
+%  desempenho através do JavaScript Enginie V8, do Google.\cite{Hughes:2012}.
+  
+%  O V8 utiliza umas das técnicas recentes de compiladores que permite que o código escrito em linguagem de alto nível,
+%  tal como o JavaScript, execute de forma semelhante a linguagens de baixo nível como C. O Node.Js também aproveita
+%  do paradigma de orientação a eventos da linguagem e retira proveito disso para produzir servidores escaláveis usando 
+%  uma arquitetura chamada de ciclo de eventos, do inglês, Event Loop.\cite{Hughes:2012}.
+  
+%  Node.Js é extensível com grandes módulos construídos por uma comunidade ativa desde 2009 quando foi criado
+%  por Ryan Dhal.
   
 \section{Programação Orientada a Eventos}
 \label{programacao-orientada-a-eventos}
 
-  O autor \citeonline{Junior:2012} define a programação orientada a eventos, como um paradigma de programação, onde
-  pode-se controlar o fluxo da aplicação através de eventos; Um evento indica que algo aconteceu. 
-  Em servidores web convencionais, o modelo padrão é o conceito de ação e resposta. 
-  O cliente passa a realizar uma requisição a um servidor e aplicação que recebe esta requisição produz uma resposta. 
-  O paradigma orientado a eventos utiliza a termonologia de produtor do evento (\textit{event producer}) 
-  e o consumidor do evento (\textit{event consumer}).
-
-  \citeonline{Pereira:2013} compara que o Node.Js orientado a eventos se espelha na filosofia de orientação 
-  a eventos utilizado pelo JavaScript nos navegadores; a diferença entre eles é que no Node.Js 
-  não existe eventos de clique do mouse, teclas pressionadas do teclado (keyup) ou qualquer evento de componentes HTML.
-  No Node.Js os eventos trabalhados são entrada e saída do servidor como eventos de conexão 
-  ao banco de dados, abertura de arquivo e um dado de um streaming, dentre muitos outros.
+  A programação orientada a eventos é a principal abordagem para o sucesso do Node.Js. Sendo escolhida para
+  minimizar os impactos de alta concorrência descrito anteriormente no capítulo \ref{introducao}. 
   
-  A principal diferença em sistemas baseados em evento o produtor do evento não espera pela ação a ser executada
-  pelo servidor. \cite{Junior:2012}   
+  As aplicações criadas com o Node.Js tem como núcleo e referência os eventos. Estes eventos são indicações de que ocorreu algo, 
+  havendo dois atores para este modelo de programação.\cite{Oliveira:2012}
+  \citeonline{Junior:2012} utiliza a terminologia de produtor do evento (\textit{event producer}) 
+  e o consumidor do evento (\textit{event consumer}) para identificar estes dois atores. Em contrapartida os servidores
+  web tradicionais utiliza o conceito de ação e resposta.
+  
+  
+  \begin{figure}[H]
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{0pt}
+    \setlength{\belowcaptionskip}{0pt}
+    % Caption
+    \caption[Ciclo de eventos no Node.Js]{Ciclo de eventos no Node.Js}
+    \centering
+    \includegraphics[width=.85\textwidth]{imagem/node-js-system-twitter-BusyRich.png}
+    % Caption centralizada
+    \captionsetup{justification=centering}
+    \captionfont{\small{\textbf{\\Fonte: \cite{NodeSystem:2014}}}}	
+    \label{fig:node-js-system-loop}
+  \end{figure}
+  
+  A figura \ref{fig:node-js-system-loop} exibe uma síntese do sistema Node.JS.
+  
+  Para atender a necesidade dessa abordagem o JavaScript casou-se muito bem com a orientação a eventos, pois provê nativamente
+  o modelo de eventos assíncronos em operações de entrada e saída, além de suporte de callbacks.\cite{Oliveira:2012}
 
+  \citeonline{Pereira:2013} compara que a orientação a eventos do Node.Js se espelha na filosofia de orientação 
+  a eventos utilizado nos navegadores; a diferença entre eles é que no Node.Js 
+  não existe eventos de clique do mouse, teclas pressionadas do teclado (keyup) ou qualquer evento de componentes HTML. Mas operações
+  de entrada e saída do servidor, assim como eventos de conexão ao banco de dados, abertura de arquivo e \textit{streaming}
+  de dados.
+  
+  A principal diferença em sistemas baseados em eventos, é que o produtor do evento não espera pela ação a ser executada
+  pelo servidor. \cite{Junior:2012}    
 
-\section{Single thread}
+  Em complemento a esta abordagem o Node.Js inicia seu objetivo de criar aplicações de rede escaláveis, utilizando thread única
+  e o cilco de eventos para resolver os galargalos de altas conexões.
+
+\section{Única thread e o cliclo de eventos}
 \label{single-thread}
 
-  Single thread em computação pode explicado como a execução de uma única tarefa.
+  Uma thread pode ser conceituada como um conjunto de instruções executadas pelos processos do sistema operacional
   
-  De acordo com \citeonline{Pereira:2013}, em Node.Js nativamente não é possível trabalhar com programação 
-  concorrente em plataforma multi-thread, mas existem maneiras de se implementar sistemas concorrentes, 
-  como por exemplo, utilizar clusters o qual é um módulo nativo do ambiente Node.Js.
+  Em Node.Js as conexões são recebidas em uma única thread invocada pelo nó de servidor de processos \textit{node server process}.
+  \citeonline{Abernethy:2011} cita que ao invés de criar novas \textit{threads}
+  no sistema operacional para cada conexão e alocar a memória RAM que acompanha essas \textit{threads}, 
+  cada conexão dispara um evento executado no processo do motor Node.Js.
   
-  Uma das melhores maneiras para entender o single-thread é descrita por \citeonline{Hughes:2012}
-  fazendo uma analogia ao cotidiano de nossa vida.
-  
-  \citeonline{Hughes:2012} exemplificam que o ser humano é capaz de realizar duas tarefas simples ao mesmo tempo,
-  mas que caso uma dessas atividades seja crítica ou grave, ao mesmo tempo, ha chances de algo dar errado muito rapidamente. 
-  Isto é como JavaScript. Já que as ações são conduzidas por eventos mas no single-thread apenas uma coisa 
-  acontece ao mesmo tempo.
-  
-  Para \citeonline{Hughes:2012} o conceito single-threaded é muito importante porém é uma das críticas 
-  feitas ao Node.Js é a falta de concorrência. Quando \citeonline{Hughes:2012} pronunciou falta de concorrência 
-  quis dizer que não são utilizadas todas as CPUs de um computador. 
-  Segundo estes autores o problema de executar códigos em várias CPUs de uma vez é que ele requer 
-  uma coordenação entre várias "linhas" de execução. Para que várias CPUs possam dividir de maneira eficaz o trabalho, 
-  é necessário que eles conversem entre si sobre o estado atual do programa, e o que cada single thread havia feito.
-  
-  
-  Além disso, é possível compartilhar sockets entre processos através da biblioteca multi-node \citeonline{Zyp:2010},
-  sendo assim, pode-se ter múltiplos nós de servidores de processos trabalhando em paralelo, 
-  cada um em core do processador, mas atenndendo ou escutando a mesma porta, assim o próprio sistema operacional
-  atua como balanceador de carga.\cite{Junior:2012}
+  Isso ocorre porque ao ser invocado um nó de servidor de processos (node server
+  process), ele roda apenas em 01 (uma) thread que suporta um alto número de conexões, isso é
+  possível, pois há um loop implícito que cobre o código, esse loop é denominado de event loop
+  e tem como função esperar os eventos e repassá-los ao manipulador de eventos. \cite{Tilkov:2010}
   
   \cite{Powers:2012} cita também o single thread como um dos benefícios do ambiente do Node.Js 
   pois o aplicativo pode ser facilmente escalável uma vez que em um único segmento de execução não ha uma enorme 
@@ -84,12 +113,57 @@
   processo filho do Apache. Em servidores menos otimizados a capacidade de criar processos filhos
   restringe-se a par de centenas de processos filhos em paralelo. Se a por ventura a quantidade de solicitações
   for maior que capacidade de processos filhos do Apache, o cliente entrará numa fila e esperar por uma resposta.\cite{Powers:2012}
+
+  Assim como \citeonline{Powers:2012}, \citeonline{Hughes:2012} afirma que o conceito de thread única é importante para 
+  toda a plataforma do Node.Js, porém é uma das críticas feitas ao Node.Js pela comunidade de desenvolvedores 
+  que utilizando este conceito não é possivel realizar concorrência no nó de servidor de processos.
   
+  \citeonline{Pereira:2013}, enfatiza que não é possível trabalhar com programação 
+  concorrente em plataforma multi thread nativamente com o ambiente Node.Js. Mas existem maneiras de implementar sistemas concorrentes, 
+  como por exemplo, a utilização de clusters, o qual é um módulo nativo do ambiente Node.Js.
+  
+  Além disso, é possível compartilhar sockets através de bibliotecas de terceiros como o multi-node \citeonline{Zyp:2010}.
+  Desta maneira o nó de servidor de processos pode ser instanciado em um ou mais processadores, oferencendo paralelismo, 
+  atendendo e recebendo requisições nas mesma porta. Cabendo ao sistema operacional atuar como balanceador de carga.\cite{Oliveira:2012}
+  
+  Em conjunto com a thread única o ambiente Node.Js possui o cilo de eventos sendo o agente responsável por escutar e 
+  emitir eventos dentro do sistema. Onde o ciclo de eventos é uma repetição infinita que a cada interação verifica em sua 
+  fila de eventos se um determinado evento foi emitido ou se existem novos eventos. Estes eventos só aparecem na 
+  fila quando são emitidos durante as suas interações na aplicação; quando ocorre, é emitido um evento, então este evento 
+  é executado e enviados para a fila de executados.\cite{Pereira:2013}
+  
+  \cite{Pereira:2013} diz que a programação orientada a eventos do Node.Js 
+  foi inspirado pelos \textit{frameworks} Event Machine\footnote{http://rubyeventmachine.com/} do 
+  Ruby\footnote{https://www.ruby-lang.org/en/} e Twisted\footnote{https://twistedmatrix.com/trac/} do 
+  Python\footnote{https://www.python.org/}, porém o ciclo de eventos do Node.Js é mais perfomático pois seu mecanismo 
+  é nativamente executado de forma não bloqueante sendo o diferencial em relação a outros ambientes de programação.
+  
+  \cite{Wilson:2013} enaltece os eventos do Node.Js, fornecido pelo JavaScript. Em outras linguagens de programação 
+  lidam com fluxos de trabalho em threads múltiplas e concorrentes, onde cada thread gasta a maioria de seu tempo aguardando 
+  operações bloqueadoras de entrada e saída, tais como: leitura ou escrita em disco, manipulação do banco de dados 
+  acesso a informações pela rede. O que não ocorre com o Node.Js.
+   
+  Intuitivamente o ciclo de eventos é associado a vida cotidiana onde cada solicitação de evento necessita de um retorno. 
+  O desenvolvimento em Node.js visa que escreva o código e seus metódos trabalhe com uma chamda de retorno de cada vez, 
+  o programa será compreensível e também capaz de executar rapidamente várias tarefas de forma eficiente.\cite{Hughes:2012}
+  
+  Possuindo uma ideia de como o ciclo de eventos funciona, o desenvolvedor é capaz de usá-lo em toda sua potencialidade, 
+  conseguindo vantagens e evitando armadilhas dessa abordagem.\cite{Hughes:2012}
+  
+  Aprofundando \cite{Pereira:2013} cita o EventEmitter como módulo responsável por emitir estes eventos e em 
+  grande maioria das bibliotecas do ambiente Node.Js utiliza as funcionalidades de eventos deste módulo. 
+  No processo de execução do evento pode-se programar qualquer lógica de programação através do 
+  mecanismo de chamada de retorno. Tal chamada de retorno pode ser executado através de uma função de escuta, 
+  semanticamente conhecida pelo on().
+  
+  Essa seção é bem descrita e exemplificada por \cite{Wilson:2013} em seu livro que nos mostra o uso e o 
+  desenvolvimento de eventos.
+
   Deste modo, um servidor Node.js pode suportar dezenas de milhares de conexões simultâneas, 
   pois ele altera todo o contexto do servidor e o único gargalo passa a ser a capacidade de tráfego 
   de um sistema e não mais o número de conexões.\cite{Abernethy:2011}
   
-\section{Chamdas de retorno e \textit{callback's hell}}
+\section{Assíncronismo, Chamadas de retorno e \textit{callback's hell}}
 \label{chamadas-de-retorno-e-callback-hell}
 
   De acordo com \citeonline{Wilson:2013} o JavaScript utiliza de \textit{callbacks}
@@ -122,7 +196,6 @@
   chamadas de retorno como parâmetros. A organização do código pode ser visto no código \ref{leitura-arquivos-diretorio-node-callback-heaven} do
   Anexo \ref{primeiro-anexo}.\cite{Pereira:2013}
  
-  
   Uma abordagem utilizada pela empresa StrongLoop é a utilização do módulo async \footnote{https://github.com/caolan/async},
   sendo o mais popular entre os desenvolvedores e também fica mais próximo do \textit{core} (núcleo) do Node.Js. Este módulo
   possui o metódo async.waterfall que provê um controle em série, em que os dados podem ser passados para a próxima função
@@ -152,70 +225,6 @@
   
   Todo os código e comentários podem ser vistos no artigo da empresa. \cite{Strongloop:2013}
   
-\section{Ciclo de eventos}
-\label{ciclo-de-eventos}
-  
-  Ao introduzir esse assunto \cite{Pereira:2013} diz que o ciclo de eventos - Event-Loop - 
-  é o agente responsável por escutar e emitir eventos dentro do sistema. Rapidamente explica a teoria do paradigma 
-  de orientação a eventos onde o ciclo de eventos é uma repetição infinita que a cada interação verifica em sua 
-  fila de eventos se um determinado evento foi emitido ou se existem novos eventos. Estes eventos só aparecem na 
-  fila quando são emitidos durante as suas interações na aplicação; quando ocorre, é emitido um evento, então este evento 
-  é executado e enviados para a fila de executados.
-  
-  \cite{Wilson:2013} enaltece os eventos como sendo a alma do Node.Js e do JavaScript. 
-  Complementando afirma-se que outras linguagens de programação lidam com fluxos de trabalho em threads múltiplas 
-  e concorrentes, com cada thread gastando a maioria de seu tempo aguardando operações bloqueadoras de entrada e 
-  saída como leitura ou escrita em disco, manipulação do banco de dados ou acesso a informações pela rede.
-  
-  \begin{figure}[H]
-  % Alterar espaçamentos antes e depois do caption
-  \setlength{\abovecaptionskip}{0pt}
-  \setlength{\belowcaptionskip}{0pt}
-  % Caption
-  \caption[Ciclo de eventos no Node.Js]{Ciclo de eventos no Node.Js}
-  \centering
-  \includegraphics[width=.85\textwidth]{imagem/event-loop-caio-ribeiro.png}
-  % Caption centralizada
-  \captionsetup{justification=centering}
-  \captionfont{\small{\textbf{\\Fonte: \cite{Pereira:2013}}}}	
-  \label{fig:event-loop}
-  \end{figure}
-  
-  A figura \ref{fig:event-loop} mostra o ciclo de eventos executado em uma repetição, recebendo o evento \textit{request}.
-  
-  \cite{Wilson:2013} escreve uma das qualidades do JavaScript, que foi criado seguindo o modelo de programação orientado 
-  a eventos. Sendo desde um simples clique de mouse, carregamento de páginas ou envio de formulários, todos utilizando 
-  o modelo baseado em eventos.
-  
-  O \textit{event loop} (cilo de eventos) é o sistema que usa o JavaScript para lidar com os pedidos recebidos de várias
-  partes do sistema de uma forma sadia. Há uma série de maneiras como as pessoas lidam com o tempo real ou questões 
-  paralelas em computação. 
-
-  
-  O JavaScript tem uma abordagem simples que torna o processo muito mais compreensível, mas introduz algumas restrições. 
-  Possuindo uma ideia de como o ciclo de eventos funciona, o desenvolvedor é capaz de usá-lo em toda sua potencialidade, 
-  conseguindo vantagens e evitando armadilhas dessa abordagem.\cite{Hughes:2012}
-  
-  Pensamos que a maioria das pessoas entendem intuitivamente a programação orientada a eventos, porquê é como a 
-  vida cotidiana onde cada solicitação de evento necessita de um retorno. A programação orientada a eventos faz a 
-  mesma coisa. Ao permitir que o desenvolvedor escreva código que só trabalhe em um retorno de chamada de cada vez, 
-  o programa será compreensível e também capaz de executar rapidamente várias tarefas de forma eficiente.\cite{Hughes:2012}
-  
-  Como apresentado por \cite{Pereira:2013} o EventEmitter, é o módulo responsável por por emitir estes eventos e em 
-  grande maioria das bibliotecas do ambiente Node.Js utiliza as funcionalidades de eventos deste módulo. 
-  No processo de execução do evento pode-se programar qualquer lógica de programação através do 
-  mecanismo de chamada de retorno. Tal chamada de retorno pode ser executado através de uma função de escuta, 
-  semanticamente conhecida pelo on().
-  
-  Essa seção é bem descrita e exemplificada por \cite{Wilson:2013} em seu livro que nos mostra o uso e o 
-  desenvolvimento de eventos.
-
-  
-  Finalizando o ciclo de eventos seção, \cite{Pereira:2013} diz que a programação orientada a eventos do Node.Js 
-  foi inspirado pelos \textit{frameworks} Event Machine\footnote{http://rubyeventmachine.com/} do 
-  Ruby\footnote{https://www.ruby-lang.org/en/} e Twisted\footnote{https://twistedmatrix.com/trac/} do 
-  Python\footnote{https://www.python.org/}, porém o ciclo de eventos do Node.Js é mais perfomático pois seu mecanismo 
-  é nativamente executado de forma não bloqueante sendo o diferencial em relação a outros ambientes de programação.
   
 \section{Por que usar assíncrono}
 \label{porque-usar-assincrono}
