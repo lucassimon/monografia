@@ -9,9 +9,7 @@
 % Texto do capítulo
 
  Neste capítulo vamos abordar o ambiente de testes para os nossos protótipos e apresentar 
- o plano de testes utilizado.
- 
- Após o detalhamento do plano de testes serão apresentados ao leitor os resultados obtidos e análise dos dados.
+ o plano de testes utilizado e os resultados obtidos e análise dos dados.
 
 \section{Ambiente de testes}
 \label{ambientedetestes}
@@ -207,8 +205,8 @@
   O serviço loader.io garante que um número constante de clientes estará consumindo e realizando requisições em 
   sua \ac{API} a todo o momento.
   
-  Corresponde ao campo de clientes do formulário. O teste inicia-se com um certo número de ligações ("de") 
-  e pode aumentar as ligações ao longo do teste, atingindo o número no campo "para", até ao final do teste. 
+  Corresponde ao campo de clientes do formulário. O teste inicia-se com um certo número de conexões ("de") 
+  e pode aumentar as conexões ao longo do teste, atingindo o número no campo "para", até ao final do teste. 
   
   Este teste permite que especifique um número mínimo e máximo de clientes. Especificando zero clientes
   até 10.000, por exemplo, o teste vai começar com zero até 10.000 clientes simultâneos no final do teste.
@@ -220,7 +218,7 @@
   
   O token fornecido pelo Loader.io pode ser verificado de duas maneiras.
   
-  Verificação por HTTP.
+  \textbf{Verificação por HTTP}.
   
   Pode-se realizar upload do arquivo loader-\textit{token} para o aplicativo e fazer com que a aplicação
   responda este arquivo texto através de uma rota com o mesmo nome do arquivo. 
@@ -229,7 +227,7 @@
   na resposta da requisição \ac{HTTP} alteramos o cabeçalho do protocolo para \textit{text/plain} e imprimimos
   o valor do token.
   
-  Verificação por DNS.
+  \textbf{Verificação por DNS.}
   
   A verificação ocorre quando o valor do token é inserido nas configurações de hospedagem através de um
   registro txt, com o valor \textit{loaderio=token}.
@@ -268,29 +266,92 @@
     \item[a)] Avg error rate: Porcentagem de erros do total de tentativas dos pedidos.
   \end{compactitem}
 
-  Gráficos
+  \textbf{Gráficos}
   
   São três tipos de gráficos disponibilizados pelo Loader.io que oferecem informações mais detalhadas 
   sobre o que ocorreu na execução do teste como tempos de resposta, taxas de erro e largura de banda.
   
-  O gráfico times.
+  \textbf{O gráfico times}.
   
   Gráfico que exibe os tempos de resposta apresentando duas linhas.
   
   Em verde, tem-se o número de conexões realizadas no aplicativo. E em azul é o tempo médio de resposta das
   requisições.
   
-  O gráfico de detalhes.
+  \textbf{O gráfico de detalhes.}
   
   O gráfico que exibe taxas de sucesso e também de erros. Seu objetivo é exibir quando o aplicativo
   começa a disparar os erros.
   
-  O gráfico largura de banda.
+  \textbf{O gráfico largura de banda.}
   
   Este gráfico mostra o quanto os dados foram enviados a partir do seu aplicativo.
 
 
 \section{Testes}
 
-  Para referenciar um capítulo, seção ou subseção basta definir um label para o mesmo e usar o comando ref para referênciá-lo
-  no texto. Exemplo: Como pode ser visto no Capítulo \ref{cap1} ou na Seção \ref{secao1}.
+  Descreve-se nesta seção os planos de testes utilizado em cada tipo de teste e a interpretação dos seus resultados
+  através de comparação.
+  
+  Foi utilizada a seguinte nomenclatura para os testes
+  
+  A - 1.x 
+  
+  A - 2.x
+  
+  A - 3.x
+  
+  B - 1.x
+  
+  B - 2.x
+  
+  B - 3.x
+    
+\subsection{Manter a carga no Servidor}  
+
+  
+  
+  Plano de teste A/B - 3.x
+  
+  Corresponde ao teste manter carga de usuários.
+  
+  A série do plano de teste (A/B - 3.x) inicia com um teste de 50 a 100 usuários no sistema até
+  1 minuto de duração. No decorrer da série acrescentamos 50 usuários até a quantidade máxima 
+  suportada pela aplicação.
+  
+  O gráfico \ref{grafico:teste-mantendo-carga-usuario-django} refere-se ao resumo dos testes com o aplicativo em Django.
+  
+  \begin{grafico}[H]
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{5pt}
+    \setlength{\belowcaptionskip}{0pt}
+    \label{grafico:teste-mantendo-carga-usuario-django}
+    % Caption
+    \caption[Mantendo a carga de usuários no Django]
+	    {Mantendo a carga de usuários no Django}
+    \centering
+    \includegraphics[width=.80\textwidth]{imagem/graficos/grafico_django_plano_de_teste_3.png}
+    % Caption centralizada
+    \captionsetup[grafico]{justification=centering}
+    % Fonte
+    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+  \end{grafico}
+  
+  Agora apresentamos o gráfico \ref{grafico:teste-mantendo-carga-usuario-node} referente aos testes realizados com o Node.Js
+
+  \begin{grafico}[H]
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{5pt}
+    \setlength{\belowcaptionskip}{0pt}
+    \label{grafico:teste-mantendo-carga-usuario-node}
+    % Caption
+    \caption[Mantendo a carga de usuários no Node.Js]
+	    {Mantendo a carga de usuários no Node.Js}
+    \centering
+    \includegraphics[width=.80\textwidth]{imagem/graficos/grafico_node_plano_de_teste_3.png}
+    % Caption centralizada
+    \captionsetup[grafico]{justification=centering}
+    % Fonte
+    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+  \end{grafico}
+  
