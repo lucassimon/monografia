@@ -6,43 +6,12 @@
 % Diminuir espaçamento entre título e texto
 \vspace{-1.9cm}
 
-% Texto do capítulo
-
-
-%  Para resolver este problema adota-se o paradigma de programação orientada a eventos utilizando
-%  as caracteriticas nativas do JavaScript: modelo de eventos assíncronos, funções anônimas e \textit{callbacks}. \cite{Junior:2012}
-  
-%  Como \citeonline{Junior:2012} exemplificou, um programa assíncrono ao fazer uma requisição 
-%  a um banco de dados especifica o que deve ser feito com os resultados do banco de dados, ele não espera a 
-%  finalização da requisição e continua a processar outras atividades existes no programa. 
-%  Apenas quando o resultado da requisição é retornado do banco de dados, a codificação para manipular os estes dados 
-%  é executado. A esta lógica de programação, executada após todos os dados serem retornados, dá-se ao nome de callback.\cite[p. 2]{Junior:2012} 
-  
-  
-%  O Node.Js afirma que ele nunca irá ter bloqueios ou impasses, já que bloqueios não é uma característica 
-%  da sua plataforma mesmo em processamento de entradas e saídas e que um servidor pode suportar 
-%  dezenas de milhares de conexões simultâneas.\cite{Abernethy:2011}
 
   Criado por Ryan Dhal em 2009, a plataforma Node.Js tem como objetivo mitigar o problema descrito no capítulo \ref{introducao}
   e prover um ambiente de programação amplo e forte para os desenvolvedores. 
   
   Nas próximas seções será explicado ao leitor as principais características do ecosistema do Node.Js.
  
-  
-%  Conforme descrito no capítulo introdutório \cite{Junior:2012} descreve o Node.Js como uma plataforma orientada a 
-%  eventos não bloqueantes projetada para construção de aplicações de rede rápidas e escaláveis utilizando o JavaScript.
-  
-%  Neste contexto do ambiente Node.Js o JavaScript é uma das linguagens de programação mais utilizadas em interfaces de sites, e o Node.Js
-%  permite utilizar essa linguagem de programação e aplicá-la em outros contextos como servidores web. Possui um alto
-%  desempenho através do JavaScript Enginie V8, do Google.\cite{Hughes:2012}.
-  
-%  O V8 utiliza umas das técnicas recentes de compiladores que permite que o código escrito em linguagem de alto nível,
-%  tal como o JavaScript, execute de forma semelhante a linguagens de baixo nível como C. O Node.Js também aproveita
-%  do paradigma de orientação a eventos da linguagem e retira proveito disso para produzir servidores escaláveis usando 
-%  uma arquitetura chamada de ciclo de eventos, do inglês, Event Loop.\cite{Hughes:2012}.
-  
-%  Node.Js é extensível com grandes módulos construídos por uma comunidade ativa desde 2009 quando foi criado
-%  por Ryan Dhal.
   
 \section{Programação Orientada a Eventos}
 \label{programacao-orientada-a-eventos}
@@ -71,9 +40,11 @@
     \label{fig:node-js-system-loop}
   \end{figure}
   
-  A figura \ref{fig:node-js-system-loop} exibe uma síntese do sistema Node.JS.
+  A figura \ref{fig:node-js-system-loop} exibe uma síntese do sistema Node.JS. Primeiro a aplicação web requisita um evento 
+  ao Node.Js instalado no servidor. Através da linguagem JavaScript V8 o Node.Js interage com sua \ac{API} e envia 
+  a requisição para uma fila onde é processada pelo ciclo de eventos e tratada pelos módulos existentes no Node.js. 
   
-  Para atender a necesidade dessa abordagem o JavaScript casou-se muito bem com a orientação a eventos, pois provê nativamente
+  Para atender a necesidade dessa abordagem o JavaScript V8 casou-se muito bem com a orientação a eventos, pois provê nativamente
   o modelo de eventos assíncronos em operações de entrada e saída, além de suporte de callbacks.\cite{Oliveira:2012}
 
   \citeonline{Pereira:2013} compara que a orientação a eventos do Node.Js se espelha na filosofia de orientação 
@@ -85,25 +56,25 @@
   A principal diferença em sistemas baseados em eventos, é que o produtor do evento não espera pela ação a ser executada
   pelo servidor. \cite{Junior:2012}    
 
-  Em complemento a esta abordagem o Node.Js inicia seu objetivo de criar aplicações de rede escaláveis, utilizando thread única
+  Em complemento a esta abordagem o Node.Js inicia seu objetivo de criar aplicações de rede escaláveis, utilizando \textit{thread} única
   e o cilco de eventos para resolver os galargalos de altas conexões.
 
 \section{Única thread e o cliclo de eventos}
 \label{single-thread}
 
-  Uma thread pode ser conceituada como um conjunto de instruções executadas pelos processos do sistema operacional
+  Uma \textit{thread} pode ser conceituada como um conjunto de instruções executadas pelos processos do sistema operacional
   
-  Em Node.Js as conexões são recebidas em uma única thread invocada pelo nó de servidor de processos \textit{node server process}.
+  Em Node.Js as conexões são recebidas em uma única \textit{thread} invocada pelo nó de servidor de processos \textit{node server process}.
   \citeonline{Abernethy:2011} cita que ao invés de criar novas \textit{threads}
   no sistema operacional para cada conexão e alocar a memória RAM que acompanha essas \textit{threads}, 
   cada conexão dispara um evento executado no processo do motor Node.Js.
   
   Isso ocorre porque ao ser invocado um nó de servidor de processos (node server
-  process), ele roda apenas em 01 (uma) thread que suporta um alto número de conexões, isso é
+  process), ele roda apenas em 01 (uma) \textit{thread} que suporta um alto número de conexões, isso é
   possível, pois há um loop implícito que cobre o código, esse loop é denominado de event loop
   e tem como função esperar os eventos e repassá-los ao manipulador de eventos. \cite{Tilkov:2010}
   
-  \cite{Powers:2012} cita também o single thread como um dos benefícios do ambiente do Node.Js 
+  \cite{Powers:2012} cita também o single \textit{thread} como um dos benefícios do ambiente do Node.Js 
   pois o aplicativo pode ser facilmente escalável uma vez que em um único segmento de execução não ha uma enorme 
   sobrecarga de requisições. Citando o exemplo de seu livro, ao criar uma aplicação em \ac{PHP} semelhante 
   à aplicação Node.Js o usuário veria a mesma página, mas ao visualzia os processos desta aplicação haverá uma 
@@ -114,19 +85,19 @@
   restringe-se a par de centenas de processos filhos em paralelo. Se a por ventura a quantidade de solicitações
   for maior que capacidade de processos filhos do Apache, o cliente entrará numa fila e esperar por uma resposta.\cite{Powers:2012}
 
-  Assim como \citeonline{Powers:2012}, \citeonline{Hughes:2012} afirma que o conceito de thread única é importante para 
+  Assim como \citeonline{Powers:2012}, \citeonline{Hughes:2012} afirma que o conceito de \textit{thread} única é importante para 
   toda a plataforma do Node.Js, porém é uma das críticas feitas ao Node.Js pela comunidade de desenvolvedores 
   que utilizando este conceito não é possivel realizar concorrência no nó de servidor de processos.
   
   \citeonline{Pereira:2013}, enfatiza que não é possível trabalhar com programação 
-  concorrente em plataforma multi thread nativamente com o ambiente Node.Js. Mas existem maneiras de implementar sistemas concorrentes, 
+  concorrente em plataforma multi \textit{thread} nativamente com o ambiente Node.Js. Mas existem maneiras de implementar sistemas concorrentes, 
   como por exemplo, a utilização de clusters, o qual é um módulo nativo do ambiente Node.Js.
   
-  Além disso, é possível compartilhar sockets através de bibliotecas de terceiros como o multi-node \citeonline{Zyp:2010}.
+  Como a biblioteca  multi-node \citeonline{Zyp:2010}, é possivel compartilhar sockets nos servidores.
   Desta maneira o nó de servidor de processos pode ser instanciado em um ou mais processadores, oferencendo paralelismo, 
   atendendo e recebendo requisições nas mesma porta. Cabendo ao sistema operacional atuar como balanceador de carga.\cite{Oliveira:2012}
   
-  Em conjunto com a thread única o ambiente Node.Js possui o cilo de eventos sendo o agente responsável por escutar e 
+  Em conjunto com a \textit{thread} única o ambiente Node.Js possui o cilo de eventos sendo o agente responsável por escutar e 
   emitir eventos dentro do sistema. Onde o ciclo de eventos é uma repetição infinita que a cada interação verifica em sua 
   fila de eventos se um determinado evento foi emitido ou se existem novos eventos. Estes eventos só aparecem na 
   fila quando são emitidos durante as suas interações na aplicação; quando ocorre, é emitido um evento, então este evento 
@@ -139,19 +110,17 @@
   é nativamente executado de forma não bloqueante sendo o diferencial em relação a outros ambientes de programação.
   
   \cite{Wilson:2013} enaltece os eventos do Node.Js, fornecido pelo JavaScript. Em outras linguagens de programação 
-  lidam com fluxos de trabalho em threads múltiplas e concorrentes, onde cada thread gasta a maioria de seu tempo aguardando 
+  os fluxos de trabalho são em \textit{threads} múltiplas e concorrentes, onde cada \textit{thread} gasta a maioria de seu tempo aguardando 
   operações bloqueadoras de entrada e saída, tais como: leitura ou escrita em disco, manipulação do banco de dados 
   acesso a informações pela rede. O que não ocorre com o Node.Js.
    
-  Intuitivamente o ciclo de eventos é associado a vida cotidiana onde cada solicitação de evento necessita de um retorno. 
-  O desenvolvimento em Node.js visa que escreva o código e seus metódos trabalhe com uma chamda de retorno de cada vez, 
-  o programa será compreensível e também capaz de executar rapidamente várias tarefas de forma eficiente.\cite{Hughes:2012}
+  Intuitivamente o ciclo de eventos é associado a vida cotidiana onde cada solicitação de evento necessita de um retorno.
   
-  Possuindo uma ideia de como o ciclo de eventos funciona, o desenvolvedor é capaz de usá-lo em toda sua potencialidade, 
+  Possuindo a base de como o ciclo de eventos funciona, o desenvolvedor é capaz de usá-lo em toda sua potencialidade, 
   conseguindo vantagens e evitando armadilhas dessa abordagem.\cite{Hughes:2012}
   
-  Aprofundando \cite{Pereira:2013} cita o EventEmitter como módulo responsável por emitir estes eventos e em 
-  grande maioria das bibliotecas do ambiente Node.Js utiliza as funcionalidades de eventos deste módulo. 
+  Aprofundando \cite{Pereira:2013} cita o módulo EventEmitter o responsável por emitir estes eventos e em 
+  grande maioria das bibliotecas exitentes no Node.Js utiliza as funcionalidades de eventos deste módulo. 
   No processo de execução do evento pode-se programar qualquer lógica de programação através do 
   mecanismo de chamada de retorno. Tal chamada de retorno pode ser executado através de uma função de escuta, 
   semanticamente conhecida pelo on().
@@ -159,36 +128,104 @@
   Essa seção é bem descrita e exemplificada por \cite{Wilson:2013} em seu livro que nos mostra o uso e o 
   desenvolvimento de eventos.
 
-  Deste modo, um servidor Node.js pode suportar dezenas de milhares de conexões simultâneas, 
-  pois ele altera todo o contexto do servidor e o único gargalo passa a ser a capacidade de tráfego 
-  de um sistema e não mais o número de conexões.\cite{Abernethy:2011}
+  \citeonline{Oliveira:2012} e \citeonline{Abernethy:2011} relatam que através da arquitetura do Node.js, a aplicação poderá 
+  suportar dezenas de milhares de conexões simultâneas. Pois os bloqueios ou impasses não são características da plataforma ao
+  realizar processamento de entradas e saídas. O único gargalo de um servidor Node.Js passa-se a ser a capacidade de 
+  tráfego da aplicação.
   
-\section{Assíncronismo, Chamadas de retorno e \textit{callback's hell}}
+\section{JavaScript, Chamadas de retorno e \textit{callback's hell}}
 \label{chamadas-de-retorno-e-callback-hell}
 
-  De acordo com \citeonline{Wilson:2013} o JavaScript utiliza de \textit{callbacks}
-  para abordar o problema a  partir do lado oposto; ao invés de gerenciar processos de execução prolongada, 
-  os desenvolvedores associam eventos específicos e escrevem funções especiais, chamadas \textit{callbacks}
-  (chamadas de retorno), que são executadas quando o critério do evento é atingido.
+  Através do alto desempenho do JavaScript Enginie V8, do Google, foi possível alterar o contexto da linguagem de programação
+  amplamente utilizada em interfaces de sites nos navegadores e aplicá-la em servidores web formando o ambiente Node.Js.
+    
+  O V8 utiliza umas das técnicas recentes de compiladores que permite que o código escrito em linguagem de alto nível,
+  tal como o JavaScript, execute de forma semelhante a linguagens de baixo nível como C. O Node.Js também aproveita
+  do paradigma de orientação a eventos da linguagem e retira proveito da disso para compor sua arquitetura.
 
-\subsection{Evitando \textit{callbacks hell}}
+  Ao escrever códigos em Node.Js é necessário ter em mente que os metódos implementados em JavaScript trabalhe com uma 
+  chamada de retorno de cada vez, para que o programa seja compreensível e também capaz de executar rapidamente várias 
+  tarefas de forma eficiente.\cite{Hughes:2012}
 
-  \cite{Pereira:2013} relata que o JavaScript possui boa performance trabalhando de forma assíncrona porém em certos 
-  momentos do desenvolvimentos, inevitavelmente será implementado diversas funções assíncronas encadeadas umas nas 
-  outras através das suas funções \textit{callbacks} criando o \textit{callbacks hell}.
+  As chamadas de retorno, é uma função especial associada a um determinado evento que tende a ser executada quando o evento
+  é atingido evitando assim a espera da execução de um processo.\citeonline{Wilson:2013} 
   
-  No código \ref{leitura-arquivos-diretorio-node} implementado por \citeonline{Pereira:2013}, e referenciado no Anexo \ref{primeiro-anexo}
-  ha uma simples leitura de arquivos de um diretório qualquer sendo impresso o nome do arquivo e seu tamanho em
-  bytes. Este exemplo feito pelo autor demonstra que uma simples tarefa possui várias chamadas de retorno encadeadas. Também
-  é questionado como seria a organização caso a solução do problema fosse mais complexa. Pode-se entender que tal código
+  Como exemplificado, um programa JavaScript assíncrono ao fazer uma requisição 
+  a um banco de dados especifica o que deve ser feito com os resultados do banco de dados, ele não espera a 
+  finalização da requisição e continua a processar outras atividades existes no programa. 
+  Apenas quando o resultado da requisição é retornado do banco de dados, a codificação para manipular os estes dados 
+  é executado. \cite[p. 2]{Junior:2012}
+  
+  No ambiente de desenvolvimento Node.Js é importante entender e saber trabalhar com as chamadas assíncronas para conseguir
+  aproveitar a performance oferecida pelo JavaScript no Node.Js.\cite{Pereira:2013} em seu livro exemplifica em código
+  as diferenças entre uma função síncrona e assíncrona em relação ao tempo em que são executadas. 
+  
+  Em resumo, este código é uma repetição de 5 interações e a cada iteração desta repetição é criado um arquivo texto. O primeiro
+  exemplo utiliza o modelo síncrono existente no módulo (\textit{File System}) nativo do Node.Js (\textit{fs.writeFileSync}).
+  
+  \begin{figure}[H]
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{0pt}
+    \setlength{\belowcaptionskip}{0pt}
+    % Caption
+    \caption[Tempo de resposta, metódo síncrono bloqueante]{Tempo de resposta, metódo síncrono bloqueante}
+    \centering
+    \includegraphics[width=.85\textwidth]{imagem/timeline-node-sync-caio-ribeiro.png}
+    % Caption centralizada
+    \captionsetup{justification=centering}
+    \captionfont{\small{\textbf{\\Fonte: \cite{Pereira:2013}}}}	
+    \label{fig:timeline-sync}
+  \end{figure}
+  
+  A Figura \ref{fig:timeline-sync} exibe gráfico demonstrando que cada arquivo escrito
+  gasta-se 200 milesegundos totalizando 1000 milesegundos para completar toda a tarefa.
+
+  O segundo exemplo utiliza o mesmo módulo (\textit{File System}) implementando a função assíncrona. Esta função de acordo com
+  a documentação \cite{ModuleSystemFs:2014} informa que obrigatoriamente precisa passar uma função de chamada de retorno como último
+  parâmetro da função \textit{fs.writeFile}.
+  
+
+  Uma observação importante a ser feita descrita na documentação deste módulo e que 
+  vale para todo o ambiente Node.Js e seus modulos é que os parâmetros passados para a chamada de retorno dependerá de 
+  cada método, porém em regra   o primeiro argumento é sempre reservado para uma váriavel de erro ou exceção tratada no 
+  escopo interno da chamada de retorno.
+  Se a operação foi concluída com êxito, o primeiro argumento será nulo ou indefinido. \cite{ModuleSystemFs:2014}
+
+  \begin{figure}[H]
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{0pt}
+    \setlength{\belowcaptionskip}{0pt}
+    % Caption
+    \caption[Tempo de resposta, metódo assíncrono não-bloqueante]{Tempo de resposta, metódo assíncrono não-bloqueante}
+    \centering
+    \includegraphics[width=.85\textwidth]{imagem/timeline-node-async-caio-ribeiro.png}
+    % Caption centralizada
+    \captionsetup{justification=centering}
+    \captionfont{\small{\textbf{\\Fonte: \cite{Pereira:2013}}}}	
+    \label{fig:timeline-async}
+  \end{figure}
+
+  A Figura \ref{fig:timeline-async} mostra o gráfico do tempo total de duração para escrever em 05 (cinco) arquivos. Essa 
+  perfomance é dada a execução assíncrona que maximizou o processamento reduzindo o tempo total para 200 milesegundos.
+  
+  \cite{Pereira:2013} relata que o JavaScript possui boa performance trabalhando de forma assíncrona porém em certos 
+  momentos do desenvolvimento, inevitavelmente será implementado diversas funções assíncronas encadeadas umas nas 
+  outras através das chamadas de retorno criando o \textit{callbacks hell}.
+  
+  Em outro código \ref{leitura-arquivos-diretorio-node} implementado por \citeonline{Pereira:2013}, e referenciado no 
+  Anexo \ref{primeiro-anexo} ha uma simples leitura de arquivos de um diretório qualquer sendo impresso o nome do arquivo 
+  e seu tamanho em bytes. Este exemplo feito pelo autor demonstra que uma simples tarefa possui várias 
+  chamadas de retorno encadeadas.
+  
+  Também questiona-se a organização do código escrito caso a solução do problema fosse mais complexa. Dando a entender que tal código
   seria um caos e de difícil manutenabilidade.
   
-  Também é afirmado, que, a linguagem JavaScript ser assíncrona resulta em ganhos de 
-  performace, ha o problema de perda de controle do que está sendo executado, acesso à variáveis devido à troca de escopos
+  Também é afirmado, que, a linguagem JavaScript por ser assíncrona resulta em ganhos de 
+  performace, porém de perde-se o controle do que está sendo executado, e o acesso à variáveis devido às trocas de escopos
   neste emaranhado de chamadas de retorno.
   
-  Um ponto a se atentar, é que, que as chamadas de retorno no Node.Js possuem como parâmetro uma variável de erro. Se existir
-  este parâmetro, é recomendado por \citeonline{Pereira:2013} que realize primeiramente o tratamento deste erro na execução da função
+  \citeonline{Pereira:2013} reafirma que as chamadas de retorno no Node.Js possuem como parâmetro uma variável de erro. Se existir
+  este parâmetro, é recomendado que realize primeiramente o tratamento deste erro na execução da função
   impossibilitando a execução aleatória quando surgir tal erro.
   
   Uma das maneiras de se evitar o temido \textit{callback hell}, e dado que é, uma boa prática de codificação JavaScript é
@@ -196,7 +233,7 @@
   chamadas de retorno como parâmetros. A organização do código pode ser visto no código \ref{leitura-arquivos-diretorio-node-callback-heaven} do
   Anexo \ref{primeiro-anexo}.\cite{Pereira:2013}
  
-  Uma abordagem utilizada pela empresa StrongLoop é a utilização do módulo async \footnote{https://github.com/caolan/async},
+  Outra abordagem, utilizada pela empresa StrongLoop, é a utilização do módulo async \footnote{https://github.com/caolan/async},
   sendo o mais popular entre os desenvolvedores e também fica mais próximo do \textit{core} (núcleo) do Node.Js. Este módulo
   possui o metódo async.waterfall que provê um controle em série, em que os dados podem ser passados para a próxima função
   usando o parametro next. O metódo async.map executa o comando fs.stat (buscar status do arquivo) do Node.Js sobre uma matriz
@@ -218,57 +255,13 @@
   serão passadas para a função de chamada de retorno. Também é habilitado o uso de blocos \textit{try/catch} em torno das 
   declarações yield.
   
-  A empresa \cite{Strongloop:2013} investigou três possibilidades de mitigar o problema dos \textit{callbacks hell}, com o 
+  Neste artigo \cite{Strongloop:2013} investigou-se três possibilidades de mitigar o problema dos \textit{callbacks hell}, com o 
   intuito de obtenção de controle do fluxo da aplicação. Um interesse maior surgiu pela a abordagem dos \textit{generators}
   apesar de não empregar em seus projetos. Independente de qual módulo e abordagem for utilizada ela reafirma que é recomendado
   utilizar a modularização em qualquer parte da aplicação e bibliotecas descritas (\textit{async,promises, generators}).
   
   Todo os código e comentários podem ser vistos no artigo da empresa. \cite{Strongloop:2013}
   
-  
-\section{Por que usar assíncrono}
-\label{porque-usar-assincrono}
-
-  No ambiente de desenvolvimento Node.Js é importante entender e saber trabalhar com as chamadas assíncronas. 
-  \cite{Pereira:2013} em seu livro exemplifica em código as diferenças entre uma função síncrona e assíncrona 
-  em relação ao tempo em que são executadas. Este código nada mais é que uma repetição de 5 interações e a cada 
-  iteração desta repetição será criado um arquivo texto.
-  
-  Veja o tempo gasto utilizando o modelo síncrono da função \textit{fs.writeFileSync}.
-  
-  \begin{figure}[H]
-  % Alterar espaçamentos antes e depois do caption
-  \setlength{\abovecaptionskip}{0pt}
-  \setlength{\belowcaptionskip}{0pt}
-  % Caption
-  \caption[Tempo de resposta, metódo síncrono bloqueante]{Tempo de resposta, metódo síncrono bloqueante}
-  \centering
-  \includegraphics[width=.85\textwidth]{imagem/timeline-node-sync-caio-ribeiro.png}
-  % Caption centralizada
-  \captionsetup{justification=centering}
-  \captionfont{\small{\textbf{\\Fonte: \cite{Pereira:2013}}}}	
-  \label{fig:timeline-sync}
-  \end{figure}
-  
-  A Figura \ref{fig:timeline-sync} exibe um quadro com um tempo de 200 ms de resposta para cada um dos 5 arquivos.
-
-  \begin{figure}[H]
-  % Alterar espaçamentos antes e depois do caption
-  \setlength{\abovecaptionskip}{0pt}
-  \setlength{\belowcaptionskip}{0pt}
-  % Caption
-  \caption[Tempo de resposta, metódo assíncrono não-bloqueante]{Tempo de resposta, metódo assíncrono não-bloqueante}
-  \centering
-  \includegraphics[width=.85\textwidth]{imagem/timeline-node-async-caio-ribeiro.png}
-  % Caption centralizada
-  \captionsetup{justification=centering}
-  \captionfont{\small{\textbf{\\Fonte: \cite{Pereira:2013}}}}	
-  \label{fig:timeline-async}
-  \end{figure}
-
-  
-  Agora na Figura \ref{fig:timeline-async} o tempo total de duração foram de 200 milesegundos, pois foram executados
-  de forma assíncrona maximizando o processamento.
 
 \section{Framework Express}
 \label{framework-express}
