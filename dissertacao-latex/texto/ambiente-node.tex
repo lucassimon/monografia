@@ -44,9 +44,6 @@
   ao Node.Js instalado no servidor. Através da linguagem JavaScript V8 o Node.Js interage com sua \ac{API} e envia 
   a requisição para uma fila onde é processada pelo ciclo de eventos e tratada pelos módulos existentes no Node.js. 
   
-  Para atender a necesidade dessa abordagem o JavaScript V8 casou-se muito bem com a orientação a eventos, pois provê nativamente
-  o modelo de eventos assíncronos em operações de entrada e saída, além de suporte de callbacks.\cite{Oliveira:2012}
-
   \citeonline{Pereira:2013} compara que a orientação a eventos do Node.Js se espelha na filosofia de orientação 
   a eventos utilizado nos navegadores; a diferença entre eles é que no Node.Js 
   não existe eventos de clique do mouse, teclas pressionadas do teclado (keyup) ou qualquer evento de componentes HTML. Mas operações
@@ -62,17 +59,20 @@
 \section{Única thread e o cliclo de eventos}
 \label{single-thread}
 
-  Uma \textit{thread} pode ser conceituada como um conjunto de instruções executadas pelos processos do sistema operacional
+  Uma \textit{thread} pode ser conceituada como um conjunto de instruções executadas pelos processos do sistema operacional.
+  Sendo que cada thread é um fluxo diferente de controle que pode executar estas instruções de forma independente, em exemplo,
+  uma thread pode executar o GUI, enquanto uma segunda instrução faz alguns operações de entrada e saída, 
+  enquanto um terceiro executa cálculos. \cite{Lewis:1995}
   
   Em Node.Js as conexões são recebidas em uma única \textit{thread} invocada pelo nó de servidor de processos \textit{node server process}.
   \citeonline{Abernethy:2011} cita que ao invés de criar novas \textit{threads}
   no sistema operacional para cada conexão e alocar a memória RAM que acompanha essas \textit{threads}, 
   cada conexão dispara um evento executado no processo do motor Node.Js.
   
-  Isso ocorre porque ao ser invocado um nó de servidor de processos (node server
-  process), ele roda apenas em 01 (uma) \textit{thread} que suporta um alto número de conexões, isso é
-  possível, pois há um loop implícito que cobre o código, esse loop é denominado de event loop
-  e tem como função esperar os eventos e repassá-los ao manipulador de eventos. \cite{Tilkov:2010}
+  Isso ocorre porque ao ser invocado um nó de servidor de processos, ele roda apenas em 01 (uma) 
+  \textit{thread} que suporta um alto número de conexões, isso é possível, pois há um \textit{loop} implícito que cobre o código, 
+  essa repetição \textit{loop} é denominado de \textit{event loop} e tem como função esperar os eventos e repassá-los 
+  ao manipulador de eventos. \cite{Tilkov:2010}
   
   \cite{Powers:2012} cita também o single \textit{thread} como um dos benefícios do ambiente do Node.Js 
   pois o aplicativo pode ser facilmente escalável uma vez que em um único segmento de execução não ha uma enorme 
@@ -136,9 +136,12 @@
 \section{JavaScript, Chamadas de retorno e \textit{callback's hell}}
 \label{chamadas-de-retorno-e-callback-hell}
 
-  Através do alto desempenho do JavaScript Enginie V8, do Google, foi possível alterar o contexto da linguagem de programação
+  O JavaScript V8 casou-se muito bem com a orientação a eventos, pois provê nativamente
+  o modelo de eventos assíncronos em operações de entrada e saída, além de suporte à chamadas de retorno.\cite{Oliveira:2012}
+  
+  E através do alto desempenho do JavaScript Enginie V8, do Google, foi possível alterar o contexto da linguagem de programação
   amplamente utilizada em interfaces de sites nos navegadores e aplicá-la em servidores web formando o ambiente Node.Js.
-    
+  
   O V8 utiliza umas das técnicas recentes de compiladores que permite que o código escrito em linguagem de alto nível,
   tal como o JavaScript, execute de forma semelhante a linguagens de baixo nível como C. O Node.Js também aproveita
   do paradigma de orientação a eventos da linguagem e retira proveito da disso para compor sua arquitetura.
@@ -263,7 +266,7 @@
   Todo os código e comentários podem ser vistos no artigo da empresa. \cite{Strongloop:2013}
   
 
-\section{Framework Express}
+\section{O framework Express.Js}
 \label{framework-express}
 
   \cite{Powers:2012} descreve que no geral um \textit{framework} ajuda na infraestrutura e que nos permite criar sites e aplicações
@@ -310,7 +313,7 @@
   Ao criar um esqueleto utilizando o \textit{Express.js} é importante ter conhecimento do que cada
   arquivo ou diretório representa. \cite{Powers:2012, Hughes:2012} não apresentam um descritivo de cada arquivo 
   ou diretório e seu papel. Entretanto \cite{Pereira:2013, Wilson:2013} aprofundam mais neste assunto que podem ser vistos
-  no \ref{apend:express-skel}.
+  no apêndice \ref{apend:express-skel}.
   
   O arquivo de \textit{package.json}, de acordo com \citeonline{Wilson:2013} sempre é necessário ser criado 
   em seu projeto e que ele é responsável por fornecer detalhes sobre as condições de operação e configuração 
