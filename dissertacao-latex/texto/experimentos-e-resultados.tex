@@ -452,9 +452,11 @@
   
   Outro dado importante a ser salientado é que no plano de teste B-3 conseguiu alcançar o limite de 450 a 500 usuários conectados
   na aplicação durante 1 minuto de duração. Valor este superior ao do plano de teste A-3 em que o limite de usuário chegou a apenas
-  de 300 a 350 usuários conectados. Sendo assim a séries ficou A-3.1 de 50 a 100 clientes, A-3.2 de 100 a 150 clientes, A-3.3 de 150 a 200 clientes,
-  A-3.4 de 200 a 250 clientes, A-3.5 de 250 a 300, A-3.6 de 300 e 350 clientes. Com os dados obtidos de cada teste pode-se fazer o sumário
-  destes que serão apresentados a seguir na tabela \ref{tab:sumario-resultado-plano-teste-a-3}.
+  de 300 a 350 usuários conectados. Sendo assim a série de teste ficou B-3.1 de 50 a 100 clientes, B-3.2 de 100 a 150 clientes, 
+  B-3.3 de 150 a 200 clientes, B-3.4 de 200 a 250 clientes, B-3.5 de 250 a 300, B-3.6 de 300 e 350 clientes, B-3.7 de 350 a 400 clientes,
+  B-3.8 de 400 a 450 clientes, B-3.9 de 450 a 500 clientes. A partir deste número de clientes houve uma taxa de erro superior ao
+  configurado na ferramenta. Com estes dados obtidos de cada teste pode-se fazer o sumário
+  destes que serão apresentados a seguir na tabela \ref{tab:sumario-resultado-plano-teste-b-3}.
   
   \begin{table}[H]
     \centering
@@ -463,33 +465,34 @@
     \setlength{\abovecaptionskip}{0pt}
     \setlength{\belowcaptionskip}{0pt}
     % Caption
-    \caption[Sumário dos resultados do plano A-3]{Sumário dos resultados do plano A-3}
-    \label{tab:sumario-resultado-plano-teste-a-3}
+    \caption[Sumário dos resultados do plano B-3]{Sumário dos resultados do plano B-3}
+    \label{tab:sumario-resultado-plano-teste-b-3}
     % Conteúdo da tabela
     \begin{tabular}{c|c|c|c|c}
       \hline \hline
       Intervalos  & 	Média de tempo de resposta (ms) \% &	Número de sucessos & 	Erro de tempo de limite &	Erro de rede \\ 
       \hline \hline
-      50 a 100 &		1649.8571428572 &		2678.1428571429 & 	0 &				0 \\
-      100 a 150&		2663.1428571429 &		2734.2857142857 & 	2.8571428571  &			0 \\
-      150 a 200&		5539.8571428572 &		1487.4285714286 & 	258.8571428571 &		0 \\
-      200 a 250&		5452.2857142857 &		1714.4285714286 & 	574.4285714286 &		0 \\
-      250 a 300&		5964.1428571429 &		1717.5714285714 & 	810.5714285714 &		0 \\
-      300 a 350&		6256.7142857143 &		1625.8571428572 & 	935.2857142857 &		0 \\
+      50 a 100 &		232.5714285714  &		19304.2857142857 & 	0 &				0 \\
+      100 a 150&		395		&		18964.1428571429 & 	0  &				0 \\
+      150 a 200&		577		&		18125.7142857143 & 	0 &				0 \\
+      200 a 250&		764.2857142857  &		17684.4285714286 & 	0 &				0 \\
+      250 a 300&		941.7142857143  &		17471.8571428571 & 	0 &				0 \\
+      300 a 350&		1100.5714285714 &		17655.4285714286 & 	0 &				0 \\
+      350 a 400&		1275.4285714286 &		17406.8571428571 & 	0 &				0 \\
+      400 a 450&		1427		&		17675.4285714286 & 	0 &				23.1428571429 \\
+      450 a 500&		1284.4285714286 &		12579.5714285714 & 	0 &				164.8571428571 \\
       \hline \hline
     \end{tabular}
     % Fonte
     \captionfont{\small{\textbf{\\Fonte: Autor}}}
   \end{table}
    
-  A tabela \ref{tab:sumario-resultado-plano-teste-a-3} exibe as médias dos campos (média de tempo de resposta, 
-  média do número de sucessos, média de erros de tempo de limite, média de erros de rede) de cada teste executado 
-  para o plano de teste A-3 do protótipo Django.
+  Assim como a tabela \ref{tab:sumario-resultado-plano-teste-a-3}, esta tabela \ref{tab:sumario-resultado-plano-teste-b-3} exibe as médias 
+  dos campos (média de tempo de resposta, média do número de sucessos, média de erros de tempo de limite, média de erros de rede) 
+  de cada teste executado para o plano de teste B-3 do protótipo Node.Js.
   
-  Com os dados acima foi possível gerar o gráfico \ref{grafico:teste-mantendo-carga-usuario-django} do 
-  prtótipo Django.
-  
-  Agora apresentamos o gráfico \ref{grafico:teste-mantendo-carga-usuario-node} referente aos testes realizados com o Node.Js
+  Com os dados acima foi possível gerar o gráfico \ref{grafico:teste-mantendo-carga-usuario-node} referente aos testes 
+  realizados com o Node.Js
 
   \begin{grafico}[H]
     % Alterar espaçamentos antes e depois do caption
@@ -506,4 +509,22 @@
     % Fonte
     \captionfont{\small{\textbf{\\Fonte: Autor}}}
   \end{grafico}
+
+  No gráfico \ref{grafico:teste-mantendo-carga-usuario-node}  observa-se que o tempo de resposta da conexões 
+  é muito baixo e o número de sucessos das conexões gira em torno de 17.429 sucessos. Estes valores somente 
+  decrecem no teste de 450 a 500 usuários onde houve um alto número de erros de rede o qual influenciou diretamente
+  no número de sucessos.
+  
+  Neste mesmo gráfico pode-se ver que o o número de erros de tempos de limite é sempre zero. Sendo assim podemos afirmar
+  que não houve bloqueio nas operações de consulta a base de dados que poderiam impactar nos próximos testes.
+  
+  Comparando os dois gráficos \ref{grafico:teste-mantendo-carga-usuario-django} e \ref{grafico:teste-mantendo-carga-usuario-node} é
+  visível a eficiência do protótipo em Node.Js pois em todos os campos o resultado obtido superou o primeiro protótipo.
+  
+  Pode-se concluir que o primeiro protótipo não tem condições de suportar grandes quantidades de usuários conectados ao
+  sistema, visto o alto indíce de erros de limite de tempo excedido, baixo número de sucessos e tempo de resposta alto, 
+  conforme exposto na tabela \ref{tab:sumario-resultado-plano-teste-a-3}. Para o protótipo Django o número ideal de usuarios
+  conectados ao sistema fica em torno de 100 a 150 usuários enquanto em Node.Js tem-se 350 a 400 usuários conectados sem 
+  erros.
+  
   
