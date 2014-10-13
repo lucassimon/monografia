@@ -293,33 +293,95 @@
   Descreve-se nesta seção os planos de testes utilizado em cada tipo de teste e a interpretação dos seus resultados
   através de comparação.
   
-  Foi utilizada a seguinte nomenclatura para os testes
+  Foi utilizada a seguinte nomenclatura para os testes com o aplicativo Django. Primeiramente teremos a letra (A) para identificar
+  que o plano de teste será executado para o aplicativo Django. Em seguida temos a sequência númerica de 01 a 03, 
+  identificando o testes realizados. 
   
-  A - 1.x 
-  
-  A - 2.x
-  
-  A - 3.x
-  
-  B - 1.x
-  
-  B - 2.x
-  
-  B - 3.x
+  No aplicativo Node.Js utilizamos o mesmo padrão descrito no paragráfo anterior alterando apenas a letra inicial para (B) identificando
+  que os testes foram realizados para o aplicativo em Node.Js
+  Para melhor visualização dos resultados vamos sumarizar todos os testes em uma nova tabela e gerar um gráfico para apresentar
+  os dados ao leitor.
     
 \subsection{Manter a carga no Servidor}  
 
+    
+  Apresenta-se nesta seção o plano de teste A-3 e B-3 que corresponde ao teste manter carga de usuários onde tem-se um sumário
+  com as médias de cada execução.
   
+  Para melhor instruir o leitor, esse teste inicia com 50 a 100 usuários conectados no sistema até 1 minuto de duração. Para cada teste
+  foi executado 7 vezes e destes resultados retiramos a média para o tempo de resposta, número de sucessos, erro de tempo de limite e
+  e a média para erros de rede. No decorrer da série acrescentamos 50 usuários até a quantidade máxima suportada pela aplicação.
   
-  Plano de teste A/B - 3.x
+  Veja o exemplo do teste A-3.1 o qual obtivemos os dados gerados pela ferramenta.
   
-  Corresponde ao teste manter carga de usuários.
+  \begin{table}[H]
+    \centering
+    \footnotesize
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{0pt}
+    \setlength{\belowcaptionskip}{0pt}
+    % Caption
+    \caption[Teste A-3.1 com a API Django 50 – 100 clientes]{Teste A 3.1 com a API Django 50 – 100 clientes}
+    \label{tab:teste-a-3-1}
+    % Conteúdo da tabela
+    \begin{tabular}{c|c|c|c|c}
+      \hline \hline
+      Número de execução &	Tempo médio de resposta &	Número de sucessos &	Timeout Error &		 Network Errors&	Avg Error Rate \% \\
+      \hline \hline
+      Primeira execução &	1605 &				2754 &			0 &				0 &		0 \\
+      Segunda execução &	1661 &				2659 &			0 &				0 &		0 \\
+      Terceira execução &	1691 &				2610 &			0 &				0 &		0 \\
+      Quarta execução  &	1678 &				2631 &			0 &				0 &		0 \\
+      Quinta execução  &	1652 &				2674 &			0 &				0 &		0 \\
+      Sexta execução   &	1634 &				2712 &			0 &				0 &		0 \\
+      Sétima execução  &	1628 &				2707 &			0 &				0 &		0 \\
+      Media & 			1649.8571428572 &		2678.1428571429 & 	0 &				0 &		0 \\
+      \hline \hline
+    \end{tabular}
+    % Fonte
+    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+  \end{table}
   
-  A série do plano de teste (A/B - 3.x) inicia com um teste de 50 a 100 usuários no sistema até
-  1 minuto de duração. No decorrer da série acrescentamos 50 usuários até a quantidade máxima 
-  suportada pela aplicação.
+  A tabela \ref{tab:teste-a-3-1} mostra que na primeira execução do teste A-3.1 com o minimo de 50 clientes até o máximo de 100 clientes
+  durante 1 minuto de duração. Para este teste obteve-se 1605 milesegundos no tempo médio de resposta,
+  2754 números de sucessos, 0 erros de tempo de limite, 0 erros de rede.
   
-  O gráfico \ref{grafico:teste-mantendo-carga-usuario-django} refere-se ao resumo dos testes com o aplicativo em Django.
+  Para este plano de teste A-3, foram realizados as séries A-3.1 de 50 a 100 clientes, A-3.2 de 100 a 150 clientes, A-3.3 de 150 a 200 clientes,
+  A-3.4 de 200 a 250 clientes, A-3.5 de 250 a 300, A-3.6 de 300 e 350 clientes. Com os dados obtidos de cada teste pode-se fazer o sumário
+  destes que serão apresentados a seguir na tabela \ref{tab:sumario-resultado-plano-teste-a-3}.
+  
+  \begin{table}[H]
+    \centering
+    \footnotesize
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{0pt}
+    \setlength{\belowcaptionskip}{0pt}
+    % Caption
+    \caption[Sumário dos resultados do plano A-3]{Sumário dos resultados do plano A-3}
+    \label{tab:sumario-resultado-plano-teste-a-3}
+    % Conteúdo da tabela
+    \begin{tabular}{c|c|c|c|c}
+      \hline \hline
+      Intervalos  & 	Média de tempo de resposta (ms) \% &	Número de sucessos & 	Erro de tempo de limite &	Erro de rede \\ 
+      \hline \hline
+      50 a 100 &		1649.8571428572 &		2678.1428571429 & 	0 &				0 \\
+      100 a 150&		2663.1428571429 &		2734.2857142857 & 	2.8571428571  &			0 \\
+      150 a 200&		5539.8571428572 &		1487.4285714286 & 	258.8571428571 &		0 \\
+      200 a 250&		5452.2857142857 &		1714.4285714286 & 	574.4285714286 &		0 \\
+      250 a 300&		5964.1428571429 &		1717.5714285714 & 	810.5714285714 &		0 \\
+      300 a 350&		6256.7142857143 &		1625.8571428572 & 	935.2857142857 &		0 \\
+      \hline \hline
+    \end{tabular}
+    % Fonte
+    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+  \end{table}
+   
+  A tabela \ref{tab:sumario-resultado-plano-teste-a-3} exibe as médias dos campos (média de tempo de resposta, 
+  média do número de sucessos, média de erros de tempo de limite, média de erros de rede) de cada teste executado 
+  para o plano de teste A-3 do protótipo Django.
+  
+  Com os dados acima foi possível gerar o gráfico \ref{grafico:teste-mantendo-carga-usuario-django} do 
+  prtótipo Django.
   
   \begin{grafico}[H]
     % Alterar espaçamentos antes e depois do caption
@@ -336,6 +398,96 @@
     % Fonte
     \captionfont{\small{\textbf{\\Fonte: Autor}}}
   \end{grafico}
+  
+  Ao interpretar o gráfico \ref{grafico:teste-mantendo-carga-usuario-django}  observa-se que com baixos números de clientes 
+  conectados no sistema tem-se um tempo de resposta menor para um alto número de sucessos. Ao elevar o número minimo e máximo de 
+  clientes conectados observa-se que o tempo de resposta foi quase o mesmo do número de sucessos. Com novos acréscimos de usuários
+  no protótipo elevando o número minimo e máximo de clientes conectados pode-se observar que o tempo médio de resposta foi elevado
+  em grandes números e o número de sucessos de cada requisição abaixou em comparação ao primeiro teste. Também é possível verificar,
+  que com o aumento de usuários houve a incidência de erros de tempo de limite nas conexões.
+  
+  Este teste prova que o protótipo Django possui pouca eficiência em lidar com usuários conectados ao sistema. Veja que os tempos de 
+  resposta são altos e o número de sucessos são baixos para uma aplicação simples onde somente consumimos as informações do banco de 
+  dados através do método \textit{GET} da API.
+  
+  Seguindo o mesmo modelo e conceitos de teste adotado para o protótipo Django, foi aplicado no plano de teste 
+  B-3 correlacionando ao protótipo Node.Js. 
+  
+  A partir do exemplo do teste B-3.1 o qual obtivemos os dados gerados pela ferramenta, já é possível comparar a eficiência das 
+  tecnologias empregadas em cada protótipo.
+  
+  \begin{table}[H]
+    \centering
+    \footnotesize
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{0pt}
+    \setlength{\belowcaptionskip}{0pt}
+    % Caption
+    \caption[Teste B-3.1 com a API Node.Js 50 – 100 clientes]{Teste B 3.1 com a API Node.Js 50 – 100 clientes}
+    \label{tab:teste-b-3-1}
+    % Conteúdo da tabela
+    \begin{tabular}{c|c|c|c|c}
+      \hline \hline
+      Número de execução &	Tempo médio de resposta &	Número de sucessos &	Timeout Error &		 Network Errors&	Avg Error Rate \% \\
+      \hline \hline
+      Primeira execução &	229 &				19632 &			0 &				0 &		0 \\
+      Segunda execução &	230 &				19514 &			0 &				0 &		0 \\
+      Terceira execução &	233 &				19282 &			0 &				0 &		0 \\
+      Quarta execução  &	230 &				19486 &			0 &				0 &		0 \\
+      Quinta execução  &	235 &				19103 &			0 &				0 &		0 \\
+      Sexta execução   &	231 &				19389 &			0 &				0 &		0 \\
+      Sétima execução  &	240 &				18724 &			0 &				0 &		0 \\
+      Media & 			232.5714285714 &		19304.2857142857 & 	0 &				0 &		0 \\
+      \hline \hline
+    \end{tabular}
+    % Fonte
+    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+  \end{table}
+  
+  A tabela \ref{tab:teste-b-3-1} mostra que na primeira execução do teste B-3.1 com o minimo de 50 clientes até o máximo de 100 clientes
+  durante 1 minuto de duração. Para este teste obteve-se 232 milesegundos no tempo médio de resposta, valor muito inferior ao do plano de
+  teste A-3.1 da tabela \ref{tab:teste-a-3-1} o qual foi de 1649.8571428572 milsesegundos, significando que a resposta para os usuários
+  foi bem mais rápida do que o protótipo em Django. Vale ressaltar que o número de sucessos para cada conexão ficou em média de 
+  19304.2857142857, número superior ao teste A-3.1 de apenas 2754 números de sucessos.
+  
+  Outro dado importante a ser salientado é que no plano de teste B-3 conseguiu alcançar o limite de 450 a 500 usuários conectados
+  na aplicação durante 1 minuto de duração. Valor este superior ao do plano de teste A-3 em que o limite de usuário chegou a apenas
+  de 300 a 350 usuários conectados. Sendo assim a séries ficou A-3.1 de 50 a 100 clientes, A-3.2 de 100 a 150 clientes, A-3.3 de 150 a 200 clientes,
+  A-3.4 de 200 a 250 clientes, A-3.5 de 250 a 300, A-3.6 de 300 e 350 clientes. Com os dados obtidos de cada teste pode-se fazer o sumário
+  destes que serão apresentados a seguir na tabela \ref{tab:sumario-resultado-plano-teste-a-3}.
+  
+  \begin{table}[H]
+    \centering
+    \footnotesize
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{0pt}
+    \setlength{\belowcaptionskip}{0pt}
+    % Caption
+    \caption[Sumário dos resultados do plano A-3]{Sumário dos resultados do plano A-3}
+    \label{tab:sumario-resultado-plano-teste-a-3}
+    % Conteúdo da tabela
+    \begin{tabular}{c|c|c|c|c}
+      \hline \hline
+      Intervalos  & 	Média de tempo de resposta (ms) \% &	Número de sucessos & 	Erro de tempo de limite &	Erro de rede \\ 
+      \hline \hline
+      50 a 100 &		1649.8571428572 &		2678.1428571429 & 	0 &				0 \\
+      100 a 150&		2663.1428571429 &		2734.2857142857 & 	2.8571428571  &			0 \\
+      150 a 200&		5539.8571428572 &		1487.4285714286 & 	258.8571428571 &		0 \\
+      200 a 250&		5452.2857142857 &		1714.4285714286 & 	574.4285714286 &		0 \\
+      250 a 300&		5964.1428571429 &		1717.5714285714 & 	810.5714285714 &		0 \\
+      300 a 350&		6256.7142857143 &		1625.8571428572 & 	935.2857142857 &		0 \\
+      \hline \hline
+    \end{tabular}
+    % Fonte
+    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+  \end{table}
+   
+  A tabela \ref{tab:sumario-resultado-plano-teste-a-3} exibe as médias dos campos (média de tempo de resposta, 
+  média do número de sucessos, média de erros de tempo de limite, média de erros de rede) de cada teste executado 
+  para o plano de teste A-3 do protótipo Django.
+  
+  Com os dados acima foi possível gerar o gráfico \ref{grafico:teste-mantendo-carga-usuario-django} do 
+  prtótipo Django.
   
   Agora apresentamos o gráfico \ref{grafico:teste-mantendo-carga-usuario-node} referente aos testes realizados com o Node.Js
 
