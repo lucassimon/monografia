@@ -52,7 +52,7 @@
   A tabela \ref{tab:services-in-api-django} apresenta os serviços em execução do protótipo feito em Django sem clientes conectados.
   Este ambiente é composto por um servidor Nginx a execução do \textit{gunicorn},
   que nada mais é a execução do framework Django, o banco de dados Postgres 9.1 e o processo supervisord responsável por
-  verificar se a aplicação esta ativa e caso ocorra alguma falha é capaz de restartar a aplicação.
+  verificar se a aplicação esta ativa e caso ocorra alguma falha é capaz de reiniciar a aplicação.
   
   \begin{table}[H]
     \centering
@@ -99,7 +99,7 @@
 
   Para o segundo protótipo, com Node.Js, possuimos os seguintes serviços executados na tabela \ref{tab:services-in-api-node}, 
   também sem nenhum cliente conectado. Este ambiente é composto por um servidor Nginx, o serviço \textit{pm2} responsável por
-  verificar se a aplicação esta ativa e caso ocorra alguma falha é capaz de restartar a aplicação, 
+  verificar se a aplicação esta ativa e caso ocorra alguma falha é capaz de reiniciar a aplicação, 
   o banco de dados Postgres 9.1.
   
    \begin{table}[H]
@@ -154,23 +154,23 @@
   Sua utilização é simples, basta criar uma conta com um e-mail válido. Após o e-mail ser validado pode-se 
   criar um teste dentre os 03 tipos já apresentados. Em resumo, temos os seguintes campos a serem preenchidos:
   
-  Nome do teste: Nome dado ao teste para ser encontrado com maior facilidade;
+  \textbf{Nome do teste}: Nome dado ao teste para ser encontrado com maior facilidade;
   Tipo de teste: São apenas 03 tipos suportados pelo serviço. Clientes por teste, Clientes por segundo e Mantendo 
   a carga no servidor.
   
-  Autenticação: Caso sua aplicação necessite de autenticação escolha a opção Autenticação Básica (tradução nossa),
+  \textbf{Autenticação}: Caso sua aplicação necessite de autenticação escolha a opção Autenticação Básica (tradução nossa),
   e setar os valores dos campos usuário e senha (tradução nossa). O serviço loader.io pede atenção 
   pois os campos, usuário e senha, não serão criptografados. Então é recomendado criar um usuário de teste na aplicação.
   
-  Conexões e Duração: São as principais definições para o teste sendo que o campo duração
+  \textbf{Conexões e Duração}: São as principais definições para o teste sendo que o campo duração
   é fixo em 60 segundos. As conexões serão explicadas na próxima sub-seção em conjunto com os tipos de teste.
   
-  Tempo limite e Erro: Este campo especifica quanto tempo o teste irá esperar por uma resposta do aplicativo, antes
+  \textbf{Tempo limite e Erro}: Este campo especifica quanto tempo o teste irá esperar por uma resposta do aplicativo, antes
   de contar a requisição como erro. Por padrão é configurado para 10000 milessegundos ou 10 segundos.
   
-  Notas e etiquetas: São campos para o desenvolvedor descrever  melhor os testes.
+  \textbf{Notas e etiquetas}: São campos para o desenvolvedor descrever  melhor os testes.
   
-  Urls e opções: Configura a \ac{URL} que se deseja testar. Ha outras opções disponíveis como setar cabeçalhos \ac{HTTP},
+  \textbf{Urls e opções}: Configura a \ac{URL} que se deseja testar. Ha outras opções disponíveis como setar cabeçalhos \ac{HTTP},
   opções de resposta, váriaveis e outros que não serão utilizados neste trabalho.
   
   Para melhor entendimento do leitor e detalhamento é importante verificar 
@@ -200,13 +200,13 @@
   
   \textbf{Mantendo carga do clientes}
   
-  Segundo a definição da documentação, este teste é utilizado para sobrecarregar (martelar) o site ou \ac{API}.
+  Segundo a definição da documentação, este teste é utilizado para sobrecarregar o site ou \ac{API}.
   
   O serviço loader.io garante que um número constante de clientes estará consumindo e realizando requisições em 
   sua \ac{API} a todo o momento.
   
-  Corresponde ao campo de clientes do formulário. O teste inicia-se com um certo número de conexões ("de") 
-  e pode aumentar as conexões ao longo do teste, atingindo o número no campo "para", até ao final do teste. 
+  O teste inicia-se com um certo número de conexões ("de")  e pode aumentar as conexões ao longo do teste, 
+  atingindo o número no campo "para", até ao final do teste. 
   
   Este teste permite que especifique um número mínimo e máximo de clientes. Especificando zero clientes
   até 10.000, por exemplo, o teste vai começar com zero até 10.000 clientes simultâneos no final do teste.
@@ -271,7 +271,7 @@
   São três tipos de gráficos disponibilizados pelo Loader.io que oferecem informações mais detalhadas 
   sobre o que ocorreu na execução do teste como tempos de resposta, taxas de erro e largura de banda.
   
-  \textbf{O gráfico times}.
+  \textbf{O gráfico temporal}.
   
   Gráfico que exibe os tempos de resposta apresentando duas linhas.
   
@@ -305,7 +305,7 @@
 \subsection{Manter a carga no Servidor}  
 
     
-  Apresenta-se nesta seção o plano de teste A-3 e B-3 que corresponde ao teste manter carga de usuários onde tem-se um sumário
+  Apresenta-se nesta seção o plano de teste A-3 e B-3 que corresponde ao teste manter carga de usuários o qual tem-se um sumário
   com as médias de cada execução.
   
   Para melhor instruir o leitor, esse teste inicia com 50 a 100 usuários conectados no sistema até 1 minuto de duração. Para cada teste
@@ -407,7 +407,7 @@
   que com o aumento de usuários houve a incidência de erros de tempo de limite nas conexões.
   
   Este teste prova que o protótipo Django possui pouca eficiência em lidar com usuários conectados ao sistema. Veja que os tempos de 
-  resposta são altos e o número de sucessos são baixos para uma aplicação simples onde somente consumimos as informações do banco de 
+  resposta são altos e o número de sucessos são baixos para uma aplicação simples cujo objetivo é somente consumir as informações do banco de 
   dados através do método \textit{GET} da API.
   
   Seguindo o mesmo modelo e conceitos de teste adotado para o protótipo Django, foi aplicado no plano de teste 
@@ -511,9 +511,9 @@
   \end{grafico}
 
   No gráfico \ref{grafico:teste-mantendo-carga-usuario-node}  observa-se que o tempo de resposta da conexões 
-  é muito baixo e o número de sucessos das conexões gira em torno de 17.429 sucessos. Estes valores somente 
-  decrecem no teste de 450 a 500 usuários onde houve um alto número de erros de rede o qual influenciou diretamente
-  no número de sucessos.
+  é muito baixo e o número de sucessos das conexões gira em torno de 17.429 sucessos. Os valores de tempo de resposta e
+  número de sucessos somente decrecem quando executa o teste de 450 a 500 usuários. Neste teste houve um alto número de erros 
+  de rede o qual influenciou diretamente no número de sucessos.
   
   Neste mesmo gráfico pode-se ver que o o número de erros de tempos de limite é sempre zero. Sendo assim podemos afirmar
   que não houve bloqueio nas operações de consulta a base de dados que poderiam impactar nos próximos testes.

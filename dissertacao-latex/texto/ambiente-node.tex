@@ -42,7 +42,7 @@
   
   A figura \ref{fig:node-js-system-loop} exibe uma síntese do sistema Node.JS. Primeiro a aplicação web requisita um evento 
   ao Node.Js instalado no servidor. Através da linguagem JavaScript V8 o Node.Js interage com sua \ac{API} e envia 
-  a requisição para uma fila onde é processada pelo ciclo de eventos e tratada pelos módulos existentes no Node.js. 
+  a requisição para uma fila que é processada pelo ciclo de eventos e tratada pelos módulos existentes no Node.js. 
   
   \citeonline{Pereira:2013} compara que a orientação a eventos do Node.Js se espelha na filosofia de orientação 
   a eventos utilizado nos navegadores; a diferença entre eles é que no Node.Js 
@@ -98,7 +98,7 @@
   atendendo e recebendo requisições nas mesma porta. Cabendo ao sistema operacional atuar como balanceador de carga.\cite{Oliveira:2012}
   
   Em conjunto com a \textit{thread} única o ambiente Node.Js possui o cilo de eventos sendo o agente responsável por escutar e 
-  emitir eventos dentro do sistema. Onde o ciclo de eventos é uma repetição infinita que a cada interação verifica em sua 
+  emitir eventos dentro do sistema. O ciclo de eventos é uma repetição infinita que a cada interação verifica em sua 
   fila de eventos se um determinado evento foi emitido ou se existem novos eventos. Estes eventos só aparecem na 
   fila quando são emitidos durante as suas interações na aplicação; quando ocorre, é emitido um evento, então este evento 
   é executado e enviados para a fila de executados.\cite{Pereira:2013}
@@ -110,11 +110,11 @@
   é nativamente executado de forma não bloqueante sendo o diferencial em relação a outros ambientes de programação.
   
   \cite{Wilson:2013} enaltece os eventos do Node.Js, fornecido pelo JavaScript. Em outras linguagens de programação 
-  os fluxos de trabalho são em \textit{threads} múltiplas e concorrentes, onde cada \textit{thread} gasta a maioria de seu tempo aguardando 
+  os fluxos de trabalho são em \textit{threads} múltiplas e concorrentes, sendo que cada \textit{thread} gasta a maioria de seu tempo aguardando 
   operações bloqueadoras de entrada e saída, tais como: leitura ou escrita em disco, manipulação do banco de dados 
   acesso a informações pela rede. O que não ocorre com o Node.Js.
    
-  Intuitivamente o ciclo de eventos é associado a vida cotidiana onde cada solicitação de evento necessita de um retorno.
+  Intuitivamente o ciclo de eventos é similar a vida cotidiana pois cada solicitação de evento necessita de um retorno.
   
   Possuindo a base de como o ciclo de eventos funciona, o desenvolvedor é capaz de usá-lo em toda sua potencialidade, 
   conseguindo vantagens e evitando armadilhas dessa abordagem.\cite{Hughes:2012}
