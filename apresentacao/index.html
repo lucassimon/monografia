@@ -67,14 +67,10 @@
 				<section>
 					<h2>Javascript no servidor?</h2>
 					<p>
-						Em referência ao titulo o javascript conhecido pelos desenvolvedores 
-						nos browsers para iteragir com elementos html na DOM foi portado para o
+						Em referência ao título o javascript conhecido pelos desenvolvedores
+						nos navegadores para iteragir com elementos HTML na DOM foi portado para o
 						servidor.
 					</p>
-
-					<aside class="notes">
-						Bibliotecas como jquery e suas libs.
-					</aside>
 				</section>
 
 				<!-- Example of nested vertical slides -->
@@ -89,7 +85,7 @@
 					<section>
 						<h2>O que é o Node.Js</h2>
 						<p>
-							De acordo com a sua descrição no site, o Node.Js é uma plataforma de desenvolvimento orientada a eventos não bloqueantes projetada para construir aplicações de rede rápidas e escaláveis,  utilizando o Javascript como linguagem.
+							De acordo com a sua descrição no site, o Node.Js é uma plataforma de desenvolvimento orientada a eventos não bloqueantes; projetada para construir aplicações de redes rápidas e escaláveis,  utilizando o Javascript como linguagem.
 						</p>
 					</section>
 					<section>
@@ -113,13 +109,13 @@
 
 				<section>
 					<section>
-						<h2>O problema de alta concorrencia na web</h2>
+						<h2>O problema de alta concorrência na web</h2>
 						<p>
-							O número de internautas segundo pesquisa do IBGE (2012) de 2005 a 2011 cresceu 143.8% e o de pessoas com celular, 107.2%. 
+							O número de internautas segundo pesquisa do IBGE (2012) de 2005 a 2011 cresceu 143.8% e o de pessoas com celular, 107.2%.
 						</p>
 					</section>
 					<section>
-						<h2>Precocupações</h2>
+						<h2>Preocupações</h2>
 						<p>
 							Usuários, escalabilidade e desempenho
 						</p>
@@ -143,16 +139,16 @@
 					</section>
 					<section>
 						<h2>O ecossistema Node.Js</h2>
-						<img width="280" height="326" src="https://s3.amazonaws.com/media-p.slid.es/uploads/pineli/images/589492/Ryan_Dahl.PNG" alt="Ryan Dhal">
+						<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/pineli/images/589540/nodesystem.jpg" alt="Ecossistema Node.Js">
 					</section>
 					<section id="fragments" data-background="#007777">
-						<h2 style="color:#FFF;">Mas com isso tudo o Node.js, resolve o que?</h2>
+						<h2 style="color:#FFF;">Mas com isso tudo o Node.js, resolve o quê?</h2>
 						<p>Operações não bloqueantes com Javascript assíncrono e chamadas de retorno</p>
 						<p class="fragment" style="color:#FFF;">Operações que demandam tempo;</p>
-						
+
 						<p>Execução em thread única e ciclo de eventos	</p>
 						<p class="fragment" style="color:#FFF;">Quantidade de conexões simultâneas;</p>
-						
+
 						<p>Suporte a websockets</p>
 						<p class="fragment" style="color:#FFF;">conexões persistentes;</p>
 					</section>
@@ -164,35 +160,30 @@
 					</section>
 				</section>
 
-				<section id="fragments">
-					<h2>Dúvido Lucas!</h2>
-					<p class="fragment">Eu também!</p>
-				</section>
-
 				<section>
-					<h2>Por isso...</h2>
+					<h2>Por isso nosso objetivo é</h2>
 					<p>
-						Neste trabalho procura-se demonstrar a capacidade da plataforma Node.Js com foco em desempenho e capacidade de receber uma carga elevada de usuários.
+						Demonstrar a capacidade da plataforma Node.Js com foco em desempenho e capacidade de receber uma carga elevada de usuários.
 					</p>
 				</section>
 
 				<section>
 					<section>
-						<h2>Como demonstrar isso. Ta doido?</h2>
-						<p> 
+						<h2>Como demonstraremos isso.</h2>
+						<p>
 						Primeiro demonstrar a capacidade do ambiente Node.Js de processar e responder milhares de requisições comparando-o com um ambiente Python.
 						</p>
 					</section>
 					<section>
-						<h2>Ahn e o que mais?</h2>
-						<p> 
+						<h2>E o que mais?</h2>
+						<p>
 						Criar dois protótipos como API Restful provendo uma operação básica.
 						Get contatos
-						</p>	
+						</p>
 					</section>
 				</section>
 				<section>
-					<h2>Como fazer isso?</h2>
+					<h2>A metodologia utilizada.</h2>
 					<ol>
 						<li> Estudo do ambiente Node.Js </li>
 						<li> Levantamento de requisitos </li>
@@ -202,34 +193,290 @@
 				</section>
 
 				<section>
-					<h2>Continuo duvidando. Quero ver os testes!</h2>
-					<p>
-						To Be continued ... 
-					</p>
+					<section>
+						<h2>O escopo</h2>
+						<p>
+							Esta seção visa apresentar o desenvolvimento de um Web Service seguindo os padrões REST e a utilização de um banco de dados relacional Postgres para a persistência dos dados.
+  						</p>
+					</section>
+					<section>
+						<h2>Os requisitos</h2>
+						<ul>
+							<li>
+								Responder as requisições do cliente através da representação em JSON.
+							</li>
+							<li>
+								Persistir os dados em Postgres.
+							</li>
+							<li> Recurso chamado Pessoas. </li>
+							<li> Recurso chamado Contatos. </li>
+							<li>
+								Deverá prover estratégias para manipular as ações de CRUD de um contato(s)
+							</li>
+						</ul>
+					</section>
 				</section>
+
+				<section>
+					<section>
+						<h2>Os protótipos!</h2>
+						<p>
+							Django e Express.Js
+						</p>
+					</section>
+					<section>
+						<h2>Django</h2>
+						<p>
+							Um pouco sobre Django, MVT e o django-rest-framework
+						</p>
+					</section>
+					<section>
+						<h2>O Node.js com o Express.Js</h2>
+						<p>
+							Gerenciador de pacotes, Express.Js, Rotas e Views.
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>O ambiente de testes</h2>
+						<p>
+							As aplicações foram hospedadas na DigitalOcean em uma VPS
+						</p>
+						<table>
+							<thead>
+								<tr>
+									<td> Componente </td>
+									<td> Descrição </td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td> Memória Ram </td>
+									<td> 512 MegaBytes </td>
+								</tr>
+								<tr>
+									<td> Processador </td>
+									<td> 1 núcleo. </td>
+								</tr>
+								<tr>
+									<td> Espaço em disco </td>
+									<td> 20 GigaBytes </td>
+								</tr>
+								<tr>
+									<td> Transferência em rede</td>
+									<td> 1 TeraByte. </td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+					<section>
+						<h2>Principais serviços no Django</h2>
+						<table>
+							<thead>
+								<tr>
+									<td> Processo </td>
+									<td> CPU %  </td>
+									<td> Memória </td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td> gunicorn </td>
+									<td> 0.0 % </td>
+									<td> 104 MB </td>
+								</tr>
+								<tr>
+									<td> Postgres </td>
+									<td> 0.0 % </td>
+									<td> 19.3 MB </td>
+								</tr>
+								<tr>
+									<td> supervisord </td>
+									<td> 0.0 % </td>
+									<td> 11.5 MB </td>
+								</tr>
+								<tr>
+									<td> nginx </td>
+									<td> 0.0 % </td>
+									<td> 7.26 MB </td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+					<section>
+						<h2>Principais serviços no Node.js</h2>
+						<table>
+							<thead>
+								<tr>
+									<td> Processo </td>
+									<td> CPU %  </td>
+									<td> Memória </td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td> node </td>
+									<td> 0.0 % </td>
+									<td> 22 MB </td>
+								</tr>
+								<tr>
+									<td> Postgres </td>
+									<td> 0.0 % </td>
+									<td> 17.8 MB </td>
+								</tr>
+								<tr>
+									<td> pm2 </td>
+									<td> 0.0 % </td>
+									<td> 17.4 MB </td>
+								</tr>
+								<tr>
+									<td> nginx </td>
+									<td> 0.0 % </td>
+									<td> 6.61 MB </td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+					<section>
+						<h2>O Loader.Io</h2>
+						<p>
+							Simples serviço de teste de carga baseado em núvem
+							que permite realizar um teste de estresse em
+ 							seus aplicativos web ou API's com milhares de
+ 							conexões simultâneas.
+						</p>
+					</section>
+					<section>
+						<h2>Principais testes</h2>
+						<p> Clientes por testes </p>
+						<p>
+							Este teste permite que especifique um número total de clientes que se conectam ao serviço.
+						</p>
+					</section>
+					<section>
+						<h2>Principais testes</h2>
+						<p> Clientes por segundo </p>
+						<p>
+							Este teste permite que especifique um número de clientes que se conectam a cada segundo.
+						</p>
+					</section>
+					<section>
+						<h2>Principais testes</h2>
+						<p> Mantendo carga de clientes </p>
+						<p>
+							Teste utilizado para sobrecarregar o site ou API.
+						</p>
+						<p>
+							O serviço loader.io garante que um número constante de clientes estará consumindo e realizando requisições em sua API a todo o momento.
+						</p>
+					</section>
+					<section>
+						<h2>Executando o primeiro teste</h2>
+						<img src="https://s3.amazonaws.com/monografia/criando_um_novo_teste_de_clientes_por_teste.png" alt="Criando e executando um teste">
+					</section>
+					<section>
+						<h2>Gráfico do primeiro teste</h2>
+						<img src="https://s3.amazonaws.com/monografia/grafico_de_clientes_por_teste.png" alt="Gráfico de teste">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Quero ver os testes!</h2>
+					</section>
+					<section>
+						<h2>Clientes por teste Django</h2>
+						<img src="https://s3.amazonaws.com/monografia/grafico_django_plano_de_teste_1.png" alt="Clientes por teste Django">
+					</section>
+					<section>
+						<h2>Clientes por teste Node.js</h2>
+						<img src="https://s3.amazonaws.com/monografia/grafico_node_plano_de_teste_1.png" alt="Clientes por teste Node.js">
+					</section>
+					<section>
+						<h2>Clientes por segundo Django</h2>
+						<img src="https://s3.amazonaws.com/monografia/grafico_django_plano_de_teste_2.png" alt="Clientes por segundo Django">
+					</section>
+					<section>
+						<h2>Clientes por segundo Node.js</h2>
+						<img src="https://s3.amazonaws.com/monografia/grafico_node_plano_de_teste_2.png" alt="Clientes por segundo Node.js">
+					</section>
+					<section>
+						<h2>Manter a carga de usuários Django</h2>
+						<img src="https://s3.amazonaws.com/monografia/grafico_django_plano_de_teste_3.png" alt="Manter a carga de usuários Django">
+					</section>
+					<section>
+						<h2>Manter a carga de usuários Node.js</h2>
+						<img src="https://s3.amazonaws.com/monografia/grafico_node_plano_de_teste_3.png" alt="Manter a carga de usuários Node.js">
+					</section>
+				</section>
+
 
 				<section  >
 					<section data-background="#4d7e65">
-						<h2>O que já está feito</h2>
+						<h2 style="color:#FFF;">O que já está feito</h2>
 						<ul>
-							<li>Referencial teorico</li>
-							<li>Aplicações construidas e hospedadas</li>
-							<li>Testes com a ferramenta loader.io</li>
-							<li>Parte da seção de prototipos </li>
-							<li>Parte da seção de testes </li>
-							<li>Conclusão e trabalhos futuros </li>
+							<li style="color:#FFF;">Referêncial teórico</li>
+							<li style="color:#FFF;">Aplicações construídas e hospedadas</li>
+							<li style="color:#FFF;">Testes com a ferramenta loader.io</li>
+							<li style="color:#FFF;">Parte da seção de protótipos </li>
+							<li style="color:#FFF;">Parte da seção de testes </li>
+							<li style="color:#FFF;">Conclusão e trabalhos futuros </li>
 						</ul>
 					</section>
 					<section data-background="#8c4738">
-						<h2>O que falta fazer</h2>
+						<h2 style="color:#FFF;">O que falta fazer</h2>
 						<ul>
-							<li>Correção gramatical</li>
-							<li>Melhorar o referencial teorico</li>
-							<li>Completar a seção de prototipos</li>
-							<li>Completar a seção de testes com os testes clientes por teste e segundo</li>
-							<li>Latex</li>
+							<li style="color:#FFF;">Correção gramatical</li>
+							<li style="color:#FFF;">Melhorar o referêncial teórico</li>
+							<li style="color:#FFF;">Completar a seção de protótipos</li>
+							<li style="color:#FFF;">Completar a seção de testes com os testes clientes por teste e segundo</li>
+							<li style="color:#FFF;">Latex</li>
 						</ul>
 					</section>
+				</section>
+				<section>
+					<h2>Referências</h2>
+					<ul>
+
+
+						<li>
+							ABERNETHY, M. JustwhatisNode.js. Disponível em <http://www.ibm.com/developerworks/library/os-nodejs/index.html>.Acesso 10 OUT. 2012. 2011.
+						</li>
+
+						<li>
+							ESTATíSTICA, I. B. de Geografia e. PNAD: De 2005 para 2011, número de
+							internautas cresce 143,8% e o de pessoas com celular, 107,2%. Disponível em
+							http://saladeimprensa.ibge.gov.br/noticias?busca=1id=1idnoticia=2382view=noticia.
+							Acesso em 25 MAR 2014. 2012.
+						</li>
+
+						<li>
+							KEY, R. The Node.Js System. Disponível em
+							https://twitter.com/BusyRich/status/494959181871316992/photo/1. Acesso em 2 OUT 2014. 2014.
+						</li>
+					</ul>
+
+				</section>
+				<section>
+					<h2>Referências</h2>
+					<ul>
+						<li>
+							LEWIS, B.; BERG, D. PThreads Primer: A guide to multithreaded programming.
+							1th. ed. One Lake Street, Upper Saddle River, NJ 07458: Prentice Hall PTR, 1995.
+							352 p. ISBN 0-13-443698-9.
+						</li>
+
+						<li>
+							PEREIRA, C. R. Node.Js: Aplicações web real-time com node.js. 2th. ed. Rua
+							Vergueiro, 3185 - 8o andar, 04101-300 – Vila Mariana – São Paulo – SP – Brasil: Casa
+							do código, 2013. 131 p.
+						</li>
+
+						<li>
+							SENDGRID. loader.io Help Desk. Disponível em http://support.loader.io/. Acesso
+							em 25 AGO 2014. 2012.
+						</li>
+					</ul>
 				</section>
 
 				<section>
