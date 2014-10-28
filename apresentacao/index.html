@@ -63,57 +63,503 @@
 						<small>Orientador: João Caram</small>
 					</p>
 				</section>
-
 				<section>
-					<h2>Javascript no servidor?</h2>
-					<p>
-						Em referência ao título o javascript conhecido pelos desenvolvedores
-						nos navegadores para iteragir com elementos HTML na DOM foi portado para o
-						servidor.
-					</p>
+					<h2>Sumário</h2>
+					<ul>
+						<li>
+							Introdução
+						</li>
+						<li>
+							Problema
+						</li>
+						<li>
+							Objetivo
+						</li>
+						<li>
+							Justificativas
+						</li>
+						<li>
+							Metododologia
+						</li>
+						<li>
+							O Node.Js
+						</li>
+						<li>
+							Descrição dos Protótipos
+						</li>
+						<li>
+							Ambiente de testes
+						</li>
+						<li>
+							Análise de indicadores de Desempenho
+						</li>
+						<li>
+							Conclusão
+						</li>
+						<li>
+							Biográfia
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Introdução</h2>
+					<ul>
+						<li>
+							Node.Js o javascript utilizado no servidor
+						</li>
+						<li>
+							<em>"O Node.Js é uma plataforma de desenvolvimento orientada a eventos não bloqueantes; projetada para construir aplicações de redes rápidas e escaláveis"
+							</em> (Node.js, 2014)
+						</li>
+						<li>
+							Criado por Ryan Dhal em 2009
+						</li>
+					</ul>
 				</section>
 
 				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Sim. Existe o Node.Js</h2>
-						<p>
-							O NodeJS  utiliza o JavaScript para os desenvolvedores criarem
-							aplicações web.
-						</p>
-					</section>
-					<section>
-						<h2>O que é o Node.Js</h2>
-						<p>
-							De acordo com a sua descrição no site, o Node.Js é uma plataforma de desenvolvimento orientada a eventos não bloqueantes; projetada para construir aplicações de redes rápidas e escaláveis,  utilizando o Javascript como linguagem.
-						</p>
-					</section>
-					<section>
-						<h2>Aplicações de rede:</h2>
-						<ul>
-							<li>API's</li>
-							<li>Servidor HTTP</li>
-							<li>Servidores de jogos</li>
-							<li>Stream de audio e video</li>
-							<li>Aplicações em tempo real</li>
-							<li>Sistemas embarcados</li>
-						</ul>
-					</section>
-					<section>
-						<h2>Quem criou o Node.Js?</h2>
-						<p>Ryan Dhal</p>
-						<img width="280" height="326" src="https://s3.amazonaws.com/media-p.slid.es/uploads/pineli/images/589492/Ryan_Dahl.PNG" alt="Ryan Dhal">
 
-					</section>
+				<section>
+					<h2>Problema</h2>
+					<ul>
+						<li>
+							"O número de internautas segundo de 2005 a 2011 cresceu 143.8% e o de pessoas com celular, 107.2%." (IBGE, 2012)
+						</li>
+						<li>
+							Usuários, desempenho e escalabilidade
+						</li>
+					</ul>
 				</section>
-
 				<section>
-					<section>
-						<h2>O problema de alta concorrência na web</h2>
-						<p>
-							O número de internautas segundo pesquisa do IBGE (2012) de 2005 a 2011 cresceu 143.8% e o de pessoas com celular, 107.2%.
-						</p>
-					</section>
+					<h2>
+						Objetivo Geral
+					</h2>
+					<p>
+						Pretende-se com esta pesquisa investigar, comparar a capacidade do
+						ambiente Node.Js de processar e responder mais requisições que um aplicativo desenvol-
+						vido no ambiente Python.
+
+					</p>
+				</section>
+				<section>
+					<h2>
+						Objetivo Específicos
+					</h2>
+					<ul>
+						<li>
+							Estudo do ambiente Node.Js
+						</li>
+						<li>
+							Facilidade no desenvolvimento de uma aplicação com o Node.Js</li>
+						<li>
+							Testar o desempenho do ambiente Node.Js
+						</li>
+						<li>
+							Apresentar os resultados do estudo de caso que alcançados com a ferramenta de testes Loader.Io
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>
+						Justificativas
+					</h2>
+					<ul>
+						<li>
+							"Linguagens como Java e PHP, cada conexão cria-se uma nova thread com 2 MB de memória RAM" (Abernethy, 2011)
+						</li>
+						<li>
+							"Plataformas tradicionais interrompem o processamento de entrada e saída" (Pereira, 2013)
+						</li>
+						<li>
+							Escalonamento Horizontal e vertical são custosos
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Metodologia</h2>
+					<h3> Etapa 1 </h3>
+					<p>
+						Estudo do ambiente Node.Js
+					</p>
+				</section>
+				<section>
+					<h2>Metodologia</h2>
+					<h3> Etapa 2 </h3>
+					<p>
+						Levantamento de requisitos
+					</p>
+				</section>
+				<section>
+					<h2>Metodologia</h2>
+					<h3> Etapa 3 </h3>
+					<p>
+						Criar dois aplicativos em diferentes paradigmas
+					</p>
+				</section>
+				<section>
+					<h2>Metodologia</h2>
+					<h3> Etapa 3 </h3>
+					<p>
+						Especificar testes e comparar resultados
+					</p>
+				</section>
+				<section>
+					<h2>O Node.Js</h2>
+					<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/pineli/images/589540/nodesystem.jpg" alt="Ecossistema Node.Js">
+					<caption>(KEY, 2014)</caption>
+				</section>
+				<section>
+					<h2>O Node.Js</h2>
+					<h3> JavaScript </h3>
+					<ul>
+						<li>
+							O Node.Js utiliza o JavaScript Enginie V8 (Oliveira, 2012)
+						</li>
+						<li>
+							Metódos são implementados com ou sem chamadas de retorno, do inglês callback. (HUGHES-CROUCHER; WILSON, 2012)
+						</li>
+						<li>
+							O modelo assíncrono gasta menos tempo de execução que um programa síncrono em Node.Js. (PEREIRA, 2013)
+						</li>
+						<li>
+							Evite os <em>callbacks hell.</em> O encadeamento de chamadas de retorno dificulta a manutenabilidade e legibilidade do código, podendo ocorrer perda de
+							controle do que esta sendo executado e acesso à variáveis devido às trocas de escopos.
+							(PEREIRA, 2013)
+
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>O Node.Js</h2>
+					<h3> Abordagem Orientação a eventos </h3>
+					<ul>
+						<li>
+							Eventos são indicações de que ocorreu algo, havendo dois atores para este modelo
+							(OLIVEIRA, 2012)
+						</li>
+						<li>
+							Produtor do evento e o
+							consumidor do evento, do inglês.  O produtor do evento não espera pela
+							ação a ser executada pelo servidor.
+							(JUNIOR, 2012)
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>O Node.Js</h2>
+					<h3>
+						Thread única
+					</h3>
+					<ul>
+						<li>
+							Em Node.Js as conexões são recebidas em uma única thread invocada pelo nó de
+							servidor de processos, do inglês node server process.
+							(ABERNETHY, 2011)
+						</li>
+						<li>
+							Sistemas tradicionais alocam a memória RAM para cada thread criada. (ABERNETHY, 2011)
+						</li>
+						<li>
+							No apache cada conexão abre um processo filho. Se os usuários do sistema web em PHP for maior que capacidade
+							de criar os processos filhos do Apache, o cliente entrará numa fila (POWERS, 2012)
+						</li>
+						<li>
+							A thread única pode ser facilmente escalável
+							(POWERS, 2012)
+						</li>
+						<li>
+							Com a thread única é possível 	suportar um alto número de conexões, em conjunto com a repetição implícita existente no Node.Js.  (TILKOV, 2010)
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>O Node.Js</h2>
+					<h3>
+						Ciclo de eventos
+					</h3>
+					<ul>
+						<li>
+							O ciclo de eventos é uma repetição infinita que a cada interação verifica em sua fila de eventos se um determinado evento foi emitido ou se existem novos eventos
+							(PEREIRA, 2013)
+						</li>
+						<li>
+							Utiliza o módulo EventEmitter. (PEREIRA, 2013)
+						</li>
+						<li>
+							Os bloqueios ou impasses não são características da
+							plataforma ao realizar processamento de entradas e saídas devido a orientação a eventos.
+							(ABERNETHY, 2011)
+
+						</li>
+						<li>
+							O único gargalo de um servidor Node.Js passa-se a ser a capacidade de tráfego da aplicação.(OLIVEIRA, 2012)
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Descrição dos Protótipos</h2>
+					<p>
+						Desenvolvido em forma de API, utilizando.
+					<p>
+					<ul>
+						<li>
+							Responder as requisições do cliente através da representação em JSON.
+						</li>
+						<li>
+							Persistir os dados em Postgres.
+						</li>
+						<li> Recurso chamado Pessoas. </li>
+						<li> Recurso chamado Contatos. </li>
+						<li>
+							Deverá prover estratégias para manipular as ações de CRUD de um contato(s)
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Ambiente de testes</h2>
+					<p>
+						As aplicações foram hospedadas na DigitalOcean em uma VPS
+					</p>
+					<table>
+						<thead>
+							<tr>
+								<th> Componente </th>
+								<th> Descrição </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td> Memória Ram </td>
+								<td> 512 MegaBytes </td>
+							</tr>
+							<tr>
+								<td> Processador </td>
+								<td> 1 núcleo. </td>
+							</tr>
+							<tr>
+								<td> Espaço em disco </td>
+								<td> 20 GigaBytes </td>
+							</tr>
+							<tr>
+								<td> Transferência em rede</td>
+								<td> 1 TeraByte. </td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Principais serviços no Django</h2>
+					<table>
+						<thead>
+							<tr>
+								<th> Processo </th>
+								<th> CPU %  </th>
+								<th> Memória </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td> gunicorn </td>
+								<td> 0.0 % </td>
+								<td> 104 MB </td>
+							</tr>
+							<tr>
+								<td> Postgres </td>
+								<td> 0.0 % </td>
+								<td> 19.3 MB </td>
+							</tr>
+							<tr>
+								<td> supervisord </td>
+								<td> 0.0 % </td>
+								<td> 11.5 MB </td>
+							</tr>
+							<tr>
+								<td> nginx </td>
+								<td> 0.0 % </td>
+								<td> 7.26 MB </td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Principais serviços no Node.js</h2>
+					<table>
+						<thead>
+							<tr>
+								<th> Processo </th>
+								<th> CPU %  </th>
+								<th> Memória </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td> node </td>
+								<td> 0.0 % </td>
+								<td> 22 MB </td>
+							</tr>
+							<tr>
+								<td> Postgres </td>
+								<td> 0.0 % </td>
+								<td> 17.8 MB </td>
+							</tr>
+							<tr>
+								<td> pm2 </td>
+								<td> 0.0 % </td>
+								<td> 17.4 MB </td>
+							</tr>
+							<tr>
+								<td> nginx </td>
+								<td> 0.0 % </td>
+								<td> 6.61 MB </td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>O Loader.Io</h2>
+					<p>
+						Simples serviço de teste de carga baseado em núvem
+						que permite realizar um teste de estresse em seus aplicativos web ou API's com milhares de
+						conexões simultâneas. (Sendgrid, 2014)
+					</p>
+				</section>
+				<section>
+					<h2>Principais testes</h2>
+					<p> Clientes por testes </p>
+					<p>
+						Este teste permite que especifique um número total de clientes que se conectam ao serviço.
+					</p>
+				</section>
+				<section>
+					<h2>Principais testes</h2>
+					<p> Clientes por segundo </p>
+					<p>
+						Este teste permite que especifique um número de clientes que se conectam a cada segundo.
+					</p>
+				</section>
+				<section>
+					<h2>Principais testes</h2>
+					<p> Mantendo carga de clientes </p>
+					<p>
+						Teste utilizado para sobrecarregar o site ou API.
+					</p>
+					<p>
+						O serviço loader.io garante que um número constante de clientes estará consumindo e realizando requisições em sua API a todo o momento.
+					</p>
+				</section>
+				<section>
+					<h2>Exemplo de um teste</h2>
+					<img src="https://s3.amazonaws.com/monografia/criando_um_novo_teste_de_clientes_por_teste.png" alt="Criando e executando um teste">
+					<caption> Fonte: Autor </caption>
+				</section>
+				<section>
+					<h2>Gráfico do primeiro teste</h2>
+					<img src="https://s3.amazonaws.com/monografia/grafico_de_clientes_por_teste.png" alt="Gráfico de teste">
+					<caption> Fonte: Autor </caption>
+				</section>
+				<section>
+					<h2>Como foi realizado os testes</h2>
+					<ol>
+						<li>
+							Os testes foram realizados utilizando a URI <strong> GET /api/v1/contatos </strong>
+						</li>
+						<li>
+							Um teste foi executado 7 vezes originando a série do plano de teste.
+						</li>
+						<li>
+							Retiramos a média do tempo de resposta, número de testes, erros de tempo de limite  excedido e erros de rede e sumarizamos os dados em uma nova tabela
+						</li>
+						<li>
+							Adicionamos mais clientes nas opçoes do loader.io.
+						</li>
+					</ol>
+				</section>
+				<section>
+					<h2>
+						Análise de indicadores de Desempenho
+					</h2>
+					<p>
+						Plano de teste A-1 e B-1 correspondem ao teste "cliente por teste" para Django (A) e Node.Js (B) respectivamente
+					</p>
+					<p>
+						Plano de teste A-2 e B-2 correspondem ao teste "cliente por teste" para Django (A) e Node.Js (B) respectivamente
+					</p>
+					<p>
+						Plano de teste A-3 e B-3 correspondem ao teste "cliente por teste" para Django (A) e Node.Js (B) respectivamente
+					</p>
+				</section>
+				<section>
+					<h2>Clientes por teste Django</h2>
+					<img src="https://s3.amazonaws.com/monografia/grafico_django_plano_de_teste_1.png" alt="Clientes por teste Django">
+					<p>
+						<caption> Fonte: Autor </caption>
+					</p>
+				</section>
+				<section>
+					<h2>Clientes por teste Node.js</h2>
+					<img src="https://s3.amazonaws.com/monografia/grafico_node_plano_de_teste_1.png" alt="Clientes por teste Node.js">
+					<caption> Fonte: Autor </caption>
+				</section>
+				<section>
+					<h2>Clientes por segundo Django</h2>
+					<img src="https://s3.amazonaws.com/monografia/grafico_django_plano_de_teste_2.png" alt="Clientes por segundo Django">
+					<caption> Fonte: Autor </caption>
+				</section>
+				<section>
+					<h2>Clientes por segundo Node.js</h2>
+					<img src="https://s3.amazonaws.com/monografia/grafico_node_plano_de_teste_2.png" alt="Clientes por segundo Node.js">
+					<caption> Fonte: Autor </caption>
+				</section>
+				<section>
+					<h2>Manter a carga de usuários Django</h2>
+					<img src="https://s3.amazonaws.com/monografia/grafico_django_plano_de_teste_3.png" alt="Manter a carga de usuários Django">
+					<caption> Fonte: Autor </caption>
+				</section>
+				<section>
+					<h2>Manter a carga de usuários Node.js</h2>
+					<img src="https://s3.amazonaws.com/monografia/grafico_node_plano_de_teste_3.png" alt="Manter a carga de usuários Node.js">
+					<caption> Fonte: Autor </caption>
+				</section>
+				<section>
+					<h2>Conclusão</h2>
+					<p>
+						Com o desenvolvimento deste trabalho, ficou claro que a tecnologia Node.Js e suas
+						características deve ser utilizada para solucionar o problema de milhares de conexões em
+						servidores web pois consegue cumprir o seu objetivo a qual foi proposto com eficiência.
+					</p>
+
+					<p>
+						Um dos pontos a serem considerados, é o desenvolvimento da aplicação pois com o
+						framework Django tem-se um rápido desenvolvimento do software capaz de fornecer uma
+						API robusta.
+					</p>
+
+					<p>
+						No framework Express.Js o desenvolvimento é custoso para desenvolvedores
+						menos experientes pois trata-se de uma nova abordagem e paradigma.
+					</p>
+				</section>
+				<section>
+					<h2>Conclusão</h2>
+					<p>
+						O outro ponto a ser
+						considerado é a maturidade do framework Django, ano de 2005, e da linguagem Python.
+					</p>
+
+					<p>
+						O Node.js nasceu em 2009 e possui uma ampla comunidade open source que contribui
+						com código e bibliotecas complementares ao sistema.
+					</p>
+
+					<p>
+						Uma melhoria em nível do protótipo Django seria a utilização de cache de consultas
+						e dos resultados em JSON que poderiam reduzir o tempo de resposta e aumentar o número
+						de sucessos. Este cache pode ser colocado no framework e utilizar também softwares
+						memcached e/ou varnish em um outro servidor.(JALES; PANTOJA, 2013)
+					</p>
+				</section>
+				<!--
+				<section>
 					<section>
 						<h2>Preocupações</h2>
 						<p>
@@ -246,8 +692,8 @@
 						<table>
 							<thead>
 								<tr>
-									<td> Componente </td>
-									<td> Descrição </td>
+									<th> Componente </th>
+									<th> Descrição </th>
 								</tr>
 							</thead>
 							<tbody>
@@ -275,9 +721,9 @@
 						<table>
 							<thead>
 								<tr>
-									<td> Processo </td>
-									<td> CPU %  </td>
-									<td> Memória </td>
+									<th> Processo </th>
+									<th> CPU %  </th>
+									<th> Memória </th>
 								</tr>
 							</thead>
 							<tbody>
@@ -309,9 +755,9 @@
 						<table>
 							<thead>
 								<tr>
-									<td> Processo </td>
-									<td> CPU %  </td>
-									<td> Memória </td>
+									<th> Processo </th>
+									<th> CPU %  </th>
+									<th> Memória </th>
 								</tr>
 							</thead>
 							<tbody>
@@ -434,11 +880,10 @@
 						</ul>
 					</section>
 				</section>
+				-->
 				<section>
 					<h2>Referências</h2>
 					<ul>
-
-
 						<li>
 							ABERNETHY, M. JustwhatisNode.js. Disponível em <http://www.ibm.com/developerworks/library/os-nodejs/index.html>.Acesso 10 OUT. 2012. 2011.
 						</li>
