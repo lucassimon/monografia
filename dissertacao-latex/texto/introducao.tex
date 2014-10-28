@@ -10,50 +10,61 @@
   
   A internet como mídia de comunicação, possui o mais amplo de todos os alcances, 
   conforme pode ser visto na pesquisa do \citeonline{IBGE:2013} de 2005 para 2011, 
-  o número de internautas cresceu 143.8\%  e o de pessoas com celular, 107.2\%. 
-  E para continuar a oferecer serviços e informações, com rapidez e até mesmo em tempo real, 
-  é necessário se preocupar com a quantidade de milhões de usuários simultâneos, 
-  que cresce exponencialmente, e vencer barreiras tecnológicas de escalabilidade e desempenho nos servidores.
+  o número de internautas cresceu 143.8\%  e o de pessoas com celular, 107.2\%.
   
-  Em sistemas web desenvolvidos sob as plataformas tradicionais como JAVA, \ac{PHP}, .NET dentre outros 
-  é necessário paralisar um processamento enquanto utiliza uma entrada e saída do servidor. 
-  Essa paralisação é conhecida como um modelo bloqueante. Exemplificando este modelo, em um servidor Web 
-  que cada processo é uma requisição de feita pelo usuário. Com o decorrer novos usuários realizam novas 
-  requisições aumentando o processamento. No modelo bloqueante cada requisição é enfileirada e depois 
-  processadas uma a uma. Enquanto uma requisição esta sendo processada as demais ficam em espera, 
-  mantendo-se ociosas por um período indeterminado na fila.\cite{Pereira:2013}
+  Com este aumento é necessário se preocupar com a quantidade de milhões de usuários simultâneos,
+  que cresce exponencialmente ao longo dos anos, vencendo barreiras tecnólogicas tais como 
+  escalabilidade e desempenho para oferecer serviços e informações com rápidez e até mesmo em tempo
+  real para o usuário final.
   
-  Com esta arquitetura tradicional, gasta-se muito tempo mantendo uma fila de espera com processos ociosos,
-  tais como: envio de e-mails, consultas em banco de dados, leitura em disco que não liberam recursos enquanto
-  não forem finalizadas. Com o aumento dos acessos ao sistema é necessário fazer uma atualização
-  do hardware (equipamento).\cite{Pereira:2013}
+  Esta falta de desempenho dos aplicativos web é influênciada pelo consumo de memória RAM. \citeonline{Abernethy:2011}, explica que 
+  em linguagens como Java e PHP, cada conexão cria-se uma nova \textit{thread} com 2 MB de memória RAM. Nesta linha 
+  de raciocinio o autor explica que, com um servidor de 08 GigaBytes de memória RAM suportaria aproximadamente 4.000 usuários
+  conectados.
   
-  \citeonline{Abernethy:2011}, explica que em linguagens como Java e PHP, cada conexão cria-se uma 
-  nova \textit{thread} com 2 MB de memória RAM. Se em um servidor possuir 8 GigaBytes de memória RAM, 
-  teoricamente o número máximo de conexões concorrentes é aproximadamente 4.000 usuários. 
-  Com o aumento da base de cliente, e claro, se quiser que o aplicativo web suporte mais usuários, é necessário 
-  adicionar mais e mais servidores. Como foi descrito, o gargalo em toda a arquitetura 
-  da aplicação web ( incluindo a velocidade de tráfego, velocidade do processador e velocidade da memória RAM) 
-  estaria associado ao número máximo de conexões concorrentes que um servidor pode manipular.
+  Outro fator relacionado a queda de desempenho dos aplicativos é a maneira como linguagens de desenvolvimento de sistemas como JAVA, PHP,
+  .NET manipulam as requisições e tratam as operações de entrada e saída na aplicação. 
   
-  Portanto, observa-se que o escalonamento horizontal, adicionando novos servidores, além do custo altíssimo, 
-  torna a arquitetura do sistema complexa pois será necessário acrescentar servidores de balanceamento, 
-  rede estruturada da central de dados que seja capaz de suportar um alto tráfego e acompanhamento dos processos 
-  do sistema de perto para que os bloqueios sejam consertados em tempo hábil. A utilização de escalonamento vertical, 
-  ou melhor, atualização de hardware – colocando mais processadores ou memória - pode inviabilizar a arquitetura do 
-  sistema, visto que há uma barreira de hardware, mais especificamente, placas-mãe que não suportam mais de 8 slots 
-  de memória ou determinados modelos de memória RAM, suporte a processadores com mais de 7 núcleos. 
-  Além dessas limitações tecnológicas, ha o agravante do alto custo para atualizar este hardware. 
-  Processadores com 7 núcleos são caros e dependendo dos casos é necessário trocar todo o equipamento - hardware - 
-  para garantir o devido funcionamento dos componentes.
+  Nestas plataformas de desenvolvimento tradicionais um processamento é interrompido quando ocorre uma operação de entrada e saída.
+  Essa interrupção conhecida como, modelo bloqueante, enfileira cada requisição e posteriormente processa uma a uma. Desta forma, 
+  enquanto uma requisição está sendo processada as demais entram em estado de espera ficando ociosas
+  por periodos indeterminados.\cite{Pereira:2013}
   
-  Como dito por \cite{Oliveira:2012} surgiu a necessidade de melhorar em nível de software para permitir que a aplicação
-  receba um grande número de conexões simultâneas, escalável e baixo consumo de memória RAM.
+  Através deste problema, surgiu a necessidade de melhorar em nível de desenvolvimento de software o grande número de conexões 
+  simultâneas, escalabilidade e baixo consumo de memória RAM de um aplicativo web.\cite{Oliveira:2012}
   
   Pretende-se com esta proposta de pesquisa investigar e elaborar aplicações para a web, 
   utilizando o servidor Node.Js e comparar a sua performance em relação ao desenvolvimento
   de aplicativos tradicionais.
   
+ 
+  
+%  Com esta arquitetura tradicional, gasta-se muito tempo mantendo uma fila de espera com processos ociosos,
+%  tais como: envio de e-mails, consultas em banco de dados, leitura em disco que não liberam recursos enquanto
+%  não forem finalizadas. Com o aumento dos acessos ao sistema é necessário fazer uma atualização
+%  do hardware (equipamento).\cite{Pereira:2013}
+  
+  
+%  \citeonline{Abernethy:2011}, explica que em linguagens como Java e PHP, cada conexão cria-se uma 
+%  nova \textit{thread} com 2 MB de memória RAM. Se em um servidor possuir 8 GigaBytes de memória RAM, 
+%  teoricamente o número máximo de conexões concorrentes é aproximadamente 4.000 usuários. 
+%  Com o aumento da base de cliente, e claro, se quiser que o aplicativo web suporte mais usuários, é necessário 
+%  adicionar mais e mais servidores. Como foi descrito, o gargalo em toda a arquitetura 
+%  da aplicação web ( incluindo a velocidade de tráfego, velocidade do processador e velocidade da memória RAM) 
+%  estaria associado ao número máximo de conexões concorrentes que um servidor pode manipular.
+  
+%  Portanto, observa-se que o escalonamento horizontal, adicionando novos servidores, além do custo altíssimo, 
+%  torna a arquitetura do sistema complexa pois será necessário acrescentar servidores de balanceamento, 
+%  rede estruturada da central de dados que seja capaz de suportar um alto tráfego e acompanhamento dos processos 
+%  do sistema de perto para que os bloqueios sejam consertados em tempo hábil. A utilização de escalonamento vertical, 
+%  ou melhor, atualização de hardware – colocando mais processadores ou memória - pode inviabilizar a arquitetura do 
+%  sistema, visto que há uma barreira de hardware, mais especificamente, placas-mãe que não suportam mais de 8 slots 
+%  de memória ou determinados modelos de memória RAM, suporte a processadores com mais de 7 núcleos. 
+%  Além dessas limitações tecnológicas, ha o agravante do alto custo para atualizar este hardware. 
+%  Processadores com 7 núcleos são caros e dependendo dos casos é necessário trocar todo o equipamento - hardware - 
+%  para garantir o devido funcionamento dos componentes.
+  
+
   
 \section{Motivação}
 \label{motivacao}
@@ -71,10 +82,8 @@
 \subsection{Objetivos Geral}
 
   Pretende-se com esta pesquisa investigar, comparar e demonstrar a capacidade 
-  do ambiente Node.Js de processar e responder milhares de requisições comparando-o com um ambiente Python.
-  
-  Para isso serão utilizados dois aplicativos desenvolvidos como uma API RESTFul provendo as operações
-  básicas como \ac{CRUD} de uma lista de contatos.
+  do ambiente Node.Js de processar e responder mais requisições que um aplicativo desenvolvido no ambiente Python.
+ 
   
 \subsection{Objetivos específicos}
 
