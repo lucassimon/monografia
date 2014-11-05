@@ -16,13 +16,13 @@
   \begin{compactitem}
     \item[a)] Estudar as principais características do Node.Js.
     
-    Conhecer o modelo single-thread, diferenças entre o modelo assíncrono e síncrono, dentre outros.
+    Conhecer o modelo única \textit{thread}, diferenças entre o modelo assíncrono e síncrono, dentre outros.
     
-    \item[b)] Estudar o ciclo de eventos (Event-Loop) e como ele é utilizado no NodeJs.
+    \item[b)] Estudar o ciclo de eventos do inglês , \textit{Event Loop} e como ele é utilizado no NodeJs.
     
-    \item[c)] Estudo do framework Express
+    \item[c)] Estudo do \textit{framework} Express
     
-    Conhecer o framework feito em Node.Js que será a base para criar a 
+    Conhecer o \textit{framework} feito em Node.Js que será a base para criar a 
     aplicação devido a grandes módulos já inclusos e se codificar de maneira \ac{REST}.
 
   \end{compactitem}
@@ -30,7 +30,7 @@
 \section{Levantamento de requisitos}
 
   \begin{compactitem}
-    \item[a)] Estudar a arquitetura web dos protótipos de acordo com o problema proposto.
+    \item[a)] Estudar a arquitetura Web dos protótipos de acordo com o problema proposto.
     
     Buscando um entendimento básico de como é a implementação de uma aplicação 
     \ac{REST} e seus protocolos relacionados ao HTTP.
@@ -42,22 +42,28 @@
     
     \item[c)] Especificar serviços da aplicação.
     
-    Detalhar e documentar o serviço de hospedagem na internet, além de outros componentes 
+    Detalhar e documentar o serviço de hospedagem na Internet, além de outros componentes 
     necessários para o funcionamento do ecossistema.
       
   \end{compactitem}
 
-\section{Criar dois aplicativos em diferentes paradigmas}
+\section{Criar dois aplicativos em diferentes paradigmas e hospeda-los}
   
   \begin{compactitem}
     \item[a)] Desenvolvimento da aplicação no paradigma orientado a eventos.
     
-    Desenvolver um aplicativo escrito no ambiente Node.Js com o framework Express.Js
+    Desenvolver um aplicativo escrito no ambiente Node.Js com o \textit{framework} Express.Js
     
     \item[b)] Desenvolvimento do mesmo aplicativo em outro ambiente.
     
-    Busca-se com esta etapa ter um aplicativo escrito na linguagem Python com o framework Django
+    Busca-se com esta etapa ter um aplicativo escrito na linguagem Python com o \textit{framework} Django
     para comparamos o desempenho, do ambiente aqui estudado com o modelo \"tradicional\".
+    
+    \item[b)] Hospedar os aplicativos em uma VPS.
+    
+    Hospedar os aplicativos em um servidor provado virtual contendo seu próprio sistema operacional e processos
+    especificos para cada aplicação. Para esta necessidade será utilizado os serviços da empresa Digital Ocean \footnote{
+    Serviço de hospedagem nas núvens. Disponível em https://www.digitalocean.com/}
     
   \end{compactitem}
 
@@ -67,7 +73,8 @@
     \item[a)] Utilizar testes de carga na \ac{API}.
     
     Realizar um plano de testes de estresse e carga nas \ac{API} desenvolvidas através
-    da ferramenta loader.io \footnote{\label{noteloader}http://loader.io}, melhor descrita na Sub-Seção \ref{ferramentas-utilizadas-para-testes}.
+    da ferramenta loader.io \footnote{Teste de carga baseado em nuvem. Disponível em http://loader.io},
+    melhor descrita na Sub-Seção \ref{ferramentas-utilizadas-para-testes}.
     
     
     \item[b)] Descrever o software de testes.
@@ -76,12 +83,12 @@
     
     \item[c)] Executar os testes: Clientes por testes; clientes por segundo; manter carga de clientes.
     
-    Estes testes possui a finalidade de medir o tempo de resposta, volume de transações e conexões por segundo. E por fim
+    Estes testes possuem a finalidade de medir o tempo de resposta, volume de transações e conexões por segundo. E por fim
     medir a carga com um volume de usuários até a duração de 60 segundos respectivamente. 
     Com os resultados obtidos poderemos avaliar em números o tempo de resposta de cada teste,
-    erros de \textit{timeout}, erros de rede e conexões suportadas. 
+    erros de tempo de limite excedido, do inglês \textit{timeout}, erros de rede e conexões suportadas. 
     
-    \item[d)] Avaliar os resultados obtidos após a analise, coleta e definições das métricas.
+    \item[d)] Avaliar os resultados obtidos após a análise, coleta e definições das métricas.
     
     Por último realizar uma análise sobre o desempenho positivo ou negativo de cada modelo desenvolvido.
     
@@ -127,12 +134,19 @@
 \label{ferramentas-utilizadas-para-testes}
   
   Para realizar os testes de carga e estresse será utilizado o serviço em computação nas nuvens
-  da empresa SendGrid\footnote{http://labs.sendgrid.com/} denominado loader.io.
+  da empresa SendGrid\footnote{Serviços para desenvolvedores. Disponível em http://labs.sendgrid.com/} denominado loader.io.
   
   De acordo com o sítio o serviço é definido como um serviço de teste de carga livre,
   que permite realizar testes de estresse em aplicativos web ou API\'s com milhares de conexões simultâneas.
   
-  Na \citeonline{SupportLoader:2014} deste serviço, mais especificamente, na seção começando
-  temos as sub-seções de como criar o teste, tipos de teste, verificando um aplicativo, variáveis,
-  resultados de testes. Neste capítulo não irá ser abordado as configurações pois serão melhor explicados
+  Este serviço foi escolhido pois oferece testes gratuitos até o máximo 10.000 clientes por teste para duas 
+  urls especificas. Sua \textit{interface} para criar os testes é simples, fácil de utilizar e
+  configurar os testes. Na execução dos testes o gráfico e os dados são atualizados em tempo real até a duração do teste.
+  
+  Existe uma documentação no sítio da \citeonline{SupportLoader:2014}, que explica a utilizar a ferramenta para usuários
+  iniciantes, principalmente na seção começando. Nesta seção possuias sub-seções de como criar o teste, tipos de teste,
+  verificando um aplicativo, variáveis e resultados de testes. Documentos estes essenciais para 
+  entender o básico para utilização deste serviço. 
+  
+  Neste capítulo não irá ser abordado as configurações pois serão melhores explicados
   no Capítulo \ref{experimentos-resultados}.
