@@ -8,8 +8,8 @@
 
 % Texto do capítulo
   
-  A internet como mídia de comunicação, possui o mais amplo de todos os alcances, 
-  conforme pode ser visto na pesquisa do \citeonline{IBGE:2013} de 2005 para 2011, 
+  A Internet como mídia de comunicação, possui o mais amplo de todos os alcances. 
+  Conforme pode ser visto na pesquisa do \citeonline{IBGE:2013} de 2005 para 2011, 
   o número de internautas cresceu 143.8\%  e o de pessoas com celular, 107.2\%.
   
   Com este aumento é necessário se preocupar com a quantidade de milhões de usuários simultâneos,
@@ -17,23 +17,23 @@
   escalabilidade e desempenho para oferecer serviços e informações com rápidez e até mesmo em tempo
   real para o usuário final.
   
-  Esta falta de desempenho dos aplicativos web é influênciada pelo consumo de memória RAM. \citeonline{Abernethy:2011}, explica que 
+  Este problema de desempenho dos aplicativos Web é influênciada pelo consumo de memória RAM. \citeonline{Abernethy:2011}, explica que 
   em linguagens como Java e PHP, cada conexão cria-se uma nova \textit{thread} com 2 MB de memória RAM. Nesta linha 
-  de raciocinio o autor explica que, com um servidor de 08 GigaBytes de memória RAM suportaria aproximadamente 4.000 usuários
+  de raciocinio o autor explica que, com um servidor de 8 GigaBytes de memória RAM suportaria aproximadamente 4.000 usuários
   conectados.
   
   Outro fator relacionado a queda de desempenho dos aplicativos é a maneira como linguagens de desenvolvimento de sistemas como JAVA, PHP,
   .NET manipulam as requisições e tratam as operações de entrada e saída na aplicação. 
   
   Nestas plataformas de desenvolvimento tradicionais um processamento é interrompido quando ocorre uma operação de entrada e saída.
-  Essa interrupção conhecida como, modelo bloqueante, enfileira cada requisição e posteriormente processa uma a uma. Desta forma, 
+  Essa interrupção conhecida como modelo bloqueante, enfileira cada requisição e posteriormente processa uma a uma. Desta forma, 
   enquanto uma requisição está sendo processada as demais entram em estado de espera ficando ociosas
   por periodos indeterminados.\cite{Pereira:2013}
   
-  Através deste problema, surgiu a necessidade de melhorar em nível de desenvolvimento de software o grande número de conexões 
+  Com este problema, surgiu a necessidade de melhorar em nível de desenvolvimento de software o grande número de conexões 
   simultâneas, escalabilidade e baixo consumo de memória RAM de um aplicativo web.\cite{Oliveira:2012}
   
-  Pretende-se com esta proposta de pesquisa investigar e elaborar aplicações para a web, 
+  Pretende-se com esta proposta de pesquisa investigar e elaborar aplicações para a Web 
   utilizando o servidor Node.Js e comparar a sua performance em relação ao desenvolvimento
   de aplicativos tradicionais.
   
@@ -69,20 +69,19 @@
 \section{Motivação}
 \label{motivacao}
   
-  Com alto crescimento da internet existe a necessidade de que aplicações para web sejam capazes de suportar milhares de usuários,
+  Com o grande crescimento dos usuário da internet existe a necessidade de que aplicações para web sejam capazes de suportar milhares de usuários,
   escalável e de baixa arquitetura. O Node.Js, objeto de estudo, entra no cenário tecnológico como plataforma de desenvolvimento rápido
   de aplicações de rede escaláveis.
   
 \section{Objetivos}
 \label{objetivos}
 
-  Demonstrar a capacidade da plataforma Node.Js com foco no desempenho de aplicações e capacidade de receber uma carga
-  elevada de usuários.
 
-\subsection{Objetivos Geral}
+\subsection{Objetivo Geral}
 
-  Pretende-se com esta pesquisa investigar, comparar e demonstrar a capacidade 
-  do ambiente Node.Js de processar e responder mais requisições que um aplicativo desenvolvido no ambiente Python.
+  Pretende-se com esta pesquisa investigar e comparar a capacidade 
+  do ambiente Node.Js de processar e responder requisições em relação a um aplicativo desenvolvido 
+  no paradigma tradicional.
  
   
 \subsection{Objetivos específicos}
@@ -90,10 +89,9 @@
   Os objetivos específicos deste trabalho são:
   
     \begin{compactitem}
-      \item[a)] Estudo teórico do ambiente de desenvolvimento Node.Js para construção do protótipo 
-      \item[b)] Propor dois protótipos e comparar a sua forma de desenvolvimento.
-      \item[b)] Realizar testes de carga nos protótipos para verificar a perfomance com um alto número de conexões,
-      seu comportamento em relação ao consumo de hardware e apresentá-los ao leitor.
+      \item[a)] Verificar o tempo médio de resposta gasto ao requisições.
+      \item[b)] Obter resultados do número de sucessos obtidos nas requisições   
+      \item[c)] Quantificar o desempenho entre cada teste.
     \end{compactitem}
   
   
@@ -101,6 +99,6 @@
 \label{organizacao}  
 
   Para contextualizar o leitor, o Capítulo \ref{ambiente-node-js} aborda o referêncial teórico e fontes de estudos utilizados para iniciar com o ambiente 
-  Node.Js. Já o Capítulo \ref{desenvolvimento-prototipos} compreende a lista de requisitos e especificações do protótipo a ser construído e o
+  Node.Js. O capítulo \ref{metodologia} apresenta a metodologia uilizada no decorrer deste trabalho. O Capítulo \ref{desenvolvimento-prototipos} compreende a lista de requisitos e especificações do protótipo a ser construído e o
   desenvolvimento. O Capítulo \ref{experimentos-resultados} descreve os testes realizados e os resultados obtidos. 
-  Por fim, o Capítulo \ref{}, conclui o trabalho acadêmico.
+  Por fim, o Capítulo \ref{conslusao-e-trabalhos-furutos}, conclui o trabalho acadêmico.
