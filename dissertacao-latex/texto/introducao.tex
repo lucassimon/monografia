@@ -9,29 +9,27 @@
 % Texto do capítulo
   
   A Internet como mídia de comunicação, possui o mais amplo de todos os alcances. 
-  Conforme pode ser visto na pesquisa do \citeonline{IBGE:2013} de 2005 para 2011, 
+  Conforme pode ser visto na pesquisa do \citeonline{IBGE:2013}. Entre 2005 para 2011, 
   o número de internautas cresceu 143.8\%  e o de pessoas com celular, 107.2\%.
-  
   Com este aumento é necessário se preocupar com a quantidade de milhões de usuários simultâneos,
-  que cresce exponencialmente ao longo dos anos, vencendo barreiras tecnólogicas tais como 
-  escalabilidade e desempenho para oferecer serviços e informações com rápidez e até mesmo em tempo
+  que cresce exponencialmente ao longo dos anos, vencendo barreiras tecnológicas, tais como 
+  escalabilidade e desempenho para oferecer serviços e informações com rapidez e até mesmo em tempo
   real para o usuário final.
   
-  Este problema de desempenho dos aplicativos Web é influênciada pelo consumo de memória RAM. \citeonline{Abernethy:2011}, explica que 
-  em linguagens como Java e PHP, cada conexão cria-se uma nova \textit{thread} com 2 MB de memória RAM. Nesta linha 
-  de raciocinio o autor explica que, com um servidor de 8 GigaBytes de memória RAM suportaria aproximadamente 4.000 usuários
-  conectados.
+  Esta falta de desempenho dos aplicativos Web é influenciada pelo consumo de memória RAM. \citeonline{Abernethy:2011} 
+  explica que em linguagens como Java e PHP, a cada conexão cria-se uma nova \textit{thread} com 2 MB de memória RAM. 
+  Nesta linha de raciocínio, o autor explica que com um servidor de 8 gigabytes de memória RAM suportaria
+  aproximadamente 4.000 usuários conectados.
   
-  Outro fator relacionado a queda de desempenho dos aplicativos é a maneira como linguagens de desenvolvimento de sistemas como JAVA, PHP,
-  .NET manipulam as requisições e tratam as operações de entrada e saída na aplicação. 
-  
+  Outro fator relacionado à queda de desempenho dos aplicativos é a maneira como linguagens de desenvolvimento de sistemas como JAVA, PHP,
+  .NET manipulam as requisições e tratam as operações de entrada e saída na aplicação.   
   Nestas plataformas de desenvolvimento tradicionais um processamento é interrompido quando ocorre uma operação de entrada e saída.
-  Essa interrupção conhecida como modelo bloqueante, enfileira cada requisição e posteriormente processa uma a uma. Desta forma, 
-  enquanto uma requisição está sendo processada as demais entram em estado de espera ficando ociosas
-  por periodos indeterminados.\cite{Pereira:2013}
+  Essa interrupção, conhecida como modelo bloqueante, enfileira cada requisição e posteriormente processa uma a uma. Desta forma, 
+  enquanto uma requisição está sendo processada, as demais entram em estado de espera ficando ociosas
+  por períodos indeterminados\cite{Pereira:2013}.
   
-  Com este problema, surgiu a necessidade de melhorar em nível de desenvolvimento de software o grande número de conexões 
-  simultâneas, escalabilidade e baixo consumo de memória RAM de um aplicativo web.\cite{Oliveira:2012}
+  Através deste problema, surgiu a necessidade de melhorar em nível de desenvolvimento de software o grande número de conexões 
+  simultâneas, escalabilidade e baixo consumo de memória RAM de um aplicativo web\cite{Oliveira:2012}.
   
   Pretende-se com esta proposta de pesquisa investigar e elaborar aplicações para a Web 
   utilizando o servidor Node.Js e comparar a sua performance em relação ao desenvolvimento
@@ -69,15 +67,15 @@
 \section{Motivação}
 \label{motivacao}
   
-  Com o grande crescimento dos usuário da internet existe a necessidade de que aplicações para web sejam capazes de suportar milhares de usuários,
-  escalável e de baixa arquitetura. O Node.Js, objeto de estudo, entra no cenário tecnológico como plataforma de desenvolvimento rápido
+  Com alto crescimento da internet, surgiu a necessidade de que as aplicações para web sejam capazes de suportar milhares de usuários,
+  escaláveis e de baixa arquitetura. O Node.Js, objeto de estudo, entra no cenário tecnológico como plataforma de desenvolvimento rápido
   de aplicações de rede escaláveis.
   
 \section{Objetivos}
 \label{objetivos}
 
 
-\subsection{Objetivo Geral}
+\subsection{Objetivo Gerais}
 
   Pretende-se com esta pesquisa investigar e comparar a capacidade 
   do ambiente Node.Js de processar e responder requisições em relação a um aplicativo desenvolvido 
@@ -89,16 +87,16 @@
   Os objetivos específicos deste trabalho são:
   
     \begin{compactitem}
-      \item[a)] Verificar o tempo médio de resposta gasto ao requisições.
-      \item[b)] Obter resultados do número de sucessos obtidos nas requisições   
-      \item[c)] Quantificar o desempenho entre cada teste.
+      \item[a)] Verificar o tempo médio de resposta gasto ao requisições;
+      \item[b)] Obter resultados do número de sucessos obtidos nas requisições;
+      \item[c)] Quantificar o desempenho entre cada teste;
     \end{compactitem}
   
   
 \section{Organização}
 \label{organizacao}  
 
-  Para contextualizar o leitor, o Capítulo \ref{ambiente-node-js} aborda o referêncial teórico e fontes de estudos utilizados para iniciar com o ambiente 
-  Node.Js. O capítulo \ref{metodologia} apresenta a metodologia uilizada no decorrer deste trabalho. O Capítulo \ref{desenvolvimento-prototipos} compreende a lista de requisitos e especificações do protótipo a ser construído e o
+  Para contextualizar o leitor, o Capítulo \ref{ambiente-node-js} aborda o referencial teórico e as fontes de estudos utilizados para iniciar com o ambiente 
+  Node.Js. O capítulo \ref{metodologia} apresenta a metodologia utilizada no decorrer deste trabalho. O Capítulo \ref{desenvolvimento-prototipos} compreende a lista de requisitos e especificações do protótipo a ser construído e o
   desenvolvimento. O Capítulo \ref{experimentos-resultados} descreve os testes realizados e os resultados obtidos. 
   Por fim, o Capítulo \ref{conslusao-e-trabalhos-furutos}, conclui o trabalho acadêmico.
