@@ -159,8 +159,10 @@
 %% /Keywords (Palavras chave)
 %%}
 
+
 % PRÉ-TEXTUAIS %%
 \begin{document}
+
 
 % Para forçar que elementos pré-textuais (da capa até o sumário) sejam impressos no anverso da folha
 \setboolean{@twoside}{false}
@@ -169,7 +171,7 @@
 
 % Coloque o título em caixa alta. É o padrão da PUC.
 % Vá no arquivo abnt-PPGInf-PUCMG.sty e procure por esse título (linha 575). Altere para o seu título em caixa alta. Isso será utilizado na folha de aprovação.
-\titulo{Utilizando JavaScript no servidor para construir aplicações de alta concorrência na internet com Node.Js}
+\titulo{Utilizando JavaScript no servidor para construir aplicações de alta concorrência na Internet com Node.Js}
 
 \orientador[Orientador:]{Prof. João Caram}
 
@@ -177,7 +179,7 @@
 %\coorientador[Co-orientador:]{Professor}
 
 % Texto
-\comentario{Monografia apresentada ao Departamento de Sistemas de Informação da Pontifícia Universidade Católica de Minas Gerais,
+\comentario{Monografia apresentada ao Curso de Sistemas de Informação da Pontifícia Universidade Católica de Minas Gerais,
 como exigência parcial para a obtenção do título de Bacharel em Sistemas de Informação.}
 
 
@@ -188,7 +190,7 @@ como exigência parcial para a obtenção do título de Bacharel em Sistemas de 
 \local{Belo Horizonte}
 
 % Data
-\data{24 de Novembro de 2014}
+\data{Novembro de 2014}
 \capa
 %Para forçar que a ficha catalográfica seja impressa no verso da folha de aprovação
 \setboolean{@twoside}{false}
@@ -197,22 +199,16 @@ como exigência parcial para a obtenção do título de Bacharel em Sistemas de 
 \folhaderosto
 
 % Ficha catalográfica
-\include{pre-texto/ficha-catalografica}
+%\include{pre-texto/ficha-catalografica}
 
 % Para forçar que elementos pré-textuais (da capa até o sumário) sejam impressos no anverso da folha
 \setboolean{@twoside}{false}
 
 % Folha de aprovação
-\include{pre-texto/folha-aprovacao}
-
-% Dedicatória
-\include{pre-texto/dedicatoria}
+%\include{pre-texto/folha-aprovacao}
 
 % Agradecimentos
 \include{pre-texto/agradecimentos}
-
-% Epígrafe
-\include{pre-texto/epigrafe}
 
 % Resumo
 \include{pre-texto/resumo}
@@ -282,7 +278,7 @@ como exigência parcial para a obtenção do título de Bacharel em Sistemas de 
 % Para forçar que elementos textuais e pós-textuais sejam impressos no anverso e verso das folhas
 \setboolean{@twoside}{false}
 % Altere o número da página para o correto. Conte todas as páginas frente e verso, menos a capa, nclusive a ficha catalográfica até a página do primeiro capítulo.
-\setcounter{page}{25}
+\setcounter{page}{13}
 
 \renewcommand{\thefootnote}{\arabic{footnote}}
 

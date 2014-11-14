@@ -23,7 +23,7 @@
     \item[c)] Estudo do \textit{framework} Express
     
     Conhecer o \textit{framework} feito em Node.Js que será a base para criar a 
-    aplicação devido a grandes módulos já inclusos e se codificar de maneira \ac{REST} \footnote{
+    aplicação devido a grandes módulos já inclusos e se codificar de maneira \ac{REST} \footnote[4]{
     Estilo de arquitetura de software para sistemas distribuídos como a própria web. Graças a sua adoção por
     grandes empresas do meio como o Google, Facebook e Twitter, REST emergiu ao longo dos últimos anos como
     o modelo predominante de design para serviços web, substituindo outros modelos como SOAP e WSDL graças
@@ -38,7 +38,7 @@
     básico de como é a implementação de uma aplicação \ac{REST} e seus protocolos relacionados ao HTTP.
     
     \item[b)] Especificar requisitos da aplicação. Criar um modelo de API 
-    \footnote{Conjunto de rotinas e padrões estabelecidos por um software para a utilização das suas funcionalidades por
+    \footnote[5]{Conjunto de rotinas e padrões estabelecidos por um software para a utilização das suas funcionalidades por
     aplicativos que não pretendem envolver-se em detalhes da implementação do software, mas apenas usar seus serviços.} 
     da aplicação para fácil entendimento e independente da plataforma de desenvolvimento.
     
@@ -47,7 +47,7 @@
       
   \end{compactitem}
 
-\section{Criar dois aplicativos em diferentes paradigmas e hospeda-los}
+\section{Criar dois aplicativos em diferentes paradigmas e hospedá-los}
   
   \begin{compactitem}
     \item[a)] Desenvolvimento da aplicação no paradigma orientado a eventos. Desenvolver um aplicativo escrito no
@@ -59,7 +59,7 @@
     
     \item[c)] Hospedar os aplicativos em uma \ac{VPS}.  Hospedar os aplicativos em um 
     servidor privado virtual contendo seu próprio sistema operacional e processos
-    específicos para cada aplicação. Para esta necessidade será utilizado os serviços da empresa Digital Ocean \footnote{
+    específicos para cada aplicação. Para esta necessidade será utilizado os serviços da empresa Digital Ocean \footnote[6]{
     Serviço de hospedagem nas nuvens. Disponível em https://www.digitalocean.com/}
     
   \end{compactitem}
@@ -69,7 +69,7 @@
   \begin{compactitem}
     \item[a)] Utilizar testes de carga na \ac{API}. Realizar um plano de testes de 
     estresse e carga nas \ac{API} desenvolvidas através
-    da ferramenta loader.io \footnote{Teste de carga baseado em nuvem. Disponível em http://loader.io},
+    da ferramenta loader.io \footnote[7]{Teste de carga baseado em nuvem. Disponível em http://loader.io},
     melhor descrita na Sub-Seção \ref{ferramentas-utilizadas-para-testes}.
     
     \item[b)] Descrever o software de testes. Descrever passo a passo como gerar um teste de carga 
@@ -126,18 +126,16 @@
 \label{ferramentas-utilizadas-para-testes}
   
   Para realizar os testes de carga e estresse será utilizado o serviço em computação nas nuvens
-  da empresa SendGrid\footnote{Serviços para desenvolvedores. Disponível em http://labs.sendgrid.com/} denominado loader.io.
+  da empresa SendGrid\footnote[8]{Serviços para desenvolvedores. Disponível em http://labs.sendgrid.com/} denominado loader.io.
   De acordo com o sítio, o serviço é definido como um serviço de teste de carga livre,
-  que permite realizar testes de estresse em aplicativos web ou API\'s, com milhares de conexões simultâneas.
+  que permite realizar testes de estresse em aplicativos web ou API\'{}s, com milhares de conexões simultâneas.
   
   Este serviço foi escolhido pois oferece testes gratuitos até o máximo 10000 clientes por teste para duas 
-  URL\'S especificas. Sua \textit{interface} para criar os testes é simples, fácil de utilizar e
+  URL\'{}s especificas. Sua \textit{interface} para criar os testes é simples, fácil de utilizar e
   configurar os testes. Na execução dos testes o gráfico e os dados são atualizados em tempo real até a duração do teste.
   
-  Existe uma documentação no sítio da \citeonline{SupportLoader:2014}, que explica a utilizar a ferramenta para usuários
-  iniciantes, principalmente na seção começando. Nesta seção possui as sub-seções de como criar o teste, tipos de teste,
+  Existe uma documentação no sítio da \citeonline{supportloader}, que explica a utilização da ferramenta para usuários
+  iniciantes. Esta seção possui as sub-seções de como criar o teste, tipos de teste,
   verificando um aplicativo, variáveis e resultados de testes. Documentos estes essenciais para 
   entender o básico para utilização deste serviço. 
   
-  Neste capítulo não irá ser abordado as configurações pois serão melhores explicados
-  no Capítulo \ref{experimentos-resultados}.

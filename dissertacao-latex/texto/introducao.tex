@@ -8,15 +8,15 @@
 
 % Texto do capítulo
   
-  A Internet como mídia de comunicação, possui o mais amplo de todos os alcances. 
-  Conforme pode ser visto na pesquisa do \citeonline{IBGE:2013}. Entre 2005 para 2011, 
+  A Internet, como mídia de comunicação, possui o mais amplo de todos os alcances,
+  conforme pode ser visto na pesquisa do \citeonline{ibge}. Entre 2005 e 2011, 
   o número de internautas cresceu 143.8\%  e o de pessoas com celular, 107.2\%.
   Com este aumento é necessário se preocupar com a quantidade de milhões de usuários simultâneos,
   que cresce exponencialmente ao longo dos anos, vencendo barreiras tecnológicas, tais como 
   escalabilidade e desempenho para oferecer serviços e informações com rapidez e até mesmo em tempo
   real para o usuário final.
   
-  Esta falta de desempenho dos aplicativos Web é influenciada pelo consumo de memória RAM. \citeonline{Abernethy:2011} 
+  Esta falta de desempenho dos aplicativos Web é influenciada pelo consumo de memória RAM. \citeonline{abernethy} 
   explica que em linguagens como Java e PHP, a cada conexão cria-se uma nova \textit{thread} com 2 MB de memória RAM. 
   Nesta linha de raciocínio, o autor explica que com um servidor de 8 gigabytes de memória RAM suportaria
   aproximadamente 4.000 usuários conectados.
@@ -26,10 +26,10 @@
   Nestas plataformas de desenvolvimento tradicionais um processamento é interrompido quando ocorre uma operação de entrada e saída.
   Essa interrupção, conhecida como modelo bloqueante, enfileira cada requisição e posteriormente processa uma a uma. Desta forma, 
   enquanto uma requisição está sendo processada, as demais entram em estado de espera ficando ociosas
-  por períodos indeterminados\cite{Pereira:2013}.
+  por períodos indeterminados\cite{pereira}.
   
   Através deste problema, surgiu a necessidade de melhorar em nível de desenvolvimento de software o grande número de conexões 
-  simultâneas, escalabilidade e baixo consumo de memória RAM de um aplicativo web\cite{Oliveira:2012}.
+  simultâneas, escalabilidade e baixo consumo de memória RAM de um aplicativo web\cite{oliveira}.
   
   Pretende-se com esta proposta de pesquisa investigar e elaborar aplicações para a Web 
   utilizando o servidor Node.Js e comparar a sua performance em relação ao desenvolvimento
@@ -87,9 +87,10 @@
   Os objetivos específicos deste trabalho são:
   
     \begin{compactitem}
-      \item[a)] Verificar o tempo médio de resposta gasto ao requisições;
-      \item[b)] Obter resultados do número de sucessos obtidos nas requisições;
-      \item[c)] Quantificar o desempenho entre cada teste;
+      \item[a)] Guia básico sobre instalação e configuração dos \textit{frameworks} utilizados;
+      \item[b)] Verificar o tempo médio de resposta gasto ao requisições;
+      \item[c)] Obter resultados do número de sucessos obtidos nas requisições;
+      \item[d)] Quantificar o desempenho entre cada teste;
     \end{compactitem}
   
   
@@ -99,4 +100,4 @@
   Para contextualizar o leitor, o Capítulo \ref{ambiente-node-js} aborda o referencial teórico e as fontes de estudos utilizados para iniciar com o ambiente 
   Node.Js. O capítulo \ref{metodologia} apresenta a metodologia utilizada no decorrer deste trabalho. O Capítulo \ref{desenvolvimento-prototipos} compreende a lista de requisitos e especificações do protótipo a ser construído e o
   desenvolvimento. O Capítulo \ref{experimentos-resultados} descreve os testes realizados e os resultados obtidos. 
-  Por fim, o Capítulo \ref{conslusao-e-trabalhos-furutos}, conclui o trabalho acadêmico.
+  Por fim o Capítulo \ref{conslusao-e-trabalhos-furutos}, conclui o trabalho acadêmico.
