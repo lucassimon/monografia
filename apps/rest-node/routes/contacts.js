@@ -169,14 +169,12 @@ router.route('/v1/contatos/')
 				res.status(400).send(err);
 			}
 			client.query(
-				'select * from api_contact',
+				'select c.*, p.name from api_contact as c INNER JOIN api_person as p ON c.person_id = p.id',
 			   	function(err, result){
 					done();
-
 					if (err) {
 						res.status(400).send(err);
 					}
-
 					res.json(
 						{
 							meta: {
