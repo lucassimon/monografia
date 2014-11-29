@@ -51,19 +51,21 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h2>
-						Bacharelado em Sistemas de Informação
-					</h2>
-					<h6>
+					<h3>
 						Utilizando JavaScript no servidor para construir aplicações de
 						alta concorrência na internet com Node.Js
-					</h6>
+					</h3>
+
 					<p>
 						<small>Aluno: Lucas Simon Rodrigues Magalhães</small>
 					</p>
 					<p>
 						<small>Orientador: João Caram</small>
 					</p>
+					<p>
+						<small> Sistemas de Informação </small>
+					</p>
+
 				</section>
 				<section>
 					<h2>Sumário</h2>
@@ -81,7 +83,7 @@
 							Justificativas
 						</li>
 						<li>
-							Metododologia
+							Metodologia
 						</li>
 						<li>
 							O Node.Js
@@ -99,7 +101,7 @@
 							Conclusão
 						</li>
 						<li>
-							Biográfia
+							Referências
 						</li>
 					</ul>
 				</section>
@@ -107,26 +109,36 @@
 					<h2>Introdução</h2>
 					<ul>
 						<li>
-							Node.Js o javascript utilizado no servidor
+							<em>Node.Js</em>
+							<ul>
+								<li>Escrito em JavaScript</li>
+								<li>Orientado a eventos não bloqueantes</li>
+								<li><em>Server-side</em></li>
+								<li>Eficiência e escalabilidade</li>
+							</ul>
 						</li>
 						<li>
-							<em>"O Node.Js é uma plataforma de desenvolvimento orientada a eventos não bloqueantes; projetada para construir aplicações de redes rápidas e escaláveis"
-							</em> (Node.js, 2014)
-						</li>
-						<li>
-							Criado por Ryan Dhal em 2009
+							Criado por Ryan Dhal em 2009 (Node.js, 2014)
 						</li>
 					</ul>
 				</section>
-
-				<!-- Example of nested vertical slides -->
-
 				<section>
-					<h2>Problema</h2>
+					<h2>Problemas atuais</h2>
 					<ul>
 						<li>
-							"O número de internautas segundo de 2005 a 2011 cresceu 143.8% e o de pessoas com celular, 107.2%." (IBGE, 2012)
+							Número de internautas de 2005 a 2011 cresceu 143.8%.
 						</li>
+						<li>
+							Número de pessoas com celular, 107.2%. (IBGE, 2012)
+						</li>
+						<li>
+							Java e PHP, alocam 2 MB de memória a cada thread (Abernethy, 2011)
+						</li>
+							<ul>
+								<li>
+									"As plataformas tradicionais são bloqueantes" (Pereira, 2013)
+								</li>
+							</ul>
 						<li>
 							Usuários, desempenho e escalabilidade
 						</li>
@@ -134,12 +146,12 @@
 				</section>
 				<section>
 					<h2>
-						Objetivo Geral
+						Objetivo
 					</h2>
 					<p>
-						Pretende-se com esta pesquisa investigar, comparar a capacidade do
-						ambiente Node.Js de processar e responder mais requisições que um aplicativo desenvolvido no ambiente Python.
-
+						Investigar e comparar a capacidade do ambiente
+						Node.Js de processar e responder melhor as requisições em relação a um aplicativo desenvolvido no
+						paradigma tradicional.
 					</p>
 				</section>
 				<section>
@@ -148,15 +160,16 @@
 					</h2>
 					<ul>
 						<li>
-							Estudo do ambiente Node.Js
+							Ser um guia básico de instalação e configuração dos frameworks utilizados;
 						</li>
 						<li>
-							Facilidade no desenvolvimento de uma aplicação com o Node.Js</li>
-						<li>
-							Testar o desempenho do ambiente Node.Js
+							Verificar o tempo médio de resposta;
 						</li>
 						<li>
-							Apresentar os resultados do estudo de caso que alcançados com a ferramenta de testes Loader.Io
+							Verificar o número de sucessos obtidos;
+						</li>
+						<li>
+							Quantificar o desempenho entre cada teste;
 						</li>
 					</ul>
 				</section>
@@ -166,107 +179,71 @@
 					</h2>
 					<ul>
 						<li>
-							"Linguagens como Java e PHP, cada conexão cria-se uma nova thread com 2 MB de memória RAM" (Abernethy, 2011)
+							Escalonamento horizontal e vertical
 						</li>
 						<li>
-							"Plataformas tradicionais interrompem o processamento de entrada e saída" (Pereira, 2013)
-						</li>
-						<li>
-							Escalonamento Horizontal e vertical são custosos
+							Melhorar o desempenho das aplicações em nível de software
 						</li>
 					</ul>
 				</section>
 				<section>
-					<h2>Metodologia</h2>
-					<h3> Etapa 1 </h3>
-					<p>
-						Estudo do ambiente Node.Js
-					</p>
+					<h2> Metodologia </h2>
+					<ul>
+						<li>
+							Estudo do ambiente Node.Js
+						</li>
+						<li>
+							Levantamento de requisitos de aplicação-teste
+						</li>
+						<li>
+							Criar dois aplicativos em diferentes paradigmas e hospedá-los
+						</li>
+					</ul>
 				</section>
 				<section>
-					<h2>Metodologia</h2>
-					<h3> Etapa 2 </h3>
-					<p>
-						Levantamento de requisitos
-					</p>
+					<h2> Metodologia </h2>
+					<ul>
+						<li>
+							Executar testes (<em>loader.io</em>)e comparar resultados
+							<ul>
+								<li>Clientes por teste</li>
+								<li>Clientes por segundo</li>
+								<li>Mantendo a carga de clientes</li>
+							</ul>
+						</li>
+					</ul>
 				</section>
 				<section>
-					<h2>Metodologia</h2>
-					<h3> Etapa 3 </h3>
-					<p>
-						Criar dois aplicativos em diferentes paradigmas
-					</p>
+					<h1>O NODE.JS</h1>
 				</section>
 				<section>
-					<h2>Metodologia</h2>
-					<h3> Etapa 3 </h3>
-					<p>
-						Especificar testes e comparar resultados
-					</p>
-				</section>
-				<section>
-					<h2>O Node.Js</h2>
-					<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/pineli/images/589540/nodesystem.jpg" alt="Ecossistema Node.Js">
+					<img src="imgs/node-js-system-twitter-BusyRich.png" alt="Ecossistema Node.Js">
 					<caption>(KEY, 2014)</caption>
 				</section>
 				<section>
-					<h2>O Node.Js</h2>
-					<h3> JavaScript </h3>
+					<h3> Herda características do JavaScript</h3>
 					<ul>
 						<li>
-							O Node.Js utiliza o JavaScript Enginie V8 (Oliveira, 2012)
+							Orientação a eventos
 						</li>
 						<li>
-							Metódos são implementados com ou sem chamadas de retorno, do inglês callback. (HUGHES-CROUCHER; WILSON, 2012)
+							Callback's ou chamadas de retorno
 						</li>
 						<li>
-							O modelo assíncrono gasta menos tempo de execução que um programa síncrono em Node.Js. (PEREIRA, 2013)
-						</li>
-						<li>
-							Evite os <em>callbacks hell.</em> O encadeamento de chamadas de retorno dificulta a manutenabilidade e legibilidade do código, podendo ocorrer perda de
-							controle do que esta sendo executado e acesso à variáveis devido às trocas de escopos.
-							(PEREIRA, 2013)
-
+							Callbacks Hell
 						</li>
 					</ul>
 				</section>
 				<section>
-					<h2>O Node.Js</h2>
-					<h3> Abordagem Orientação a eventos </h3>
-					<ul>
-						<li>
-							Eventos são indicações de que ocorreu algo, havendo dois atores para este modelo
-							(OLIVEIRA, 2012)
-						</li>
-						<li>
-							Produtor do evento e o
-							consumidor do evento, do inglês.  O produtor do evento não espera pela
-							ação a ser executada pelo servidor.
-							(JUNIOR, 2012)
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h2>O Node.Js</h2>
 					<h3>
 						Thread única
 					</h3>
 					<ul>
 						<li>
-							Em Node.Js as conexões são recebidas em uma única thread invocada pelo nó de
-							servidor de processos, do inglês node server process.
-							(ABERNETHY, 2011)
+							Nó de servidor de processos.
 						</li>
 						<li>
-							Sistemas tradicionais alocam a memória RAM para cada thread criada. (ABERNETHY, 2011)
-						</li>
-						<li>
-							No apache cada conexão abre um processo filho. Se os usuários do sistema web em PHP for maior que capacidade
-							de criar os processos filhos do Apache, o cliente entrará numa fila (POWERS, 2012)
-						</li>
-						<li>
-							A thread única pode ser facilmente escalável.
-							(POWERS, 2012)
+							Diferente dos sistemas tradicionais.
 						</li>
 						<li>
 							Com a thread única é possível suportar um alto número de conexões. (TILKOV, 2010)
@@ -274,28 +251,18 @@
 					</ul>
 				</section>
 				<section>
-					<h2>O Node.Js</h2>
-					<img src="/imgs/node-js-system-twitter-BusyRich.png" alt="Ecossistema Node.Js">
-					<caption>(KEY, 2014)</caption>
-				</section>
-				<section>
-					<h2>O Node.Js</h2>
 					<h3>
 						Ciclo de eventos
 					</h3>
 					<ul>
 						<li>
-							O ciclo de eventos é uma repetição infinita que a cada interação verifica em sua fila de eventos se um determinado evento foi emitido ou se existem novos eventos
-							(PEREIRA, 2013)
+							Repetição infinita.
 						</li>
 						<li>
-							Utiliza o módulo EventEmitter. (PEREIRA, 2013)
+							Módulo EventEmitter.
 						</li>
 						<li>
-							Os bloqueios ou impasses não são características da
-							plataforma ao realizar processamento de entradas e saídas devido a orientação a eventos.
-							(ABERNETHY, 2011)
-
+							Sem bloqueios ou impasses.
 						</li>
 						<li>
 							O único gargalo de um servidor Node.Js passa-se a ser a capacidade de tráfego da aplicação.(OLIVEIRA, 2012)
@@ -303,155 +270,84 @@
 					</ul>
 				</section>
 				<section>
-					<h2>Descrição dos Protótipos</h2>
+					<img src="imgs/node-js-system-twitter-BusyRich.png" alt="Ecossistema Node.Js">
+					<caption>(KEY, 2014)</caption>
+				</section>
+				<section>
+					<h1>PROTÓTIPOS</h1>
+				</section>
+				<section>
+					<h2>Descrição</h2>
 					<p>
-						Desenvolvido em forma de API, utilizando.
+						Desenvolvido em forma de API.
 					<p>
 					<ul>
 						<li>
-							Responder as requisições do cliente através da representação em JSON.
+							Recurso chamado Pessoas.
 						</li>
 						<li>
-							Persistir os dados em Postgres.
+							A API REST deverá prover estratégias para manipular as ações de CRUD de uma pessoa(s)
 						</li>
-						<li> Recurso chamado Pessoas. </li>
+
 						<li> Recurso chamado Contatos. </li>
 						<li>
-							Deverá prover estratégias para manipular as ações de CRUD de um contato(s)
+							A API REST deverá prover estratégias para manipular as ações de CRUD de um
+							contato(s)
 						</li>
 					</ul>
 				</section>
 				<section>
-					<h2>Django</h2>
-					<h3>Modelos</h3>
-					<img src="/imgs/django_models_person.png" alt="Django Model Person">
-					<br />
-					<caption>(Autor, 2014)</caption>
+					<h2>Framework Django</h2>
+					<ul>
+						<li> Pacote Django Rest Framework </li>
+					</ul>
+					<p></p>
+					<p></p>
+					<h3>Sequência de desenvolvimento</h3>
+					<ul>
+						<li> Cria-se as urls para cada recurso apontando para as classes lógicas</li>
+						<li> As classes lógicas herdam das classes do Django Rest Framework
+							<ul>
+								<li> Acessam o modelos e o ORM do Django realiza a consulta</li>
+								<li> Serializa os dados que respondem para o usuário  </li>
+							</ul>
+						</li>
+					</ul>
 				</section>
 				<section>
-					<h2>Django</h2>
-					<h3>Modelos</h3>
-					<img src="/imgs/django_models_contact.png" alt="Django Model Contact">
-					<br />
-					<caption>(Autor, 2014)</caption>
+					<h2>Framework Express.Js</h2>
+					<ul>
+						<li> Não utiliza ORM </li>
+					</ul>
+					<p></p>
+					<p></p>
+					<h3>Sequência de desenvolvimento</h3>
+					<ul>
+						<li> Acesso as url são feitas pelo express.Route() </li>
+						<li> Cada rota possui os métodos (get(),post()...) relacionados ao métodos HTTP</li>
+						<li> Cada chamada de retorno da rota executa uma função do módulo pg para consulta SQL </li>
+						<li> Cada chamada de retorno da consulta retorna os dados para o usuário em JSON  </li>
+					</ul>
 				</section>
 				<section>
-					<h2>Django</h2>
-					<h3>Serializadores</h3>
-					<img src="/imgs/django_serializer_imports.png" alt="Django Serializer Imports">
-					<br />
-					<caption>(Autor, 2014)</caption>
+					<h1>Ambiente de testes</h1>
 				</section>
 				<section>
-					<h2>Django</h2>
-					<h3>Serializadores</h3>
-					<img src="/imgs/django_serializer_contact.png" alt="Django Serializer Contact">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Django</h2>
-					<h3>Serializadores</h3>
-					<img src="/imgs/django_serializer_person.png" alt="Django Serializer Person">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Django</h2>
-					<h3>Visões</h3>
-					<img src="/imgs/django_views_imports.png" alt="Django Views Imports">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Django</h2>
-					<h3>Visões</h3>
-					<img src="/imgs/django_views_person.png" alt="Django Views Person">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Django</h2>
-					<h3>Visões</h3>
-					<img src="/imgs/django_views_contact.png" alt="Django Views Contact">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Django</h2>
-					<h3>Rotas</h3>
-					<img src="/imgs/django_urls_imports.png" alt="Ecossistema Node.Js">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Django</h2>
-					<h3>Rotas</h3>
-					<img src="/imgs/django_urls_routes.png" alt="Ecossistema Node.Js">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Express.Js</h2>
-					<h3> App.js </h3>
-					<img src="/imgs/express_app_imports.png" alt="Ecossistema Node.Js">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Express.Js</h2>
-					<h3> App.js </h3>
-					<img src="/imgs/express_app_uses.png" alt="Ecossistema Node.Js">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Express.Js</h2>
-					<h3> Rotas </h3>
-					<img src="/imgs/express_router_contacts_imports.png" alt="Ecossistema Node.Js">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Express.Js</h2>
-					<h3> Rotas </h3>
-					<img src="/imgs/express_router_contacts_get.png" alt="Ecossistema Node.Js">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Express.Js</h2>
-					<h3> Rotas </h3>
-					<img src="/imgs/express_router_contacts_post.png" alt="Ecossistema Node.Js">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Express.Js</h2>
-					<h3> Rotas </h3>
-					<img src="/imgs/express_router_contacts_id_get.png" alt="Ecossistema Node.Js">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Express.Js</h2>
-					<h3> Rotas </h3>
-					<img src="/imgs/express_router_contacts_id_put.png" alt="Ecossistema Node.Js">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Express.Js</h2>
-					<h3> Rotas </h3>
-					<img src="/imgs/express_router_contacts_id_delete.png" alt="Ecossistema Node.Js">
-					<br />
-					<caption>(Autor, 2014)</caption>
-				</section>
-				<section>
-					<h2>Ambiente de testes</h2>
-					<p>
-						As aplicações foram hospedadas na DigitalOcean em uma VPS
-					</p>
+					<h2> Hospedagem </h2>
+					<ul>
+						<li>
+							VPS da DigitalOcean.
+						</li>
+
+						<li>
+							Melhor custo benefício.
+						</li>
+					</ul>
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
+					<p></p>
 					<table>
 						<thead>
 							<tr>
@@ -478,70 +374,62 @@
 							</tr>
 						</tbody>
 					</table>
+
 				</section>
 				<section>
-					<h2>Principais serviços no Django</h2>
+					<h2>Comparando os ambientes de cada protótipo</h2>
 					<table>
 						<thead>
 							<tr>
+								<th colspan="2"> <center>Django</center> </th>
+								<th colspan=""> </th>
+								<th colspan="2"> <center>Express.Js</center> </th>
+							</tr>
+							<tr>
 								<th> Processo </th>
-								<th> CPU %  </th>
+
+								<th> Memória </th>
+								<th> </th>
+								<th> Processo </th>
+
 								<th> Memória </th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td> gunicorn </td>
-								<td> 0.0 % </td>
+
 								<td> 104 MB </td>
-							</tr>
-							<tr>
-								<td> Postgres </td>
-								<td> 0.0 % </td>
-								<td> 19.3 MB </td>
-							</tr>
-							<tr>
-								<td> supervisord </td>
-								<td> 0.0 % </td>
-								<td> 11.5 MB </td>
-							</tr>
-							<tr>
-								<td> nginx </td>
-								<td> 0.0 % </td>
-								<td> 7.26 MB </td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-				<section>
-					<h2>Principais serviços no Node.js</h2>
-					<table>
-						<thead>
-							<tr>
-								<th> Processo </th>
-								<th> CPU %  </th>
-								<th> Memória </th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
+								<td> &nbsp; </td>
 								<td> node </td>
-								<td> 0.0 % </td>
+
 								<td> 22 MB </td>
 							</tr>
 							<tr>
 								<td> Postgres </td>
-								<td> 0.0 % </td>
+
+								<td> 19.3 MB </td>
+								<td> &nbsp; </td>
+								<td> Postgres </td>
+
 								<td> 17.8 MB </td>
 							</tr>
 							<tr>
+								<td> supervisord </td>
+
+								<td> 11.5 MB </td>
+								<td> &nbsp; </td>
 								<td> pm2 </td>
-								<td> 0.0 % </td>
+
 								<td> 17.4 MB </td>
 							</tr>
 							<tr>
 								<td> nginx </td>
-								<td> 0.0 % </td>
+
+								<td> 7.26 MB </td>
+								<td> &nbsp; </td>
+								<td> nginx </td>
+
 								<td> 6.61 MB </td>
 							</tr>
 						</tbody>
@@ -549,48 +437,21 @@
 				</section>
 				<section>
 					<h2>O Loader.Io</h2>
-					<p>
-						Simples serviço de teste de carga baseado em núvem
-						que permite realizar um teste de estresse em seus aplicativos web ou API's com milhares de
-						conexões simultâneas. (Sendgrid, 2014)
-					</p>
+					<ul>
+						<li>
+							Simples serviço de teste de carga baseado em núvem
+							que permite realizar um teste de estresse em seus aplicativos web ou API's com milhares de
+							conexões simultâneas. (Sendgrid, 2014)
+						</li>
+						<li>
+							Gratuito até 10000 clientes por 1 minuto de duração.
+						</li>
+					</ul>
 				</section>
 				<section>
-					<h2>Principais testes</h2>
-					<p> Clientes por testes </p>
-					<p>
-						Este teste permite que especifique um número total de clientes que se conectam ao serviço.
-					</p>
+					<h1>OS TESTES</h1>
 				</section>
 				<section>
-					<h2>Principais testes</h2>
-					<p> Clientes por segundo </p>
-					<p>
-						Este teste permite que especifique um número de clientes que se conectam a cada segundo.
-					</p>
-				</section>
-				<section>
-					<h2>Principais testes</h2>
-					<p> Mantendo carga de clientes </p>
-					<p>
-						Teste utilizado para sobrecarregar o site ou API.
-					</p>
-					<p>
-						O serviço loader.io garante que um número constante de clientes estará consumindo e realizando requisições em sua API a todo o momento.
-					</p>
-				</section>
-				<section>
-					<h2>Exemplo de um teste</h2>
-					<img src="https://s3.amazonaws.com/monografia/criando_um_novo_teste_de_clientes_por_teste.png" alt="Criando e executando um teste">
-					<caption> Fonte: Autor </caption>
-				</section>
-				<section>
-					<h2>Gráfico do primeiro teste</h2>
-					<img src="https://s3.amazonaws.com/monografia/grafico_de_clientes_por_teste.png" alt="Gráfico de teste">
-					<caption> Fonte: Autor </caption>
-				</section>
-				<section>
-					<h2>Como foi realizado os testes</h2>
 					<ol>
 						<li>
 							Os testes foram realizados utilizando a URI <strong> GET /api/v1/contatos </strong>
@@ -599,10 +460,13 @@
 							Um teste foi executado 7 vezes originando a série do plano de teste.
 						</li>
 						<li>
-							Retiramos a média do tempo de resposta, número de testes, erros de tempo de limite  excedido e erros de rede e sumarizamos os dados em uma nova tabela
+							Retiramos a média do tempo de resposta, número de sucessos, erros de tempo de limite  excedido e erros de rede.
 						</li>
 						<li>
-							Adicionamos mais clientes nas opçoes do loader.io.
+							Sumarizamos os dados em uma nova tabela
+						</li>
+						<li>
+							Aumento da carga de clientes nas opçoes do loader.io.
 						</li>
 					</ol>
 				</section>
@@ -613,92 +477,154 @@
 					<p>
 						Plano de teste A-1 e B-1 correspondem ao teste "cliente por teste" para Django (A) e Node.Js (B) respectivamente
 					</p>
+				</section>
+				<section>
+					<h2>Clientes por testes </h2>
 					<p>
-						Plano de teste A-2 e B-2 correspondem ao teste "cliente por teste" para Django (A) e Node.Js (B) respectivamente
+						Este teste permite que especifique um número total de clientes que se conectam ao serviço.
 					</p>
 					<p>
-						Plano de teste A-3 e B-3 correspondem ao teste "cliente por teste" para Django (A) e Node.Js (B) respectivamente
+						Especificando 20 mil clientes para a 20 segundos de teste, 1.000 clientes irão se conectar a cada segundo durante esse teste.
 					</p>
 				</section>
 				<section>
 					<h2>Clientes por teste Django</h2>
-					<img src="/imgs/grafico_django_plano_de_teste_1.png" alt="Clientes por teste Django">
+					<img src="imgs/grafico_django_plano_de_teste_1.png" alt="Clientes por teste Django">
 					<p>
 						<caption> Fonte: Autor </caption>
 					</p>
 				</section>
 				<section>
 					<h2>Clientes por teste Node.js</h2>
-					<img src="/imgs/grafico_node_plano_de_teste_1.png" alt="Clientes por teste Node.js">
+					<img src="imgs/grafico_node_plano_de_teste_1.png" alt="Clientes por teste Node.js">
 					<p>
 						<caption> Fonte: Autor </caption>
 					</p>
 				</section>
 				<section>
+					<h2>
+						Análise de indicadores de Desempenho
+					</h2>
+					<p>
+						Plano de teste A-2 e B-2 correspondem ao teste "Clientes por segundo" para Django (A) e Node.Js (B) respectivamente
+					</p>
+				</section>
+				<section>
+					<h2> Clientes por segundo </h2>
+					<p>
+						Este teste permite que especifique um número de clientes que se conectam a cada segundo.
+					</p>
+					<p>
+						Qual o desempenho do meu servidor quando cinco usuários se conectam a cada segundo ao longo de um período de 5 minutos?
+					</p>
+				</section>
+				<section>
 					<h2>Clientes por segundo Django</h2>
-					<img src="/imgs/grafico_django_plano_de_teste_2.png" alt="Clientes por segundo Django">
+					<img src="imgs/grafico_django_plano_de_teste_2.png" alt="Clientes por segundo Django">
 					<p>
 						<caption> Fonte: Autor </caption>
 					</p>
 				</section>
 				<section>
 					<h2>Clientes por segundo Node.js</h2>
-					<img src="/imgs/grafico_node_plano_de_teste_2.png" alt="Clientes por segundo Node.js">
+					<img src="imgs/grafico_node_plano_de_teste_2.png" alt="Clientes por segundo Node.js">
 					<p>
 						<caption> Fonte: Autor </caption>
+					</p>
+				</section>
+				<section>
+					<h2>
+						Análise de indicadores de Desempenho
+					</h2>
+					<p>
+						Plano de teste A-3 e B-3 correspondem ao teste "Mantendo carga de clientes" para Django (A) e Node.Js (B) respectivamente
+					</p>
+				</section>
+				<section>
+					<h2> Mantendo carga de clientes </h2>
+					<p>
+						Teste utilizado para sobrecarregar o site ou API.
+					</p>
+					<p>
+						O serviço loader.io garante que um número constante de clientes estará consumindo e realizando requisições em sua API a todo o momento.
 					</p>
 				</section>
 				<section>
 					<h2>Manter a carga de usuários Django</h2>
-					<img src="/imgs/grafico_django_plano_de_teste_3.png" alt="Manter a carga de usuários Django">
+					<img src="imgs/tabela_django_plano_de_teste_3.png" alt="Clientes por segundo Node.js">
+					<p>
+						<caption> Fonte: Autor </caption>
+					</p>
+    			</section>
+				<section>
+					<h2>Manter a carga de usuários Django</h2>
+					<img src="imgs/grafico_django_plano_de_teste_3.png" alt="Manter a carga de usuários Django">
 					<p>
 						<caption> Fonte: Autor </caption>
 					</p>
 				</section>
+				<section>
+					<h2>Manter a carga de usuários Node.Js</h2>
+					<img src="imgs/tabela_node_plano_de_teste_3.png" alt="Clientes por segundo Node.js">
+					<p>
+						<caption> Fonte: Autor </caption>
+					</p>
+    			</section>
 				<section>
 					<h2>Manter a carga de usuários Node.js</h2>
-					<img src="/imgs/grafico_node_plano_de_teste_3.png" alt="Manter a carga de usuários Node.js">
+					<img src="imgs/grafico_node_plano_de_teste_3.png" alt="Manter a carga de usuários Node.js">
 					<p>
 						<caption> Fonte: Autor </caption>
 					</p>
 				</section>
 				<section>
-					<h2>Conclusão</h2>
-					<p>
-						Com o desenvolvimento deste trabalho, ficou claro que a tecnologia Node.Js e suas
-						características deve ser utilizada para solucionar o problema de milhares de conexões em
-						servidores web pois consegue cumprir o seu objetivo a qual foi proposto com eficiência.
-					</p>
-
-					<p>
-						Um dos pontos a serem considerados, é o desenvolvimento da aplicação pois com o
-						framework Django tem-se um rápido desenvolvimento do software capaz de fornecer uma
-						API robusta.
-					</p>
-
-					<p>
-						No framework Express.Js o desenvolvimento é custoso para desenvolvedores
-						menos experientes pois trata-se de uma nova abordagem e paradigma.
-					</p>
+					<h1>Conclusão</h1>
 				</section>
 				<section>
-					<h2>Conclusão</h2>
-					<p>
-						O outro ponto a ser
-						considerado é a maturidade do framework Django, ano de 2005, e da linguagem Python.
-					</p>
-
-					<p>
-						O Node.js nasceu em 2009 e possui uma ampla comunidade open source que contribui
-						com código e bibliotecas complementares ao sistema.
-					</p>
-
-					<p>
-						Uma melhoria em nível do protótipo Django seria a utilização de cache de consultas
-						e dos resultados em JSON que poderiam reduzir o tempo de resposta e aumentar o número
-						de sucessos. Este cache pode ser colocado no framework e utilizar também softwares
-						memcached e/ou varnish em um outro servidor.(JALES; PANTOJA, 2013)
-					</p>
+					<ul>
+						<li>
+							Node.Js respondeu melhor e em menor tempo de resposta
+						</li>
+					</ul>
+					<p> Plano de teste A-1 e B-1 </p>
+					<img src="imgs/conclusao_django_plano_de_teste_1.png">
+					<img src="imgs/conclusao_node_plano_de_teste_1.png">
+					<p> Plano de teste A-2 e B-2 </p>
+					<img src="imgs/conclusao_django_plano_de_teste_2.png">
+					<img src="imgs/conclusao_node_plano_de_teste_2.png">
+					<p> Plano de teste A-3 e B-3 </p>
+					<img src="imgs/conclusao_django_plano_de_teste_3.png">
+					<img src="imgs/conclusao_node_plano_de_teste_3.png">
+				</section>
+				<section>
+					<ul>
+						<li>
+							Django rápido desenvolvimento do software.
+						</li>
+						<li>
+							No Express.Js o desenvolvimento foi custoso.
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Trabalhos futuros</h2>
+					<ul>
+						<li>
+							Difundir o Node.Js com materiais de estudo em lingua portuguesa.
+						</li>
+						<li>
+							Explorar o Node.Js em outros contextos.
+						</li>
+						<li>
+							Aumentar a complexidade da API e analisar a deterioração do desempenho
+						</li>
+						<li>
+							Melhorar o concorrente deste trabalho adotando técnicas de cache.
+						</li>
+						<li>
+							Ou utilizar o framework Tornado pois possui caracteristicas similares ao Node.Js.
+						</li>
+					</ul>
 				</section>
 				<!--
 				<section>
@@ -1036,7 +962,6 @@
 							http://saladeimprensa.ibge.gov.br/noticias?busca=1id=1idnoticia=2382view=noticia.
 							Acesso em 25 MAR 2014. 2012.
 						</li>
-
 						<li>
 							KEY, R. The Node.Js System. Disponível em
 							https://twitter.com/BusyRich/status/494959181871316992/photo/1. Acesso em 2 OUT 2014. 2014.
@@ -1048,31 +973,90 @@
 					<h2>Referências</h2>
 					<ul>
 						<li>
-							LEWIS, B.; BERG, D. PThreads Primer: A guide to multithreaded programming.
-							1th. ed. One Lake Street, Upper Saddle River, NJ 07458: Prentice Hall PTR, 1995.
-							352 p. ISBN 0-13-443698-9.
+							NodeJs. node.js Help Desk. Disponível em http://nodejs.org/. Acesso
+							em 22 NOV 2014. 2014.
 						</li>
-
+						<li>
+							OLIVEIRA, R. R. Desenvolvimento de jogos eletrônicos online em tempo
+							real, para múltiplos jogadores e multiplataformas. 2012. 80 f. Tese (Gra-
+							duação) — Instituto Federal Sul-Rio-Grandense, Passo Fundo. Disponível em:
+							<http://inf.passofundo.ifsul.edu.br/graduacao/monografias-defendidas>
+						</li>
 						<li>
 							PEREIRA, C. R. Node.Js: Aplicações web real-time com node.js. 2th. ed. Rua
 							Vergueiro, 3185 - 8o andar, 04101-300 – Vila Mariana – São Paulo – SP – Brasil: Casa
 							do código, 2013. 131 p.
 						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Referências</h2>
+					<ul>
 
 						<li>
 							SENDGRID. loader.io Help Desk. Disponível em http://support.loader.io/. Acesso
 							em 25 AGO 2014. 2012.
 						</li>
+						<li>
+							TILKOV, S. Node.js: Using javascript to build gugh performance network programs. In:
+							Anais... [S.l.]: IEEE, Internet Computing, 2010. p. 80–83.
+						</li>
+
 					</ul>
 				</section>
-
 				<section>
-					<h1>THE END</h1>
-					<h3>BY Lucas Simon</h3>
+					<h1>Obrigado.</h1>
+					<h3>Lucas Simon</h3>
 				</section>
-
+				<section>
+					<h2>Slides extras</h2>
+				</section>
+				<section>
+					<h2>Exemplo de um teste</h2>
+					<img src="imgs/criando_um_novo_teste_de_clientes_por_teste.png" alt="Criando e executando um teste">
+					<caption> Fonte: Autor </caption>
+				</section>
+				<section>
+					<h2>Gráfico do primeiro teste</h2>
+					<img src="imgs/grafico_de_clientes_por_teste.png" alt="Gráfico de teste">
+					<caption> Fonte: Autor </caption>
+				</section>
+				<section>
+					<h2>Teste da série 1.1 clientes por teste em Django</h2>
+					<img src="imgs/tabela_django_plano_de_teste_1_1.png" alt="Tabela clientes por teste">
+					<p>
+						<caption> Fonte: Autor </caption>
+					</p>
+				</section>
+				<section>
+					<h2>Tabela clientes por teste em Django</h2>
+					<img src="imgs/tabela_django_plano_de_teste_1.png" alt="Tabela clientes por teste">
+					<p>
+						<caption> Fonte: Autor </caption>
+					</p>
+				</section>
+				<section>
+					<h2>Tabela clientes por teste em Node</h2>
+					<img src="imgs/tabela_node_plano_de_teste_1.png" alt="Tabela clientes por teste">
+					<p>
+						<caption> Fonte: Autor </caption>
+					</p>
+				</section>
+				<section>
+					<h2>Tabela clientes por segundo em Django</h2>
+					<img src="imgs/tabela_django_plano_de_teste_2.png" alt="Tabela clientes por segundo">
+					<p>
+						<caption> Fonte: Autor </caption>
+					</p>
+				</section>
+				<section>
+					<h2>Tabela clientes por segundo em Node</h2>
+					<img src="imgs/tabela_node_plano_de_teste_2.png" alt="Tabela clientes por segundo">
+					<p>
+						<caption> Fonte: Autor </caption>
+					</p>
+				</section>
 			</div>
-
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
