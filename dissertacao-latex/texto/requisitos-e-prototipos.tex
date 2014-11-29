@@ -56,7 +56,7 @@
   Perante os requisitos elicitados verificou-se que o objetivo essencial de uma pessoa, candidato a usuário
   do sistema, é controlar os próprios contatos.
   O principal requisito destacado na análise é registrar estes contatos. Para atender o requisito
-  propõem-se a utilização de uma \ac{API} \ac{REST}, para fornecer os \ac{CRUD} de cada recurso.
+  propõem-se a utilização de uma \ac{API} \ac{REST}, para fornecer as operações de CRUD para cada recurso.
   
   Para os testes será utilizado apenas a operação de buscar os contatos utilizando o método GET 
   do protocolo HTTP, pois a maioria de dispositivos consumidores consomem esse tipo de
@@ -82,7 +82,7 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Elaborado pelo autor}}}
   \end{table}
   
 \subsubsection{Tecnologias Utilizadas}
@@ -121,7 +121,7 @@
 
  
   Este protótipo foi desenvolvido no sistema operacional Linux, distribuição Ubuntu 14.04. Nada impede ao desenvolvedor 
-  utilizar outros sistemas operacionais como Windows ou MacOs pois o Python como linguagem de programação 
+  utilizar outros sistemas operacionais como Windows ou Mac Os pois o Python como linguagem de programação 
   é multiplataforma. 
   
   Para iniciar o desenvolvimento com o \textit{framework} Django é necessário ter instalado no sistema operacional
@@ -153,7 +153,7 @@
   \textit{django-admin.py startproject [nome do projeto] } ou conforme utilizado neste protótipo foi utilizado um \textit{template}
   \textit{Django Project Template}\footnote[11]{Repositório de código do template Django. Disponível em https://github.com/lucassimon/django-project-template}.
   
-  Com este comando ira será criada toda a estrutura necessária para a aplicação faltando poucas alterações e configurações.
+  Com este comando será criado toda a estrutura necessária para a aplicação faltando poucas alterações e configurações.
   
 \subsection{Configurações}
 
@@ -183,7 +183,7 @@
       \end{algorithm}
       % \vspace{-0.3cm} % espaço entre algoritmo e fonte
 
-      \small \centering \textbf{\footnotesize Fonte: Autor.}
+      \small \centering \textbf{\footnotesize Fonte: Elaborado pelo autor}
     \end{minipage}
   \end{center}
   % \end{figure}
@@ -239,7 +239,7 @@
       \end{algorithm}
       % \vspace{-0.3cm} % espaço entre algoritmo e fonte
 
-      \small \centering \textbf{\footnotesize Fonte: Autor.}
+      \small \centering \textbf{\footnotesize Fonte: Elaborado pelo autor}
     \end{minipage}
   \end{center}
   % \end{figure}
@@ -289,8 +289,8 @@
   As classes PersonList e ContactList herdam da classe abstrata \textit{generics.ListCreateApiView} do modulo
   importado \textit{generics} do Django Rest Framework. Essa classe abstrata possui funcionalidades implementadas para 
   listar (metódo GET) e criar (metódo POST) os objetos do banco de dados. Dentro de cada classe é necessário especificar
-  nos atributos \textit{model} e \textit{serializer} correspondente a cada classe. Para a classe PersonList sera o atributo
-  \textit{model} será atribuído o valor do modelo \textit{Person} e o atributo \textit{serializer} será atribuído a classe PersonSerializer. 
+  nos atributos \textit{model} e \textit{serializer} correspondente a cada classe. Para a classe PersonList será atribuído 
+  o valor do modelo \textit{Person} e o atributo \textit{serializer} será atribuído a classe PersonSerializer. 
   O mesmo ocorre para a classe ContactList.
   
   Para que a aplicação criada passe a responder as requisições com o método GET por id, PUT por id e DELETE por id é necessário criar
@@ -371,7 +371,7 @@
   
   A estrutura inicial provê somente rotas e \textit{templates} HTML para que o desenvolvedor já tenha uma aplicação funcional.
   Porém o Express.js oferece ao desenvolvedor a liberdade de usar qualquer padrão de desenvolvimento como o MVC, MVR e 
-  outros. Ou seja, o desenvolvedor não fica preso a estrutura inicial podendo altera-la da forma que desejar. 
+  outros. Ou seja, o desenvolvedor não fica preso a estrutura inicial podendo alterá-la da forma que desejar. 
   
   Neste protótipo foi utilizado a estrutura inicial como modelo de desenvolvimento utilizando o módulo Router() para que desenvolvedor
   crie explicitamente a rota a ser utilizada e o método pertencente a ela, tais como, \textit{get}, \textit{post}, \textit{put}, \textit{delete} e suas respectivas
@@ -413,13 +413,13 @@
   
   Como descrito no capítulo \ref{ambiente-node-js} a variável de erro trata-se do erro de conexão do método \textit{connect} e deve ser 
   tratada quando existir. Para isso foi inserido uma condição. Se verdadeiro envie o status 400 do protocolo HTTP com o 
-  \textit{traceback} do erro; senão existir o erro de conexão utiliza-se o parâmetro \textit{client} executando o método \textit{query()}. Essa função \textit{query()}
+  \textit{traceback} do erro; se não existir o erro de conexão utiliza-se o parâmetro \textit{client} executando o método \textit{query()}. Essa função \textit{query()}
   tem como primeiro parâmetro o comando SQL conforme este exemplo: \'{}select * from api\_contact\'{}, para os métodos \textit{post()} utiliza o comando
   'insert', para \textit{put()} 'update' e \textit{delete()} 'delete'. O segundo parâmetro do método \textit{query()} é uma chamada de retorno tendo uma 
   variável de erro e resultados.
   
   Novamente dentro desta chamada de retorno é necessário tratar o erro enviando uma resposta com status 400 e o \textit{traceback} do erro.
-  Senão existir o erro na consulta é chamado o método \textit{res.json()} passando um objeto JavaScript que contem os resultados retornado
+  Se não existir o erro na consulta é chamado o método \textit{res.json()} passando um objeto JavaScript que contem os resultados retornado
   pela consulta.
 
 \subsection{Observações sobre desenvolvimento Express.Js}
@@ -432,5 +432,5 @@
   
   Também foi possível observar que este código gerou um encadeamento de chamadas de retorno em 3 níveis. Conforme o capítulo \ref{ambiente-node-js}
   este é o limite tolerável para que não ocorra o \textit{callback hell}. Uma facilidade encontrada no \textit{framework} é a forma como responde
-  os objetos em JSON. Apenas chamado o método \textit{res.json()} conseguimos realizar essa resposta, sendo que não ha necessidade de serializar
+  os objetos em JSON. Apenas chamado o método \textit{res.json()} conseguimos realizar essa resposta, sendo que não há necessidade de serializar
   os objetos como no protótipo Django pois toda o ambiente Node.Js é em JavaScript tornando-o homogêneo.

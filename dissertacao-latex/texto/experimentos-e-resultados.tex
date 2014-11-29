@@ -51,15 +51,15 @@
     \vspace{.1cm}  %espaço entre tabela e fonte
     \small
     % Fonte
-    {\footnotesize\\ \textbf{Fonte: \cite{digitaloceanprice}}}
+    {\footnotesize\\ \textbf{Fonte: \citeonline{digitaloceanprice}}}
   \end{table}
 
   Para os dois protótipos busca-se manter o máximo de igualdade entre os serviços executados. Mas por serem
   tecnologias diferentes, o modo de \textit{deploy} também é diferente, adicionando ou não novos serviços.
-  As informações dos serviços executados está listada de acordo com o software de monitoramento\footnote[18]{ Empresa NewRelic para monitorar servidores. Disponível em http://newrelic.com}
-  da empresa New Relic.
+  As informações dos serviços executados está listada de acordo com o software de monitoramento
+  da empresa New Relic\footnote[18]{ Empresa NewRelic para monitorar servidores. Disponível em http://newrelic.com}.
 
-  A tabela \ref{tab:services-in-api-django} apresenta os serviços em execução do protótipo feito em Django sem clientes conectados.
+  A Tabela \ref{tab:services-in-api-django} apresenta os serviços em execução do protótipo feito em Django sem clientes conectados.
   Este ambiente é composto por um servidor \textit{Nginx} a execução do \textit{gunicorn},
   que responsável pela a execução do \textit{framework} Django, o banco de dados Postgres 9.1 e o processo \textit{supervisord} responsável por
   verificar se a aplicação está ativa e caso ocorra alguma falha é capaz de reiniciar a aplicação.
@@ -85,7 +85,7 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Elaborado pelo autor}}}
   \end{table}
 
   Para o segundo protótipo, com Node.Js, possuímos os seguintes serviços executados na tabela \ref{tab:services-in-api-node},
@@ -114,7 +114,7 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Elaborado pelo autor}}}
   \end{table}
 
 \subsection{Apresentação da ferramenta Loader.io}
@@ -144,7 +144,7 @@
 
   \textbf{Notas e etiquetas}: são campos para o desenvolvedor descrever  melhor os testes.
 
-  \textbf{URLs e opções}: Configura a \ac{URL} que se deseja testar. Há outras opções disponíveis como setar cabeçalhos \ac{HTTP},
+  \textbf{URLs e opções}: Configura a \ac{URL} que se deseja testar. Há outras opções disponíveis como configurar os cabeçalhos \ac{HTTP},
   opções de resposta, variáveis e outros que não serão utilizados neste trabalho.
 
   Para melhor entendimento do leitor e detalhamento é importante verificar
@@ -157,9 +157,9 @@
   \textbf{Clientes por teste}
 
   Este teste permite que se especifique um número total de clientes que se conectam ao serviço. Quando criar o teste,
-  especifique somente um número de clientes então vários clientes e então vários clientes irão se conectar ao longo da duração do teste.
+  especifique somente um número de clientes então vários clientes irão se conectar ao longo da duração do teste.
   Por exemplo, se for criado um teste com 20000 clientes dentro de 20 segundos, o serviço executará a carga de
-  1000 clientes por segundo.
+  1000 clientes por teste.
 
   Em referência ao formulário de criação de teste o campo clientes representa o número de conexões que serão
   feitas para o servidor ao longo da duração do teste.
@@ -241,7 +241,7 @@
   \textbf{O gráfico temporal}
 
   Gráfico que exibe os tempos de resposta apresentando duas linhas. Em verde, tem-se o
-  número de conexões realizadas no aplicativo. E em azul é o tempo médio de resposta das requisições.
+  número de conexões realizadas no aplicativo e em azul é o tempo médio de resposta das requisições.
 
   \textbf{O gráfico de detalhes}
 
@@ -306,10 +306,10 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
   \end{table}
 
-  A tabela \ref{tab:teste-a-1-1} mostra que na primeira execução do teste A-1.1 com 1000 sucessos de conexões de clientes
+  A Tabela \ref{tab:teste-a-1-1} mostra que na primeira execução do teste A-1.1 com 1000 sucessos de conexões de clientes
   durante 1 minuto de duração obteve-se 121 milissegundos no tempo médio de resposta,
   1000 números de sucessos, 0 erros de tempo de limite, 0 erros de rede. Somente na quinta execução o número de sucessos
   caiu para 999 e houve um erro de limite de tempo.
@@ -317,7 +317,7 @@
   Para este plano de teste A-1, foram realizados as séries A-1.1 com 1000 clientes, A-1.2 com 2000 clientes, A-1.3 com 3000 clientes,
   A-1.4 com 4000 clientes. Após estes valores o Django apresentou altos índices de erros ultrapassando o valor de taxa de erro
   aceitável de 50 \%. Com os dados obtidos de cada teste pode-se fazer o sumário
-  destes que serão apresentados a seguir na tabela \ref{tab:sumario-resultado-plano-teste-a-1}.
+  destes que serão apresentados a seguir na Tabela \ref{tab:sumario-resultado-plano-teste-a-1}.
 
 
   \begin{table}[H]
@@ -343,10 +343,10 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
   \end{table}
 
-  A tabela \ref{tab:sumario-resultado-plano-teste-a-1} exibe as médias dos campos (média de tempo de resposta,
+  A Tabela \ref{tab:sumario-resultado-plano-teste-a-1} exibe as médias dos campos (média de tempo de resposta,
   média do número de sucessos, média de erros de tempo de limite, média de erros de rede) de cada teste executado
   para o plano de teste A-1 do protótipo Django.
 
@@ -370,7 +370,7 @@
     \label{teste-clientes-por-teste-django-a-1}
   \end{grafico}
 
-  Na interpretação do gráfico \ref{teste-clientes-por-teste-django-a-1}  observa-se que apesar dos baixos números de sucessos o teste
+  Na interpretação do Gráfico \ref{teste-clientes-por-teste-django-a-1}  observa-se que apesar dos baixos números de sucessos o teste
   conseguiu alcançar até 4000 clientes, porém houve uma perda significativa no desempenho.
 
   Entre 1000 a 2000 clientes por teste, acréscimo de 100\% do números de clientes, a aplicação se comportou bem respondendo as requisições com o tempo de resposta entre
@@ -424,24 +424,24 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
   \end{table}
 
 
-  A tabela \ref{tab:teste-b-1-1} mostra que a execução dos testes obteve a média de 12 milissegundos no tempo de resposta,
+  A Tabela \ref{tab:teste-b-1-1} mostra que a execução dos testes obteve a média de 12 milissegundos no tempo de resposta,
   respondendo em média as requisições corretamente de acordo com o número de sucessos, 0 na média de erros de tempo limite excedido
   e 0 na média de erros de rede.
 
-  Outro dado da tabela \ref{tab:teste-b-1-1} a ser salientado é que o plano de teste B-1 conseguiu alcançar o limite máximo suportado pela ferramenta
+  Outro dado da Tabela \ref{tab:teste-b-1-1} a ser salientado é que o plano de teste B-1 conseguiu alcançar o limite máximo suportado pela ferramenta
   Loader.io chegando aos 10000 clientes por testes. Aqui já podemos comprovar a eficiência do Node.Js em responder mais conexões com sucesso e suportar
   mais usuários que o protótipo Django. Sendo assim a série de teste ficou: B-1.1 com 1000 clientes, B-1.2 2000 clientes,
   B-1.3 com 3000 clientes, B-1.4 com 4000 clientes, B-1.5 com 5000 clientes, B-1.6 com 6000 clientes, B-1.7 com 7000 clientes,
   B-1.8 com 8000 clientes, B-1.9 com 9000 clientes e B-1.10 com 10000 clientes.
 
-  Comparando as duas tabelas \ref{tab:sumario-resultado-plano-teste-a-1} e \ref{tab:teste-b-1-1}, pode-se ver que
+  Comparando as duas Tabelas \ref{tab:sumario-resultado-plano-teste-a-1} e \ref{tab:teste-b-1-1}, pode-se ver que
   o tempo de resposta com o protótipo Node.Js fica em torno de 12 a 13 milissegundos ao contrário dos dados da tabela \ref{tab:sumario-resultado-plano-teste-a-1}.
 
-  Com os dados acima foi possível gerar o gráfico \ref{teste-cliente-por-teste-node} referente aos testes
+  Com os dados acima foi possível gerar o Gráfico \ref{teste-cliente-por-teste-node} referente aos testes
   realizados com o Node.Js
 
   \begin{grafico}[H]
@@ -471,7 +471,7 @@
 
   O teste será iniciado com 50 clientes conectando a API a cada segundo durante 1 minuto. Para cada série deste plano de teste
   será executado 7 vezes o mesmo teste e destes resultados será retirado a média dos tempos de resposta, média dos números de
-  sucessos, média dos erros de tempo de limite excedido e a média dos erros de rede. No decorrer de cada séria será acrescentado
+  sucessos, média dos erros de tempo de limite excedido e a média dos erros de rede. No decorrer de cada série será acrescentado
   50 usuários até a quantidade máxima suportada pela aplicação.
 
   Veja o exemplo do teste A-2.1 o qual obteve os dados gerados pelo Loader.io.
@@ -502,10 +502,10 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
   \end{table}
 
-  A tabela \ref{tab:teste-a-2-1} mostra que na primeira execução do teste A-2.1 com 50 clientes conectando a aplicação por segundo
+  A Tabela \ref{tab:teste-a-2-1} mostra que na primeira execução do teste A-2.1 com 50 clientes conectando a aplicação por segundo
   durante 1 minuto de duração obteve-se 1620 milissegundos no tempo médio de resposta,
   2500 números de sucessos, 0 erros de tempo de limite, 0 erros de rede.
 
@@ -534,10 +534,10 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
   \end{table}
 
-  A tabela \ref{tab:sumario-resultado-plano-teste-a-2} exibe as médias dos campos: média de tempo de resposta,
+  A Tabela \ref{tab:sumario-resultado-plano-teste-a-2} exibe as médias dos campos: média de tempo de resposta,
   média do número de sucessos, média de erros de tempo de limite, média de erros de rede de cada teste executado
   para o plano de teste A-2 do protótipo Django.
 
@@ -557,11 +557,11 @@
     % Caption centralizada
     \captionsetup[grafico]{justification=centering}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
     \label{graf:teste-clientes-por-segundo-django}
   \end{grafico}
 
-  Ao interpretar o gráfico \ref{graf:teste-clientes-por-segundo-django}  observa-se que o máximo de clientes neste protótipo
+  Ao interpretar o Gráfico \ref{graf:teste-clientes-por-segundo-django}  observa-se que o máximo de clientes neste protótipo
   foi de apenas 100 clientes por segundo com uma taxa elevada na média do tempo de resposta 4509.14 ms. Taxa essa de 181.22\%
   em relação ao primeiro teste, inclusive a média de erros de tempo limite excedido aumento de zero para 200 erros .
   Também é possível identificar que o número de sucessos teve uma queda de 32.92\% ficando apenas
@@ -594,15 +594,15 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
   \end{table}
 
-  A tabela \ref{tab:teste-b-2} mostra que o protótipo consegue responder a uma escala de até 400 clientes por segunda
+  A Tabela \ref{tab:teste-b-2} mostra que o protótipo consegue responder a uma escala de até 400 clientes por segunda
   porém com perdas nas conexões com o erro de tempo de limite excedido. Um ponto a observar que com a carga de 400 clientes por segundo
   a média de tempo de resposta foi para 1.8 segundos diferente do outros testes em que a média do tempo de resposta ficava entre 12 e 14
   milissegundos.
 
-  Continuando na tabela \ref{tab:teste-b-2} o plano de teste B-2 conseguiu 400 clientes por segundo, 300\% a mais que o teste
+  Continuando na Tabela \ref{tab:teste-b-2} o plano de teste B-2 conseguiu 400 clientes por segundo, 300\% a mais que o teste
   com o protótipo Django. A eficiência do Node.Js em responder mais conexões com sucesso e suportar
   mais usuários é bem melhor em relação ao protótipo Django. Sendo assim a série de teste ficou: B-2.1 com 50 clientes por segundo,
   B-2.2 100 clientes por segundo,  B-2.3 com 200 clientes, B-2.4 com 300 clientes por segundo, B-2.5 com 400 clientes por segundo.
@@ -622,13 +622,14 @@
     % Caption centralizada
     \captionsetup[grafico]{justification=centering}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
     \label{graf:teste_cliente_por_segundo_node}
   \end{grafico}
 
-  Na interpretação do gráfico \ref{graf:teste_cliente_por_segundo_node} observa-se que a aplicação tem melhor desempenho
-  com 300 clientes por segundo respondendo com sucesso a mais requisições que os outros testes. Neste gráfico não pode
-  ser visto mas houve uma taxa muito pequena de erros de tempo limite excedido (5.28) como pode ser conferido na tabela
+  Na interpretação do Gráfico \ref{graf:teste_cliente_por_segundo_node} observa-se que a aplicação teve desempenho satisfatório
+  com 300 clientes por segundo respondendo com sucesso a mais requisições que os outros testes com uma leve incidência de erros de 
+  tempo limite excedido. Neste gráfico não pode
+  ser visto mas houve uma taxa muito pequena de erros de tempo limite excedido (5.28), para esta quantidade de usuários, como pode ser conferido na tabela
   \ref{tab:teste-b-2}.
 
 
@@ -670,10 +671,10 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
   \end{table}
 
-  A tabela \ref{tab:teste-a-3-1} mostra que na primeira execução do teste A-3.1 com o mínimo de 50 clientes até o máximo de 100 clientes
+  A Tabela \ref{tab:teste-a-3-1} mostra que na primeira execução do teste A-3.1 com o mínimo de 50 clientes até o máximo de 100 clientes
   durante 1 minuto de duração obteve-se 1605 milissegundos no tempo médio de resposta,
   2754 números de sucessos, 0 erros de tempo de limite, 0 erros de rede.
 
@@ -706,10 +707,10 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
   \end{table}
 
-  A tabela \ref{tab:sumario-resultado-plano-teste-a-3} exibe as médias dos campos (média de tempo de resposta,
+  A Tabela \ref{tab:sumario-resultado-plano-teste-a-3} exibe as médias dos campos (média de tempo de resposta,
   média do número de sucessos, média de erros de limite de tempo excedido e a média de erros de rede) de cada teste executado
   para o plano de teste A-3 do protótipo Django.
   Com os dados acima foi possível gerar o gráfico \ref{graf:teste_mantendo_carga_usuario_django} do
@@ -732,10 +733,10 @@
     \label{graf:teste_mantendo_carga_usuario_django}
   \end{grafico}
 
-  Ao interpretar o gráfico \ref{graf:teste_mantendo_carga_usuario_django}  observa-se que com baixos números de clientes, no primeiro
+  Ao interpretar o Gráfico \ref{graf:teste_mantendo_carga_usuario_django}  observa-se que com baixos números de clientes, no primeiro
   teste,o sistema teve a média de tempo de resposta(1649.85) para um alto número de sucessos (2678.14) . Ao elevar o número mínimo e máximo
   , no segundo teste, de clientes conectados observa-se que a média tempo de resposta foi quase a mesma da média de número de sucessos porém
-  a média do tempo de resposta teve um grande aumento, 61.41\% , em relação ao primeiro teste e o número de sucessos teve apenas
+  a média do tempo de resposta teve um grande aumento, 61.41\%, em relação ao primeiro teste e o número de sucessos teve apenas
   2.09\% de aumento.
 
   Com novos acréscimos de usuários no protótipo, elevando o número mínimo e máximo de clientes conectados, pode-se observar que o
@@ -745,7 +746,7 @@
   verificar, que a partir deste aumento de usuários houve a incidência de erros de tempo de limite excedido.
 
   Nas demais cargas realizadas o tempo médio de resposta teve uma ligeira queda, 1.58\% para o teste com 200 a 250 clientes, e nos dois
-  últimos testes houve aumento no tempo de resposta. Vale lembrar que ha um aumento significativo na média de erro de tempo limite
+  últimos testes houve aumento no tempo de resposta. Vale lembrar que há um aumento significativo na média de erro de tempo limite
   excedido de 261.32\% a partir de 150 a 200 clientes até 300 a 350 clientes.
 
   Este teste mostra que o protótipo Django possui pouca eficiência em lidar com usuários conectados ao sistema. Veja que os tempos de
@@ -784,10 +785,10 @@
       \hline \hline
     \end{tabular}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
   \end{table}
 
-  A tabela \ref{tab:teste-b-3-1} mostra que a primeira execução do teste B-3.1, com o mínimo de 50 clientes até o máximo de 100 clientes
+  A Tabela \ref{tab:teste-b-3-1} mostra que a primeira execução do teste B-3.1, com o mínimo de 50 clientes até o máximo de 100 clientes
   durante 1 minuto de duração. Este teste obteve 232 milissegundos no tempo médio de resposta, valor muito inferior ao do plano de
   teste A-3.1 da tabela \ref{tab:teste-a-3-1} que foi de 1649.85 milissegundos, significando que a resposta para os usuários
   foi bem mais rápida do que o protótipo em Django. Vale ressaltar que o número de sucessos para cada conexão ficou em média de
@@ -832,7 +833,7 @@
     \captionfont{\small{\textbf{\\Fonte: Autor}}}
   \end{table}
 
-  Assim como a tabela \ref{tab:sumario-resultado-plano-teste-a-3}, esta tabela \ref{tab:sumario-resultado-plano-teste-b-3} exibe as médias
+  Assim como a Tabela \ref{tab:sumario-resultado-plano-teste-a-3}, esta Tabela \ref{tab:sumario-resultado-plano-teste-b-3} exibe as médias
   dos campos (média de tempo de resposta, média do número de sucessos, média de erros de tempo de limite, média de erros de rede)
   de cada teste executado para o plano de teste B-3 do protótipo Node.Js.
 
@@ -852,11 +853,11 @@
     % Caption centralizada
     \captionsetup[grafico]{justification=centering}
     % Fonte
-    \captionfont{\small{\textbf{\\Fonte: Autor}}}
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
     \label{grafico:teste-mantendo-carga-usuario-node}
   \end{grafico}
 
-  No gráfico \ref{grafico:teste-mantendo-carga-usuario-node}  observa-se que o tempo de resposta das conexões
+  No Gráfico \ref{grafico:teste-mantendo-carga-usuario-node}  observa-se que o tempo de resposta das conexões
   é muito baixo e o número de sucessos das conexões gira em torno de 17429 sucessos. Os valores da média de
   número de sucessos somente decrescem quando executa o teste de 450 a 500 usuários. Neste teste houve um alto número de erros
   de rede o qual influenciou diretamente no número de sucessos.
@@ -864,7 +865,7 @@
   Neste mesmo gráfico pode-se ver que o número de erros de tempos de limite é sempre zero. Sendo assim podemos afirmar
   que não houve bloqueio nas operações de consulta a base de dados que poderiam impactar nos próximos testes.
 
-  Comparando os dois gráficos \ref{graf:teste_mantendo_carga_usuario_django} e \ref{grafico:teste-mantendo-carga-usuario-node} é
+  Comparando os dois Gráficos \ref{graf:teste_mantendo_carga_usuario_django} e \ref{grafico:teste-mantendo-carga-usuario-node} é
   visível a eficiência do protótipo em Node.Js pois em todos os campos o resultado obtido superou o primeiro protótipo.
 
   Pode-se concluir que o primeiro protótipo não tem condições de suportar grandes quantidades de usuários conectados ao

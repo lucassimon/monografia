@@ -48,6 +48,52 @@
   requisições com sucesso. No segundo teste o Node.Js teve a média do tempo de resposta inferior a  1.9 segundos com 400 usuários
   e a API em Django respondeu a apenas 100 usuários com a média de 4.5 segundos. Com estes dados é possível validar o desempenho
   do Node.Js, objeto de pesquisa, contra os aplicativos Web ditos tradicionais.
+ 
+  \begin{grafico}[H]
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{5pt}
+    \setlength{\belowcaptionskip}{0pt}
+
+    % Caption
+    \caption[Mantendo a carga de usuários no Django por linha]
+	    {Mantendo a carga de usuários no Django por linha}
+    \centering
+    \includegraphics[width=.80\textwidth]{imagem/graficos/grafico_django_plano_de_teste_3_line.png}
+    % Caption centralizada
+    \captionsetup[grafico]{justification=centering}
+    % Fonte
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
+    \label{grafico:teste-mantendo-carga-usuario-django-line}
+  \end{grafico}
+  
+  Gráfico \ref{grafico:teste-mantendo-carga-usuario-django-line} correspondente ao plano de teste A-3, mantendo
+  a carga de clientes, através do protótipo Django.
+  
+  \begin{grafico}[H]
+    % Alterar espaçamentos antes e depois do caption
+    \setlength{\abovecaptionskip}{5pt}
+    \setlength{\belowcaptionskip}{0pt}
+
+    % Caption
+    \caption[Mantendo a carga de usuários no Node.Js por linha]
+	    {Mantendo a carga de usuários no Node.Js por linha}
+    \centering
+    \includegraphics[width=.80\textwidth]{imagem/graficos/grafico_node_plano_de_teste_3_line.png}
+    % Caption centralizada
+    \captionsetup[grafico]{justification=centering}
+    % Fonte
+    \captionfont{\small{\textbf{\\Fonte: Dados da pesquisa}}}
+    \label{grafico:teste-mantendo-carga-usuario-node-line}
+  \end{grafico}
+  
+  Gráfico \ref{grafico:teste-mantendo-carga-usuario-node-line} correspondente ao plano de teste B-3, mantendo
+  a carga de clientes, através do protótipo Node.Js.
+  
+  Nos gráficos \ref{grafico:teste-mantendo-carga-usuario-django-line} e \ref{grafico:teste-mantendo-carga-usuario-node-line}, que
+  refere-se ao plano de teste A-3 e B-3,  pode-se interpretar com maior facilidade o desempenho do Node.js possuindo um maior
+  número de sucessos e um aumento pequeno no tempo médio de resposta da aplicação. Enquanto no primeiro gráfico 
+  \ref{grafico:teste-mantendo-carga-usuario-django-line} o primeiro gráfico o tempo de resposta aumentou devido a quantidade
+  de usuários na fila do sistema e com isso uma queda abrupta na média de número de sucessos.
   
   Um dos fatores a serem considerados, foi no desenvolvimento da aplicação, pois com o \textit{framework} Django tem-se um rápido 
   desenvolvimento do software capaz de fornecer uma API robusta com poucas linhas de código. No \textit{framework} Express.Js o desenvolvimento

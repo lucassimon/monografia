@@ -7,38 +7,31 @@
 % Texto
 % Textos ou documentos não elaborados pelo autor.
 
-\lstinputlisting[
-  language=c, 
-  label=leitura-arquivos-diretorio-node, 
-  caption={Fonte: \cite{pereira}. O inferno em chamadas de retorno}
-]{pos-texto/leitura-arquivos-diretorio-node.js}
+\begin{compactitem}
+  \item[a)] \textit{package.json}:
+  
+  \citeonline{pereira} diz que este arquivo contém as principais informações sobre a aplicação como: 
+  nome, autor, versão, colaboradores, URL, dependências e outros.
+  
+  \item[b)] \textit{public}:
+  
+  Pasta pública que armazena código estático como imagens, css e javascript. \cite{pereira}
+  
+  \item[c)] \textit{app.js}:
+  
+  \citeonline{wilson} descreve melhor esse arquivo como ponto de entrada para a aplicação Node.Js, 
+  sendo capaz executar o servidor através do comando: \textit{node app.js}
+  
+  \item[d)] \textit{routes}:
+  
+  \citeonline{pereira} descreve como diretório que mantém todas as rotas da aplicação. 
+  Na versão utilizada por \citeonline{wilson} em seu livro o Express.Js não possui este diretório.
+  
+  \item[e)] \textit{views}: 
+  
+  \citeonline{wilson} descreve que esta pasta contém os motores de \textit{template} (Jade ou EJS), 
+  que são renderizados pelo servidor Express.Js e enviados ao cliente. \citeonline{pereira}
+  simplifica descrevendo que é um diretório que contém todas as visões renderizadas pelas rotas.
+  
+\end{compactitem}
 
-\lstinputlisting[
-  language=c, 
-  label=leitura-arquivos-diretorio-node-callback-heaven, 
-  caption={Fonte: \cite{pereira}. Chamadas de retorno organizada}
-]{pos-texto/leitura-arquivos-diretorio-node-callback-heaven.js}
-
-\lstinputlisting[
-  language=c, 
-  label=leitura-arquivos-diretorio-node-strongloop, 
-  caption={Fonte: \cite{strongloop}. Exemplo complexo de leitura de arquivos com callbacks hell}
-]{pos-texto/leitura-arquivos-diretorio-node-strongloop.js}
-
-\lstinputlisting[
-  language=c, 
-  label=leitura-arquivos-diretorio-node-strongloop-modular, 
-  caption={Fonte: \cite{strongloop}. Exemplo complexo de leitura de arquivos modularizado}
-]{pos-texto/leitura-arquivos-diretorio-node-strongloop-modular.js}
-
-\lstinputlisting[
-  language=c, 
-  label=node-js-app, 
-  caption={Fonte: Autor. Arquivo central para aplicação Node}
-]{pos-texto/app.js}
-
-\lstinputlisting[
-  language=c,
-  label=node-js-contact-route, 
-  caption={Fonte: Autor. Módulo para a API de contato}
-]{pos-texto/contacts.js}
